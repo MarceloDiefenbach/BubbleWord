@@ -12,6 +12,8 @@ class GameViewModel: ObservableObject {
     //MARK: - texts
     var instruction = "Marque a letra inicial da\npalavra que você falou"
     
+    //MARK: - variables
+    
     @Published var letters: [Letter] = [
         Letter(letter: "A", state: .active, colorIndex: 1),
         Letter(letter: "B", state: .active, colorIndex: 2),
@@ -38,16 +40,15 @@ class GameViewModel: ObservableObject {
         
     }
     
+    //MARK: - time control
+    
+    @Published var timeRemaining = 30
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     func oneSecondPassed() {
         if timeRemaining > 0 {
             timeRemaining -= 1
         }
     }
-    
-    //MARK: time control
-    
-    @Published var timeRemaining = 30
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     
 }

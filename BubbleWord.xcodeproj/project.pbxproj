@@ -14,6 +14,7 @@
 		DF5D370A2911B7ED001A7BA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF5D37092911B7ED001A7BA1 /* Preview Assets.xcassets */; };
 		DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D37112911B839001A7BA1 /* LetterComponent.swift */; };
 		DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E0291D2FBF0079341B /* GameViewModel.swift */; };
+		DF6A50E5291D3FA30079341B /* RotateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E4291D3FA30079341B /* RotateCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		DF5D37092911B7ED001A7BA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF5D37112911B839001A7BA1 /* LetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterComponent.swift; sourceTree = "<group>"; };
 		DF6A50E0291D2FBF0079341B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		DF6A50E4291D3FA30079341B /* RotateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		DF5D37012911B7EC001A7BA1 /* BubbleWord */ = {
 			isa = PBXGroup;
 			children = (
+				DF6A50E3291D3F990079341B /* Extensions */,
 				DF6A50DF291D2FB30079341B /* Game */,
 				DF2F100C291824CD00771C06 /* Model */,
 				DF5D37102911B82D001A7BA1 /* Components */,
@@ -98,6 +101,14 @@
 				DF6A50E0291D2FBF0079341B /* GameViewModel.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		DF6A50E3291D3F990079341B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DF6A50E4291D3FA30079341B /* RotateCard.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			files = (
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,
+				DF6A50E5291D3FA30079341B /* RotateCard.swift in Sources */,
 				DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */,
 				DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */,
 				DF2F100E291824DA00771C06 /* Letter.swift in Sources */,

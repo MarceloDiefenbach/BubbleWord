@@ -65,6 +65,7 @@ struct GameView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 24)
                 
+                //MAKR: - Letters grid
                 HStack {
                     ForEach(0..<4) { i in
                         LetterComponent(letter: viewModel.letters[i])
@@ -102,21 +103,11 @@ struct GameView: View {
             .padding()
         }
     }
+    
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
     }
-}
-
-extension View {
-
-      func flipRotate(_ degrees : Double) -> some View {
-            return rotation3DEffect(Angle(degrees: degrees), axis: (x: 1.0, y: 0.0, z: 0.0))
-      }
-
-      func placedOnCard(_ color: Color) -> some View {
-            return padding(5).frame(width: 250, height: 150, alignment: .center).background(color)
-      }
 }
