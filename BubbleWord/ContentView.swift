@@ -7,13 +7,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            HStack {
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+            }
+            HStack {
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+            }
+            HStack {
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+                Letter(letter: "A", state: .disabled)
+                Letter(letter: "A", state: .normal)
+            }
         }
         .padding()
     }
@@ -21,6 +38,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }
