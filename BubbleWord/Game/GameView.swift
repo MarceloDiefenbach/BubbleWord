@@ -24,7 +24,7 @@ struct GameView: View {
                 Spacer()
                 
                 Text("\(viewModel.timeRemaining)")
-                    .font(.system(size: 40, weight: .heavy))
+                    .font(.system(size: 60, weight: .heavy))
                     .foregroundColor(.white)
                     .onReceive(viewModel.timer) { time in
                         viewModel.oneSecondPassed()
@@ -32,7 +32,7 @@ struct GameView: View {
                 
                 ZStack {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(.blue)
+                        RoundedRectangle(cornerRadius: 20).foregroundColor(Color("blue"))
                         Text("Diga o nome de uma marca")
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
@@ -41,7 +41,7 @@ struct GameView: View {
                     }.flipRotate(flipDegrees).opacity(viewModel.flipped ? 0.0 : 1.0)
                     
                     ZStack {
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(.green)
+                        RoundedRectangle(cornerRadius: 20).foregroundColor(Color("yellow"))
                         Text("Ofenda alguem")
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
