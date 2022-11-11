@@ -28,6 +28,7 @@ class GameViewModel: ObservableObject {
         Letter(letter: "K", state: .active, colorIndex: 3),
         Letter(letter: "L", state: .active, colorIndex: 1)
     ]
+    
     @Published var flipped: Bool = false
     private var controlIfGameFinish: Int = 0
     
@@ -42,7 +43,6 @@ class GameViewModel: ObservableObject {
         
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
-            // change card and generate new set of letters
             generateNewSetOfLetters()
             changeCard()
             
@@ -50,11 +50,13 @@ class GameViewModel: ObservableObject {
     }
     
     func changeCard() {
-        //logic to change card label and color
+        //TODO: - logic to change card label and color
         flipped.toggle()
     }
     
     func generateNewSetOfLetters() {
+        
+        //TODO: -  provavelmente deve ter uma forma de fazer isso melhor
         
         let randomInt = Int.random(in: 1 ... 3)
         

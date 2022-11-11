@@ -52,12 +52,6 @@ struct GameView: View {
                 .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.width*0.7)
                 .padding(.bottom, 24)
                 .animation(.easeInOut(duration: 0.3))
-                .onTapGesture {
-                    self.viewModel.flipped.toggle()
-                    
-                    //TODO: logic to change card content
-                    // if flipped == true change card 1 else change card 2
-                }
                 
                 Text(viewModel.instruction)
                     .font(.system(size: 16, weight: .bold))
