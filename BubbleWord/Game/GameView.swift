@@ -37,7 +37,7 @@ struct GameView: View {
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.all, UIScreen.main.bounds.width*0.18)
+                            .padding(.all, 8)
                     }.flipRotate(flipDegrees).opacity(viewModel.flipped ? 0.0 : 1.0)
                     
                     ZStack {
@@ -46,10 +46,10 @@ struct GameView: View {
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.all, UIScreen.main.bounds.width*0.18)
+                            .padding(.all, 8)
                     }.flipRotate(-180 + flipDegrees).opacity(viewModel.flipped ? 1.0 : 0.0)
                 }
-                .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.width*0.7)
+                .frame(width: UIScreen.main.bounds.width*0.65, height: UIScreen.main.bounds.width*0.65)
                 .padding(.bottom, 24)
                 .animation(.easeInOut(duration: 0.3))
                 
