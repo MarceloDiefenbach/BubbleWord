@@ -20,7 +20,7 @@ struct PausedView: View {
                     Spacer()
                     HStack {
                         Text("Continuar jogo")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 16)
@@ -35,7 +35,7 @@ struct PausedView: View {
                     
                     HStack {
                         Text("Finalizar jogo")
-                            .font(.system(size: 20, weight: .medium))
+                            .font(.system(size: 16, weight: .medium))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 16)
