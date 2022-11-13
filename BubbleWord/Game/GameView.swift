@@ -26,9 +26,6 @@ struct GameView: View {
                 Text("\(viewModel.timeRemaining)")
                     .font(.system(size: 60, weight: .heavy))
                     .foregroundColor(.white)
-                    .onReceive(viewModel.timer) { time in
-                        viewModel.oneSecondPassed()
-                    }
                 
                 ZStack {
                     ZStack {
@@ -95,11 +92,41 @@ struct GameView: View {
                 .padding(.bottom, 24)
             }
             .padding()
+            .onReceive(viewModel.timer) { time in
+                viewModel.oneSecondPassed()
+            }
             
+            //MARK: - loseWinView
             if viewModel.lose {
                 YouLoseView(action: {
                     viewModel.nextParticipant()
                 }).ignoresSafeArea()
+            }
+            
+            //MARK: - stop button
+            VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "pause.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.white)
+                        
+                }
+                .padding(.top, 10)
+                .padding(.trailing, 30)
+                .onTapGesture {
+                    viewModel.isStopped.toggle()
+                }
+                Spacer()
+            }
+            
+            if viewModel.isStopped {
+                PausedView(playGame: {
+                    viewModel.isStopped.toggle()
+                }, finishGame: {
+                    //TODO: - back to home view
+                })
             }
             
         }

@@ -20,6 +20,7 @@
 		DF81278229216617007D7086 /* CategoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CategoryComponent.swift */; };
 		DF8127852921668A007D7086 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8127842921668A007D7086 /* Colors.swift */; };
 		DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* HomeViewModel.swift */; };
+		DF81278A29216DF6007D7086 /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278929216DF6007D7086 /* PausedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		DF81278129216617007D7086 /* CategoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponent.swift; sourceTree = "<group>"; };
 		DF8127842921668A007D7086 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DF81278929216DF6007D7086 /* PausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,10 @@
 		DF5D37102911B82D001A7BA1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DF5D37112911B839001A7BA1 /* LetterComponent.swift */,
 				DF60395B291EFB3A00CB1E27 /* YouLoseView.swift */,
+				DF5D37112911B839001A7BA1 /* LetterComponent.swift */,
 				DF81278129216617007D7086 /* CategoryComponent.swift */,
+				DF81278929216DF6007D7086 /* PausedView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */,
 				DF8127852921668A007D7086 /* Colors.swift in Sources */,
 				DF81278229216617007D7086 /* CategoryComponent.swift in Sources */,
+				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,
 				DF6A50E5291D3FA30079341B /* RotateCard.swift in Sources */,

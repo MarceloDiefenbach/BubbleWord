@@ -112,6 +112,7 @@ class GameViewModel: ObservableObject {
     //MARK: - time control
     
     @Published var timeRemaining = 30
+    @Published var isStopped: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func oneSecondPassed() {
@@ -119,7 +120,9 @@ class GameViewModel: ObservableObject {
             lose = true
         } else {
             if timeRemaining > 0 {
-                timeRemaining -= 1
+                if !isStopped {
+                    timeRemaining -= 1
+                }
             }
         }
     }
