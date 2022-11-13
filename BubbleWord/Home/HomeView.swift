@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var isShowingCasualGame: Bool = false
+    
     var body: some View {
         ZStack {
             Image("background")
@@ -16,7 +18,18 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             VStack {
+                Text("Escolha uma tema e comece a jogar")
+                    .font(.system(size: 32, weight: .bold))
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical, 40)
                 CategoryComponent(BWColor: .yellow)
+                    .onTapGesture {
+                        isShowingCasualGame = true
+                    }
+                    .fullScreenCover(isPresented: $isShowingCasualGame, content: {
+                        GameView()
+                    })
                 CategoryComponent(BWColor: .red)
                 CategoryComponent(BWColor: .blue)
             }
