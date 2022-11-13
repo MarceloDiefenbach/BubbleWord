@@ -19,6 +19,7 @@
 		DF812780292164A4007D7086 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81277F292164A4007D7086 /* HomeView.swift */; };
 		DF81278229216617007D7086 /* CategoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CategoryComponent.swift */; };
 		DF8127852921668A007D7086 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8127842921668A007D7086 /* Colors.swift */; };
+		DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		DF81277F292164A4007D7086 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF81278129216617007D7086 /* CategoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponent.swift; sourceTree = "<group>"; };
 		DF8127842921668A007D7086 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DF81278629216A6E007D7086 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				DF81277F292164A4007D7086 /* HomeView.swift */,
+				DF81278629216A6E007D7086 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
+				DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */,
 				DF8127852921668A007D7086 /* Colors.swift in Sources */,
 				DF81278229216617007D7086 /* CategoryComponent.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
