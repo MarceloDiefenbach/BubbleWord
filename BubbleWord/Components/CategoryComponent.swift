@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoryComponent: View {
     
+    @State var title: String
     @State var BWColor: BWColors
     
     var body: some View {
@@ -27,7 +28,7 @@ struct CategoryComponent: View {
 
 struct CategoryComponent_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryComponent(BWColor: BWColors.yellow)
+        CategoryComponent(title: "Casual", BWColor: BWColors.yellow)
     }
 }
 
