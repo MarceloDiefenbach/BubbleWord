@@ -95,6 +95,13 @@ struct GameView: View {
                 .padding(.bottom, 24)
             }
             .padding()
+            
+            if viewModel.lose {
+                YouLoseView(action: {
+                    viewModel.nextParticipant()
+                }).ignoresSafeArea()
+            }
+            
         }
     }
     

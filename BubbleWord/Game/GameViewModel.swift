@@ -29,6 +29,7 @@ class GameViewModel: ObservableObject {
         Letter(letter: "L", state: .active, colorIndex: 1)
     ]
     
+    @Published var lose: Bool = false
     @Published var flipped: Bool = false
     private var controlIfGameFinish: Int = 0
     
@@ -114,9 +115,18 @@ class GameViewModel: ObservableObject {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func oneSecondPassed() {
-        if timeRemaining > 0 {
-            timeRemaining -= 1
+        if timeRemaining == 0 {
+            lose = true
+        } else {
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            }
         }
+    }
+    
+    func nextParticipant() {
+        lose = false
+        timeRemaining = 30
     }
     
 }
