@@ -6,15 +6,20 @@
 //
 
 import Foundation
+import Combine
+
+enum Difficulty: String {
+    case easy = "Easy"
+    case medium = "Medium"
+    case hard = "Hard"
+}
 
 class GameViewModel: ObservableObject {
     
-    //MARK: - texts
-    var instruction = "Marque a letra inicial da\npalavra que você falou"
+    // MARK: - Constants
     
-    //MARK: - variables
-    
-    @Published var letters: [Letter] = [
+    let instruction: String = "Marque a letra inicial da\npalavra que você falou."
+    let easyDifficultyLetters: [Letter] = [
         Letter(letter: "A", state: .active, colorIndex: 1),
         Letter(letter: "B", state: .active, colorIndex: 2),
         Letter(letter: "C", state: .active, colorIndex: 3),
@@ -22,98 +27,111 @@ class GameViewModel: ObservableObject {
         Letter(letter: "E", state: .active, colorIndex: 2),
         Letter(letter: "F", state: .active, colorIndex: 3),
         Letter(letter: "G", state: .active, colorIndex: 1),
+        Letter(letter: "L", state: .active, colorIndex: 1),
+        Letter(letter: "M", state: .active, colorIndex: 1),
+        Letter(letter: "N", state: .active, colorIndex: 2),
+        Letter(letter: "O", state: .active, colorIndex: 3),
+        Letter(letter: "P", state: .active, colorIndex: 1),
+        Letter(letter: "R", state: .active, colorIndex: 3),
+        Letter(letter: "S", state: .active, colorIndex: 1),
+        Letter(letter: "T", state: .active, colorIndex: 2),
+    ]
+    let mediumDifficultyLetters: [Letter] = [
         Letter(letter: "H", state: .active, colorIndex: 2),
         Letter(letter: "I", state: .active, colorIndex: 1),
         Letter(letter: "J", state: .active, colorIndex: 2),
-        Letter(letter: "K", state: .active, colorIndex: 3),
-        Letter(letter: "L", state: .active, colorIndex: 1)
+        Letter(letter: "Q", state: .active, colorIndex: 2),
+        Letter(letter: "U", state: .active, colorIndex: 1),
+        Letter(letter: "V", state: .active, colorIndex: 2),
     ]
+    let hardDifficultyLetters: [Letter] = [
+        Letter(letter: "K", state: .active, colorIndex: 3),
+        Letter(letter: "X", state: .active, colorIndex: 3),
+        Letter(letter: "Y", state: .active, colorIndex: 1),
+        Letter(letter: "W", state: .active, colorIndex: 1),
+        Letter(letter: "Z", state: .active, colorIndex: 2)
+    ]
+    let themePhraseList: [String] = [
+        "Diga o nome de uma marca.",
+        "Ofenda alguém.",
+        "Diga o nome de uma profissão.",
+        "O que acontece no russo.",
+        "Diga uma marca de comida.",
+        "Um aplicativo.",
+        "Uma pessoa famosa."
+    ]
+    let initialTimeRemaining: Int = 10
+    let timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let gameDifficulty: Difficulty
     
+    // MARK: - Variables
+    
+    @Published var timeRemaining: Int
+    @Published var isStopped: Bool = false
+    @Published var letters: [Letter] = []
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
+    @Published var cardPhrase: String = ""
     private var controlIfGameFinish: Int = 0
     
-    //MARK: - functions
+    // MARK: - Init
+    
+    public init(gameDifficulty: Difficulty) {
+        self.gameDifficulty = gameDifficulty
+        timeRemaining = initialTimeRemaining
+        letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+        generateNewCardPhrase()
+    }
+    
+    // MARK: - Functions
     
     func turnInactiveLetter(index: Int) {
         if letters[index].state == .active {
             letters[index].state = .inactive
-            timeRemaining = 30
+            timeRemaining = initialTimeRemaining
             controlIfGameFinish += 1
         }
         
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
-            generateNewSetOfLetters()
+            letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
             changeCard()
-            
         }
     }
     
     func changeCard() {
-        //TODO: - logic to change card label and color
         flipped.toggle()
+        generateNewCardPhrase()
     }
     
-    func generateNewSetOfLetters() {
+    private func generateNewCardPhrase() {
+        cardPhrase = themePhraseList.randomElement() ?? "Erro ao carregar um tema."
+    }
+    
+    func generateNewSetOfLetters(difficulty: Difficulty, amount: Int) -> [Letter] {
+
+        var letterListToDraw: [Letter] = []
         
-        //TODO: -  provavelmente deve ter uma forma de fazer isso melhor
+        switch difficulty {
+        case .easy:
+            letterListToDraw += easyDifficultyLetters
         
-        let randomInt = Int.random(in: 1 ... 3)
+        case .medium:
+            letterListToDraw += easyDifficultyLetters
+            letterListToDraw += mediumDifficultyLetters
+            
+        case .hard:
+            letterListToDraw += easyDifficultyLetters
+            letterListToDraw += mediumDifficultyLetters
+            letterListToDraw += hardDifficultyLetters
+        }
         
-        if randomInt == 1 {
-            letters = [
-                Letter(letter: "T", state: .active, colorIndex: 1),
-                Letter(letter: "P", state: .active, colorIndex: 2),
-                Letter(letter: "A", state: .active, colorIndex: 3),
-                Letter(letter: "F", state: .active, colorIndex: 1),
-                Letter(letter: "R", state: .active, colorIndex: 2),
-                Letter(letter: "Z", state: .active, colorIndex: 3),
-                Letter(letter: "F", state: .active, colorIndex: 1),
-                Letter(letter: "J", state: .active, colorIndex: 2),
-                Letter(letter: "L", state: .active, colorIndex: 1),
-                Letter(letter: "Q", state: .active, colorIndex: 2),
-                Letter(letter: "W", state: .active, colorIndex: 3),
-                Letter(letter: "O", state: .active, colorIndex: 1)
-            ]
-        } else if randomInt == 2 {
-            letters = [
-                Letter(letter: "D", state: .active, colorIndex: 1),
-                Letter(letter: "I", state: .active, colorIndex: 2),
-                Letter(letter: "G", state: .active, colorIndex: 3),
-                Letter(letter: "T", state: .active, colorIndex: 1),
-                Letter(letter: "Q", state: .active, colorIndex: 2),
-                Letter(letter: "L", state: .active, colorIndex: 3),
-                Letter(letter: "K", state: .active, colorIndex: 1),
-                Letter(letter: "X", state: .active, colorIndex: 2),
-                Letter(letter: "U", state: .active, colorIndex: 1),
-                Letter(letter: "J", state: .active, colorIndex: 2),
-                Letter(letter: "A", state: .active, colorIndex: 3),
-                Letter(letter: "O", state: .active, colorIndex: 1)
-            ]
-        } else if randomInt == 3 {
-            letters = [
-                Letter(letter: "A", state: .active, colorIndex: 1),
-                Letter(letter: "M", state: .active, colorIndex: 2),
-                Letter(letter: "D", state: .active, colorIndex: 3),
-                Letter(letter: "R", state: .active, colorIndex: 1),
-                Letter(letter: "K", state: .active, colorIndex: 2),
-                Letter(letter: "W", state: .active, colorIndex: 3),
-                Letter(letter: "P", state: .active, colorIndex: 1),
-                Letter(letter: "O", state: .active, colorIndex: 2),
-                Letter(letter: "I", state: .active, colorIndex: 1),
-                Letter(letter: "V", state: .active, colorIndex: 2),
-                Letter(letter: "S", state: .active, colorIndex: 3),
-                Letter(letter: "M", state: .active, colorIndex: 1)
-            ]
+        letterListToDraw.shuffle()
+        
+        return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
+            lhs.letter < rhs.letter
         }
     }
-    
-    //MARK: - time control
-    
-    @Published var timeRemaining = 30
-    @Published var isStopped: Bool = false
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func oneSecondPassed() {
         if timeRemaining == 0 {
@@ -129,7 +147,7 @@ class GameViewModel: ObservableObject {
     
     func nextParticipant() {
         lose = false
-        timeRemaining = 30
+        timeRemaining = initialTimeRemaining
     }
     
 }

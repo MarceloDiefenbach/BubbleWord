@@ -9,9 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var viewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
     
-    @State var isShowingCasualGame: Bool = false
+    @State var isShowingEasyGame: Bool = false
+    @State var isShowingMediumGame: Bool = false
+    @State var isShowingHardGame: Bool = false
     
     var body: some View {
         ZStack {
@@ -26,17 +28,29 @@ struct HomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 40)
                 
-                CategoryComponent(title: viewModel.casualName, BWColor: .yellow)
+                CategoryComponent(title: Difficulty.easy.rawValue, BWColor: .yellow)
                     .onTapGesture {
-                        isShowingCasualGame = true
+                        isShowingEasyGame = true
                     }
-                    .fullScreenCover(isPresented: $isShowingCasualGame, content: {
-                        GameView()
+                    .fullScreenCover(isPresented: $isShowingEasyGame, content: {
+                        GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
                     })
                 
-                CategoryComponent(title: viewModel.casualName, BWColor: .red)
+                CategoryComponent(title: Difficulty.medium.rawValue, BWColor: .red)
+                    .onTapGesture {
+                        isShowingMediumGame = true
+                    }
+                    .fullScreenCover(isPresented: $isShowingMediumGame, content: {
+                        GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
+                    })
                 
-                CategoryComponent(title: viewModel.casualName, BWColor: .blue)
+                CategoryComponent(title: Difficulty.hard.rawValue, BWColor: .blue)
+                    .onTapGesture {
+                        isShowingHardGame = true
+                    }
+                    .fullScreenCover(isPresented: $isShowingHardGame, content: {
+                        GameView(gameDifficulty: .hard, isShowing: $isShowingHardGame)
+                    })
             }
         }
     }

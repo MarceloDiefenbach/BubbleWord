@@ -9,18 +9,12 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
-    //MARK: - texts
+    // MARK: - Constants
 
-    var title = "Escolha uma tema e comece a jogar"
-    
-    
-    //MARK: - categories packs
-
-    var casualName = "Casual"
-    var casual: [String] = [
+    let title: String = "Escolha uma tema e comece a jogar"
+    let casual: [String] = [
         "Marcas de carro",
         "Nome de cidade, estado ou país",
         "Marcas de roupas",
     ]
-    
 }

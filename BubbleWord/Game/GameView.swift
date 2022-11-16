@@ -9,7 +9,19 @@ import SwiftUI
 
 struct GameView: View {
     
-    @StateObject private var viewModel: GameViewModel = GameViewModel()
+    // MARK: - Variables
+    
+    @ObservedObject private var viewModel: GameViewModel
+    @Binding var isShowing: Bool
+    
+    // MARK: - Init
+    
+    public init(gameDifficulty: Difficulty, isShowing: Binding<Bool>) {
+        self.viewModel = GameViewModel(gameDifficulty: gameDifficulty)
+        self._isShowing = isShowing
+    }
+    
+    // MARK: - Body
     
     var body: some View {
         
@@ -30,7 +42,7 @@ struct GameView: View {
                 ZStack {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20).foregroundColor(Color("blue"))
-                        Text("Diga o nome de uma marca")
+                        Text(viewModel.cardPhrase)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -39,7 +51,7 @@ struct GameView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20).foregroundColor(Color("yellow"))
-                        Text("Ofenda alguem")
+                        Text(viewModel.cardPhrase)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -57,39 +69,41 @@ struct GameView: View {
                     .padding(.bottom, 24)
                 
                 //MAKR: - Letters grid
-                HStack {
-                    ForEach(0..<4) { i in
-                        LetterComponent(letter: viewModel.letters[i])
-                            .onTapGesture(perform: {
-                                if viewModel.letters[i].state == .active {
-                                    viewModel.turnInactiveLetter(index: i)
-                                }
-                            })
+                if !viewModel.letters.isEmpty {
+                    HStack {
+                        ForEach(0..<4) { i in
+                            LetterComponent(letter: viewModel.letters[i])
+                                .onTapGesture(perform: {
+                                    if viewModel.letters[i].state == .active {
+                                        viewModel.turnInactiveLetter(index: i)
+                                    }
+                                })
+                        }
                     }
-                }
-                
-                HStack {
-                    ForEach(4..<8) { i in
-                        LetterComponent(letter: viewModel.letters[i])
-                            .onTapGesture(perform: {
-                                if viewModel.letters[i].state == .active {
-                                    viewModel.turnInactiveLetter(index: i)
-                                }
-                            })
+                    
+                    HStack {
+                        ForEach(4..<8) { i in
+                            LetterComponent(letter: viewModel.letters[i])
+                                .onTapGesture(perform: {
+                                    if viewModel.letters[i].state == .active {
+                                        viewModel.turnInactiveLetter(index: i)
+                                    }
+                                })
+                        }
                     }
-                }
-                
-                HStack {
-                    ForEach(8..<12) { i in
-                        LetterComponent(letter: viewModel.letters[i])
-                            .onTapGesture(perform: {
-                                if viewModel.letters[i].state == .active {
-                                    viewModel.turnInactiveLetter(index: i)
-                                }
-                            })
+                    
+                    HStack {
+                        ForEach(8..<12) { i in
+                            LetterComponent(letter: viewModel.letters[i])
+                                .onTapGesture(perform: {
+                                    if viewModel.letters[i].state == .active {
+                                        viewModel.turnInactiveLetter(index: i)
+                                    }
+                                })
+                        }
                     }
+                    .padding(.bottom, 24)
                 }
-                .padding(.bottom, 24)
             }
             .padding()
             .onReceive(viewModel.timer) { time in
@@ -125,7 +139,7 @@ struct GameView: View {
                 PausedView(playGame: {
                     viewModel.isStopped.toggle()
                 }, finishGame: {
-                    //TODO: - back to home view
+                    isShowing.toggle()
                 })
             }
             
@@ -136,6 +150,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(gameDifficulty: .easy, isShowing: .constant(true))
     }
 }

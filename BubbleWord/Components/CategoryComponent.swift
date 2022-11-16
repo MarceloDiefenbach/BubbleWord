@@ -14,7 +14,7 @@ struct CategoryComponent: View {
     
     var body: some View {
         HStack {
-            Text("Casual")
+            Text(title)
                 .font(.system(size: 32, weight: .bold))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
