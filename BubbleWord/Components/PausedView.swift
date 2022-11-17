@@ -26,7 +26,6 @@ struct PausedView: View {
                             .padding(.horizontal, 16)
                             .padding(.vertical, 8)
                     }
-                    .frame(width: UIScreen.main.bounds.width*0.5)
                     .background(Color.white)
                     .cornerRadius(50)
                     .onTapGesture {
