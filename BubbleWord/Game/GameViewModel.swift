@@ -18,7 +18,7 @@ class GameViewModel: ObservableObject {
     
     // MARK: - Constants
     
-    let instruction: String = "Marque a letra inicial da\npalavra que você falou."
+    let instruction: String = "Mark the initial letter\nof the word you said."
     let easyDifficultyLetters: [Letter] = [
         Letter(letter: "A", state: .active, colorIndex: 1),
         Letter(letter: "B", state: .active, colorIndex: 2),
@@ -52,14 +52,21 @@ class GameViewModel: ObservableObject {
         Letter(letter: "Z", state: .active, colorIndex: 2)
     ]
     let themePhraseList: [String] = [
-        "Diga o nome de uma marca.",
-        "Ofenda alguém.",
-        "Diga o nome de uma profissão.",
-        "O que acontece no russo.",
-        "Diga uma marca de comida.",
-        "Um aplicativo.",
-        "Uma pessoa famosa."
+        "Car brand",
+        "City",
+        "State",
+        "Country",
+        "Clothing brand",
+        "Profession",
+        "Animal",
+        "Food",
+        "Bathroom things",
+        "Insults",
+        "Things happen at Russo",
+        "An app name",
+        "Famous"
     ]
+    
     let initialTimeRemaining: Int = 10
     let timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let gameDifficulty: Difficulty

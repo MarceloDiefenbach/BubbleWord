@@ -11,10 +11,17 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Constants
 
-    let title: String = "Escolha uma tema e comece a jogar"
+    let title: String = "Choose a\ndifficulty to play"
     let casual: [String] = [
-        "Marcas de carro",
-        "Nome de cidade, estado ou país",
-        "Marcas de roupas",
+        "Car brands",
+        "City",
+        "State",
+        "Country",
+        "Clothes brands",
+        "Profession",
+        "Animal",
+        "Food",
+        "Bathroom things",
+        "Insults"
     ]
 }
