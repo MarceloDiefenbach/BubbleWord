@@ -51,6 +51,12 @@ struct HomeView: View {
                     .fullScreenCover(isPresented: $isShowingHardGame, content: {
                         GameView(gameDifficulty: .hard, isShowing: $isShowingHardGame)
                     })
+                    .padding(.bottom, 30)
+            }
+            VStack {
+                Spacer()
+                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                    .padding(.bottom, 15)
             }
         }
     }

@@ -42,10 +42,13 @@ struct PausedView: View {
                     }
                     .frame(width: UIScreen.main.bounds.width*0.5)
                     .cornerRadius(50)
-                    .padding(.bottom, 80)
+                    .padding(.bottom, 24)
                     .onTapGesture {
                         finishGame()
                     }
+                    
+                    BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274").frame(height: 50)
+                        .padding(.bottom, 80)
                 }
                 
             }

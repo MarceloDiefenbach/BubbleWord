@@ -30,6 +30,7 @@
 		5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.debug.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.debug.xcconfig"; sourceTree = "<group>"; };
 		DF2F100D291824DA00771C06 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		DF3FA87E2925D9D600FA003A /* BannerAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		DF3FA8822925DABA00FA003A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF5D36FF2911B7EC001A7BA1 /* BubbleWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleWordApp.swift; sourceTree = "<group>"; };
 		DF5D37042911B7EC001A7BA1 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		DF5D37012911B7EC001A7BA1 /* BubbleWord */ = {
 			isa = PBXGroup;
 			children = (
+				DF3FA8822925DABA00FA003A /* Info.plist */,
 				DF3FA87D2925D9D600FA003A /* AdMob */,
 				DF81278329216683007D7086 /* Enum */,
 				DF81277E29216499007D7086 /* Home */,
@@ -439,6 +441,7 @@
 				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BubbleWord/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BubbleWord;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -475,6 +478,7 @@
 				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BubbleWord/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BubbleWord;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
