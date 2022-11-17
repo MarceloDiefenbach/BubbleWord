@@ -1,0 +1,6 @@
+framework module Pods_BubbleWord {
+  umbrella header "Pods-BubbleWord-umbrella.h"
+
+  export *
+  module * { export * }
+}

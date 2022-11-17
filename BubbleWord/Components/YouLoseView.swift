@@ -20,7 +20,7 @@ struct YouLoseView: View {
                 }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width*0.7)
                 VStack {
                     HStack {
-                        Text("Você\nperdeu")
+                        Text("You\nlose")
                             .font(.system(size: 80, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -30,7 +30,7 @@ struct YouLoseView: View {
                 VStack {
                     Spacer()
                     HStack {
-                        Text("Continuar jogo")
+                        Text("Continue playing")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
