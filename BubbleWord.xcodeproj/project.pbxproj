@@ -23,6 +23,7 @@
 		DF8127852921668A007D7086 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8127842921668A007D7086 /* Colors.swift */; };
 		DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* HomeViewModel.swift */; };
 		DF81278A29216DF6007D7086 /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278929216DF6007D7086 /* PausedView.swift */; };
+		DFB146E529267071000197D4 /* VerifyIfHasNotch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB146E429267071000197D4 /* VerifyIfHasNotch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		DF8127842921668A007D7086 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DF81278929216DF6007D7086 /* PausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
+		DFB146E429267071000197D4 /* VerifyIfHasNotch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIfHasNotch.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				DF6A50E4291D3FA30079341B /* RotateCard.swift */,
+				DFB146E429267071000197D4 /* VerifyIfHasNotch.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
+				DFB146E529267071000197D4 /* VerifyIfHasNotch.swift in Sources */,
 				DF81278729216A6E007D7086 /* HomeViewModel.swift in Sources */,
 				DF8127852921668A007D7086 /* Colors.swift in Sources */,
 				DF81278229216617007D7086 /* CategoryComponent.swift in Sources */,
