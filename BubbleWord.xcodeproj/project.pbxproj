@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EC7E6D2ED8AD9A204076C11 /* Pods_BubbleWord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */; };
 		DF2F100E291824DA00771C06 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2F100D291824DA00771C06 /* Letter.swift */; };
 		DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */; };
 		DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D37042911B7EC001A7BA1 /* GameView.swift */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BubbleWord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.debug.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.debug.xcconfig"; sourceTree = "<group>"; };
 		DF2F100D291824DA00771C06 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		DF5D36FF2911B7EC001A7BA1 /* BubbleWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleWordApp.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		DF8127842921668A007D7086 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DF81278929216DF6007D7086 /* PausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
+		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,12 +50,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC7E6D2ED8AD9A204076C11 /* Pods_BubbleWord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BF3536B9B7B88E52F4ED182 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */,
+				EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A286489717370C4C8574D48B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF2F100C291824CD00771C06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +87,8 @@
 			children = (
 				DF5D37012911B7EC001A7BA1 /* BubbleWord */,
 				DF5D37002911B7EC001A7BA1 /* Products */,
+				4BF3536B9B7B88E52F4ED182 /* Pods */,
+				A286489717370C4C8574D48B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF5D370D2911B7ED001A7BA1 /* Build configuration list for PBXNativeTarget "BubbleWord" */;
 			buildPhases = (
+				C1F6287D54F08AF631B922B9 /* [CP] Check Pods Manifest.lock */,
 				DF5D36FB2911B7EC001A7BA1 /* Sources */,
 				DF5D36FC2911B7EC001A7BA1 /* Frameworks */,
 				DF5D36FD2911B7EC001A7BA1 /* Resources */,
+				1734BC201AD30CCE72FC4FE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +235,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1734BC201AD30CCE72FC4FE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BubbleWord/Pods-BubbleWord-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BubbleWord/Pods-BubbleWord-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BubbleWord/Pods-BubbleWord-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1F6287D54F08AF631B922B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BubbleWord-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF5D36FB2911B7EC001A7BA1 /* Sources */ = {
@@ -349,6 +417,7 @@
 		};
 		DF5D370E2911B7ED001A7BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -384,6 +453,7 @@
 		};
 		DF5D370F2911B7ED001A7BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
