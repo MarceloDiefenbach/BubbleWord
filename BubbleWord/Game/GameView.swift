@@ -58,7 +58,7 @@ struct GameView: View {
                             .padding(.all, 8)
                     }.flipRotate(-180 + flipDegrees).opacity(viewModel.flipped ? 1.0 : 0.0)
                 }
-                .frame(width: UIScreen.main.bounds.width*0.65, height: UIScreen.main.bounds.width*0.65)
+                .frame(width: UIScreen.main.bounds.width*0.65, height: hasNotch() ? UIScreen.main.bounds.width*0.5 : UIScreen.main.bounds.width*0.65)
                 .padding(.bottom, 24)
                 .animation(.easeInOut(duration: 0.3))
                 
@@ -145,7 +145,6 @@ struct GameView: View {
             
         }
     }
-    
 }
 
 struct GameView_Previews: PreviewProvider {
