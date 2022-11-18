@@ -9,15 +9,22 @@ import SwiftUI
 
 struct YouLoseView: View {
     
+    // MARK: - Variables
+    
     var action: () -> Void
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.9)
+            
             ZStack {
-                VStack{
+                VStack {
                     Color("red")
-                }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width*0.7)
+                }
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width*0.7)
+                
                 VStack {
                     HStack {
                         Text("You\nlose")
@@ -27,8 +34,10 @@ struct YouLoseView: View {
                             .padding(.bottom, 20)
                     }
                 }
+                
                 VStack {
                     Spacer()
+                    
                     HStack {
                         Text("Continue playing")
                             .font(.system(size: 20, weight: .bold))
@@ -42,7 +51,8 @@ struct YouLoseView: View {
                 }.onTapGesture {
                     action()
                 }
-            }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width*0.8)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width*0.8)
         }
     }
 }

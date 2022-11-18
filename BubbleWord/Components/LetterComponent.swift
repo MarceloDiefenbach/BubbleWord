@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LetterComponent: View {
     
+    // MARK: - Variables
+    
     var letter: Letter
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {            

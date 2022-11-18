@@ -9,8 +9,19 @@ import SwiftUI
 
 struct CategoryComponent: View {
     
-    @State var title: String
-    @State var BWColor: BWColors
+    // MARK: - Variables
+    
+    var title: String
+    var color: Color
+    
+    // MARK: - Init
+    
+    init(title: String, color: Color) {
+        self.title = title
+        self.color = color
+    }
+    
+    // MARK: - Body
     
     var body: some View {
         HStack {
@@ -20,15 +31,15 @@ struct CategoryComponent: View {
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 40)
         }
-        .frame(width: UIScreen.main.bounds.width*0.9)
-        .background(BWColor.color)
+        .frame(width: UIScreen.main.bounds.width * 0.9)
+        .background(color)
         .cornerRadius(16)
     }
 }
 
 struct CategoryComponent_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryComponent(title: "Casual", BWColor: BWColors.yellow)
+        CategoryComponent(title: "Casual", color: .appYellow)
     }
 }
 

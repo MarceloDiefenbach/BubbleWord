@@ -17,7 +17,6 @@ enum StateOfLetter {
     case active, inactive
 }
 
-
 enum SoundTypes {
     case action, environment
     

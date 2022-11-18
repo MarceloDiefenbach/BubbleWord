@@ -9,15 +9,21 @@ import SwiftUI
 
 struct PausedView: View {
     
+    // MARK: - Variables
+    
     var playGame: () -> Void
     var finishGame: () -> Void
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.9).ignoresSafeArea()
+            
             ZStack {
                 VStack(spacing: 24) {
                     Spacer()
+                    
                     HStack {
                         Text("Continue game")
                             .font(.system(size: 24, weight: .bold))
@@ -50,11 +56,9 @@ struct PausedView: View {
                     BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274").frame(height: 50)
                         .padding(.bottom, 80)
                 }
-                
             }
         }
     }
-    
 }
 
 struct PausedView_Previews: PreviewProvider {

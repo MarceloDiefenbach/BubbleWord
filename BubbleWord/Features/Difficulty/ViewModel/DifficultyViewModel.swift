@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class DifficultyViewModel: ObservableObject {
     
     // MARK: - Constants
 

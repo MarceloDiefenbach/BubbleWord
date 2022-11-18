@@ -51,7 +51,7 @@ class GameViewModel: ObservableObject {
         Letter(letter: "W", state: .active, colorIndex: 1),
         Letter(letter: "Z", state: .active, colorIndex: 2)
     ]
-    let themePhraseList: [String] = [
+    var themePhraseList: [String] = [
         "Car brand",
         "City",
         "State",
@@ -79,6 +79,7 @@ class GameViewModel: ObservableObject {
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
+    private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
     
     // MARK: - Init
@@ -86,6 +87,7 @@ class GameViewModel: ObservableObject {
     public init(gameDifficulty: Difficulty) {
         self.gameDifficulty = gameDifficulty
         timeRemaining = initialTimeRemaining
+        shuffleThemePhraseList()
         letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
         generateNewCardPhrase()
     }
@@ -111,8 +113,14 @@ class GameViewModel: ObservableObject {
         generateNewCardPhrase()
     }
     
+    private func shuffleThemePhraseList() {
+        self.themePhraseList.shuffle()
+    }
+    
     private func generateNewCardPhrase() {
-        cardPhrase = themePhraseList.randomElement() ?? "Erro ao carregar um tema."
+        if cardPhraseIndex >= themePhraseList.count { cardPhraseIndex = 0 }
+        cardPhrase = themePhraseList[cardPhraseIndex]
+        cardPhraseIndex += 1
     }
     
     func generateNewSetOfLetters(difficulty: Difficulty, amount: Int) -> [Letter] {

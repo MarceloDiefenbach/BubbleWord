@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct DifficultyView: View {
     
-    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
+    // MARK: - Variables
     
+    @ObservedObject private var viewModel: DifficultyViewModel = DifficultyViewModel()
     @State var isShowingEasyGame: Bool = false
     @State var isShowingMediumGame: Bool = false
     @State var isShowingHardGame: Bool = false
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {
@@ -28,7 +31,7 @@ struct HomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 40)
                 
-                CategoryComponent(title: Difficulty.easy.rawValue, BWColor: .yellow)
+                CategoryComponent(title: Difficulty.easy.rawValue, color: .appYellow)
                     .onTapGesture {
                         isShowingEasyGame = true
                     }
@@ -36,7 +39,7 @@ struct HomeView: View {
                         GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
                     })
                 
-                CategoryComponent(title: Difficulty.medium.rawValue, BWColor: .red)
+                CategoryComponent(title: Difficulty.medium.rawValue, color: .appRed)
                     .onTapGesture {
                         isShowingMediumGame = true
                     }
@@ -44,7 +47,7 @@ struct HomeView: View {
                         GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
                     })
                 
-                CategoryComponent(title: Difficulty.hard.rawValue, BWColor: .blue)
+                CategoryComponent(title: Difficulty.hard.rawValue, color: .appBlue)
                     .onTapGesture {
                         isShowingHardGame = true
                     }
@@ -62,8 +65,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct DifficultyView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        DifficultyView()
     }
 }
