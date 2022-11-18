@@ -33,11 +33,54 @@ struct GameView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Spacer()
+                Rectangle()
+                    .foregroundColor(.appBlue)
+                    .frame(height: 80)
                 
-                Text("\(viewModel.timeRemaining)")
-                    .font(.system(size: 60, weight: .heavy))
-                    .foregroundColor(.white)
+                Spacer()
+            }
+            .ignoresSafeArea()
+            
+            VStack {
+                VStack {
+                    ZStack {
+                        Text("\(viewModel.timeRemaining)")
+                            .font(.system(size: 60, weight: .heavy))
+                            .foregroundColor(.white)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Image(systemName: "pause.circle.fill")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.white)
+                                .onTapGesture {
+                                    viewModel.isStopped.toggle()
+                                }
+                        }.padding(.horizontal, 20)
+                    }
+                    
+                    Text(viewModel.currentPlayer)
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 24)
+                    
+                    Text(viewModel.currentPlayer)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(Color.white)
+                        .cornerRadius(50)
+                        .offset(y: 20)
+                }
+                .frame(maxWidth: .infinity)
+                .background(Color.appBlue)
+                
+                Spacer()
                 
                 ZStack {
                     ZStack {
@@ -58,15 +101,9 @@ struct GameView: View {
                             .padding(.all, 8)
                     }.flipRotate(-180 + flipDegrees).opacity(viewModel.flipped ? 1.0 : 0.0)
                 }
-                .frame(width: UIScreen.main.bounds.width*0.65, height: hasNotch() ? UIScreen.main.bounds.width*0.5 : UIScreen.main.bounds.width*0.65)
+                .frame(width: UIScreen.main.bounds.width * 0.65, height: hasNotch() ? UIScreen.main.bounds.width * 0.5 : UIScreen.main.bounds.width * 0.65)
                 .padding(.bottom, 24)
                 .animation(.easeInOut(duration: 0.3))
-                
-                Text(viewModel.instruction)
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 24)
                 
                 //MAKR: - Letters grid
                 if !viewModel.letters.isEmpty {
@@ -132,7 +169,6 @@ struct GameView: View {
                     .padding(.bottom, 24)
                 }
             }
-            .padding()
             .onReceive(viewModel.timer) { time in
                 viewModel.oneSecondPassed()
             }
@@ -144,24 +180,6 @@ struct GameView: View {
                 }).ignoresSafeArea()
             }
             
-            //MARK: - stop button
-            VStack {
-                HStack {
-                    Spacer()
-                    Image(systemName: "pause.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(.white)
-                    
-                }
-                .padding(.top, 10)
-                .padding(.trailing, 30)
-                .onTapGesture {
-                    viewModel.isStopped.toggle()
-                }
-                Spacer()
-            }
-            
             if viewModel.isStopped {
                 PausedView(playGame: {
                     viewModel.isStopped.toggle()
@@ -169,11 +187,9 @@ struct GameView: View {
                     isShowing.toggle()
                 })
             }
-            
         }
     }
 }
-
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView(gameDifficulty: .easy, isShowing: .constant(true))

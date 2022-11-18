@@ -18,7 +18,6 @@ class GameViewModel: ObservableObject {
     
     // MARK: - Constants
     
-    let instruction: String = "Mark the initial letter\nof the word you said."
     let easyDifficultyLetters: [Letter] = [
         Letter(letter: "A", state: .active, colorIndex: 1),
         Letter(letter: "B", state: .active, colorIndex: 2),
@@ -79,6 +78,7 @@ class GameViewModel: ObservableObject {
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
+    @Published var currentPlayer: String = "Your turn."
     private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
     
