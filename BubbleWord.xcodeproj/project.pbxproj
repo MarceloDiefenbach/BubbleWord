@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2693C4E92927F04200B85817 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693C4E82927F04200B85817 /* Color.swift */; };
+		2693C4EB2927F52200B85817 /* ConfettiParticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693C4EA2927F52200B85817 /* ConfettiParticles.swift */; };
 		2EC7E6D2ED8AD9A204076C11 /* Pods_BubbleWord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */; };
 		DF2F100E291824DA00771C06 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2F100D291824DA00771C06 /* Letter.swift */; };
 		DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3FA87E2925D9D600FA003A /* BannerAd.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2693C4E82927F04200B85817 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2693C4EA2927F52200B85817 /* ConfettiParticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticles.swift; sourceTree = "<group>"; };
 		5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BubbleWord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.debug.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.debug.xcconfig"; sourceTree = "<group>"; };
 		DF2F100D291824DA00771C06 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				DF5D37112911B839001A7BA1 /* LetterComponent.swift */,
 				DF81278129216617007D7086 /* CategoryComponent.swift */,
 				DF81278929216DF6007D7086 /* PausedView.swift */,
+				2693C4EA2927F52200B85817 /* ConfettiParticles.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				DF812780292164A4007D7086 /* DifficultyView.swift in Sources */,
 				DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */,
 				DF2F100E291824DA00771C06 /* Letter.swift in Sources */,
+				2693C4EB2927F52200B85817 /* ConfettiParticles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

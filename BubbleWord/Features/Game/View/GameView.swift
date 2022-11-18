@@ -26,7 +26,7 @@ struct GameView: View {
     var body: some View {
         
         let flipDegrees = viewModel.flipped ? 180.0 : 0
-
+        
         ZStack {
             Image("background")
                 .resizable()
@@ -72,34 +72,61 @@ struct GameView: View {
                 if !viewModel.letters.isEmpty {
                     HStack {
                         ForEach(0..<4) { i in
-                            LetterComponent(letter: viewModel.letters[i])
-                                .onTapGesture(perform: {
-                                    if viewModel.letters[i].state == .active {
-                                        viewModel.turnInactiveLetter(index: i)
-                                    }
-                                })
+                            ZStack {
+                                if viewModel.letters[i].state == .inactive {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 12, height: 12)
+                                        .modifier(ParticlesModifier())
+                                }
+                                
+                                LetterComponent(letter: viewModel.letters[i])
+                                    .onTapGesture(perform: {
+                                        if viewModel.letters[i].state == .active {
+                                            viewModel.turnInactiveLetter(index: i)
+                                        }
+                                    })
+                            }
                         }
                     }
                     
                     HStack {
                         ForEach(4..<8) { i in
-                            LetterComponent(letter: viewModel.letters[i])
-                                .onTapGesture(perform: {
-                                    if viewModel.letters[i].state == .active {
-                                        viewModel.turnInactiveLetter(index: i)
-                                    }
-                                })
+                            ZStack {
+                                if viewModel.letters[i].state == .inactive {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 12, height: 12)
+                                        .modifier(ParticlesModifier())
+                                }
+                                
+                                LetterComponent(letter: viewModel.letters[i])
+                                    .onTapGesture(perform: {
+                                        if viewModel.letters[i].state == .active {
+                                            viewModel.turnInactiveLetter(index: i)
+                                        }
+                                    })
+                            }
                         }
                     }
                     
                     HStack {
                         ForEach(8..<12) { i in
-                            LetterComponent(letter: viewModel.letters[i])
-                                .onTapGesture(perform: {
-                                    if viewModel.letters[i].state == .active {
-                                        viewModel.turnInactiveLetter(index: i)
-                                    }
-                                })
+                            ZStack {
+                                if viewModel.letters[i].state == .inactive {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 12, height: 12)
+                                        .modifier(ParticlesModifier())
+                                }
+                                
+                                LetterComponent(letter: viewModel.letters[i])
+                                    .onTapGesture(perform: {
+                                        if viewModel.letters[i].state == .active {
+                                            viewModel.turnInactiveLetter(index: i)
+                                        }
+                                    })
+                            }
                         }
                     }
                     .padding(.bottom, 24)
@@ -125,7 +152,7 @@ struct GameView: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .foregroundColor(.white)
-                        
+                    
                 }
                 .padding(.top, 10)
                 .padding(.trailing, 30)
