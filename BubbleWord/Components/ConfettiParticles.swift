@@ -11,7 +11,7 @@ import SwiftUI
 struct FireworkParticlesGeometryEffect : GeometryEffect {
     
     var time: Double
-    var speed: Double = Double.random(in: 20...200)
+    var speed: Double = Double.random(in: 80...400)
     var direction: Double = Double.random(in: -Double.pi...Double.pi)
     var animatableData: Double {
         get { time }
@@ -30,7 +30,7 @@ struct ParticlesModifier: ViewModifier {
     
     @State var time: Double = 0.0
     @State var scale: Double = 0.1
-    let duration: Double = 2.0
+    let duration: Double = 1.0
     
     func body(content: Content) -> some View {
         ZStack {
