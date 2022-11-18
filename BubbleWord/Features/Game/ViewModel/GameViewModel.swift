@@ -63,7 +63,16 @@ class GameViewModel: ObservableObject {
         "Insults",
         "Things happen at Russo",
         "An app name",
-        "Famous"
+        "Famous",
+        "Sports",
+        "Things that exist in space",
+        "Places",
+        "What to do on summer",
+        "Things you cry for",
+        "Dog names",
+        "Places for someone to study",
+        "Reason to celebrate with a party",
+        "Something you always find two of"
     ]
     
     let initialTimeRemaining: Int = 10

@@ -31,7 +31,7 @@ struct DifficultyView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 40)
                 
-                CategoryComponent(title: Difficulty.easy.rawValue, color: .appYellow)
+                ButtonComponent(title: Difficulty.easy.rawValue, color: .appYellow)
                     .onTapGesture {
                         isShowingEasyGame = true
                     }
@@ -39,7 +39,7 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
                     })
                 
-                CategoryComponent(title: Difficulty.medium.rawValue, color: .appRed)
+                ButtonComponent(title: Difficulty.medium.rawValue, color: .appRed)
                     .onTapGesture {
                         isShowingMediumGame = true
                     }
@@ -47,7 +47,7 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
                     })
                 
-                CategoryComponent(title: Difficulty.hard.rawValue, color: .appBlue)
+                ButtonComponent(title: Difficulty.hard.rawValue, color: .appBlue)
                     .onTapGesture {
                         isShowingHardGame = true
                     }

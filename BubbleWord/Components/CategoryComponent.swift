@@ -7,17 +7,21 @@
 
 import SwiftUI
 
-struct CategoryComponent: View {
+struct ButtonComponent: View {
     
     // MARK: - Variables
     
     var title: String
+    var subtitle: String
+    var image: String
     var color: Color
     
     // MARK: - Init
     
-    init(title: String, color: Color) {
+    init(title: String, subtitle: String = "", image: String = "", color: Color) {
         self.title = title
+        self.subtitle = subtitle
+        self.image = image
         self.color = color
     }
     
@@ -25,11 +29,28 @@ struct CategoryComponent: View {
     
     var body: some View {
         HStack {
-            Text(title)
-                .font(.system(size: 32, weight: .bold))
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-                .padding(.vertical, 40)
+            VStack {
+                HStack {
+                    if !image.isEmpty {
+                        Image(systemName: image)
+                            .font(.system(size: 32, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                    
+                    Text(title)
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }
+                
+                if !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }
+            }
+            .padding(.vertical, 40)
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
         .background(color)
@@ -37,9 +58,8 @@ struct CategoryComponent: View {
     }
 }
 
-struct CategoryComponent_Previews: PreviewProvider {
+struct ButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryComponent(title: "Casual", color: .appYellow)
+        ButtonComponent(title: "Casual", color: .appYellow)
     }
 }
-
