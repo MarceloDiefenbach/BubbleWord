@@ -42,6 +42,9 @@ struct ButtonComponent: View {
                 }
             }
         }
+        .onTapGesture {
+            action()
+        }
         .frame(width: UIScreen.main.bounds.width * 0.9)
     }
 }
