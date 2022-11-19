@@ -34,7 +34,7 @@ struct HomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, Spacing.small.value)
                 
-                ButtonComponent(title: "Create Game", subtitle: "One or multiple devices", color: .appRed)
+                CardComponent(title: "Create Game", subtitle: "One or multiple devices", color: .appRed)
                     .onTapGesture {
                         self.isCreateGameViewShowing = true
                     }
@@ -42,7 +42,7 @@ struct HomeView: View {
                         DifficultyView()
                     })
                 
-                ButtonComponent(title: "Join Game", subtitle: "Join a session", color: .appBlue)
+                CardComponent(title: "Join Game", subtitle: "Join a session", color: .appBlue)
                     .onTapGesture {
                         self.isJoinGameViewShowing = true
                     }
@@ -51,14 +51,11 @@ struct HomeView: View {
                     })
                 
                 if #available(iOS 15.0, *) {
-                    Button {
+                    ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
                         isHowToPlayShowing.toggle()
-                    } label: {
-                        Text("How to play?")
-                            .font(.system(size: FontSize.xs.value, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.top, Spacing.xxs.value)
+                    })
+                    .padding(.top, Spacing.xxxs.value)
+                    .padding(.bottom, Spacing.xs.value)
                     .adaptiveSheet(isPresented: $isHowToPlayShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                         Rectangle()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -79,7 +76,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                ButtonComponent(title: "Store", image: "bag.circle", color: .appYellow)
+                CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
                     .onTapGesture {
                         self.isJoinGameViewShowing = true
                     }
@@ -88,14 +85,11 @@ struct HomeView: View {
                     })
                 
                 if #available(iOS 15.0, *) {
-                    Button {
+                    ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
                         isAboutShowing.toggle()
-                    } label: {
-                        Text("About Us")
-                            .font(.system(size: FontSize.xs.value, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.top, Spacing.xxs.value)
+                    })
+                    .padding(.top, Spacing.xxxs.value)
+                    .padding(.bottom, Spacing.medium.value)
                     .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                         Rectangle()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)

@@ -23,11 +23,12 @@
 		DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E0291D2FBF0079341B /* GameViewModel.swift */; };
 		DF6A50E5291D3FA30079341B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E4291D3FA30079341B /* View.swift */; };
 		DF812780292164A4007D7086 /* DifficultyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81277F292164A4007D7086 /* DifficultyView.swift */; };
-		DF81278229216617007D7086 /* CategoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CategoryComponent.swift */; };
+		DF81278229216617007D7086 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CardComponent.swift */; };
 		DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* DifficultyViewModel.swift */; };
 		DF81278A29216DF6007D7086 /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278929216DF6007D7086 /* PausedView.swift */; };
 		DF85AE622929241400887C52 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE612929241400887C52 /* Spacing.swift */; };
 		DF85AE642929255800887C52 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE632929255800887C52 /* FontSize.swift */; };
+		DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE652929572F00887C52 /* ButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,11 +51,12 @@
 		DF6A50E0291D2FBF0079341B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		DF6A50E4291D3FA30079341B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DF81277F292164A4007D7086 /* DifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyView.swift; sourceTree = "<group>"; };
-		DF81278129216617007D7086 /* CategoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponent.swift; sourceTree = "<group>"; };
+		DF81278129216617007D7086 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* DifficultyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewModel.swift; sourceTree = "<group>"; };
 		DF81278929216DF6007D7086 /* PausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
 		DF85AE612929241400887C52 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		DF85AE632929255800887C52 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		DF85AE652929572F00887C52 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,10 +242,11 @@
 			children = (
 				DF60395B291EFB3A00CB1E27 /* YouLoseView.swift */,
 				DF5D37112911B839001A7BA1 /* LetterComponent.swift */,
-				DF81278129216617007D7086 /* CategoryComponent.swift */,
+				DF81278129216617007D7086 /* CardComponent.swift */,
 				DF81278929216DF6007D7086 /* PausedView.swift */,
 				2693C4EA2927F52200B85817 /* ConfettiParticles.swift */,
 				2693C4F229280F4300B85817 /* CustomSheetParentView.swift */,
+				DF85AE652929572F00887C52 /* ButtonComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -402,7 +405,8 @@
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
 				DF85AE642929255800887C52 /* FontSize.swift in Sources */,
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
-				DF81278229216617007D7086 /* CategoryComponent.swift in Sources */,
+				DF81278229216617007D7086 /* CardComponent.swift in Sources */,
+				DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */,
 				2693C4F12928032300B85817 /* HomeView.swift in Sources */,
 				DF85AE622929241400887C52 /* Spacing.swift in Sources */,
 				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,

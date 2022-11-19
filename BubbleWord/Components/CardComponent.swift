@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonComponent: View {
+struct CardComponent: View {
     
     // MARK: - Variables
     
@@ -58,8 +58,8 @@ struct ButtonComponent: View {
     }
 }
 
-struct ButtonComponent_Previews: PreviewProvider {
+struct CardComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonComponent(title: "Casual", color: .appYellow)
+        CardComponent(title: "Casual", color: .appYellow)
     }
 }
