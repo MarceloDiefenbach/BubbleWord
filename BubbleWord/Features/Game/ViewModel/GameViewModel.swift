@@ -72,7 +72,25 @@ class GameViewModel: ObservableObject {
         "Dog names",
         "Places for someone to study",
         "Reason to celebrate with a party",
-        "Something you always find two of"
+        "Something you always find two of",
+        "Kids birthday food",
+        "Soccer team",
+        "Cartoon characters",
+        "Disney characters",
+        "Baby things",
+        "Things that shouldn't exist",
+        "Things people hide",
+        "Things you can't take on a plane",
+        "TV series",
+        "Celebrities who died young",
+        "Things that kill",
+        "Things that cause fights",
+        "What do you think about when you brush your teeth?",
+        "The worst name for a dog",
+        "Snacks do you usually eat at the movies",
+        "Things you stop doing as you grow older?",
+        "Things adults hate",
+        "Things young people hate"
     ]
     
     let initialTimeRemaining: Int = 10
