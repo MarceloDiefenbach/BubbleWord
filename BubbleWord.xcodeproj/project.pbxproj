@@ -26,6 +26,8 @@
 		DF81278229216617007D7086 /* CategoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CategoryComponent.swift */; };
 		DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* DifficultyViewModel.swift */; };
 		DF81278A29216DF6007D7086 /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278929216DF6007D7086 /* PausedView.swift */; };
+		DF85AE622929241400887C52 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE612929241400887C52 /* Spacing.swift */; };
+		DF85AE642929255800887C52 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE632929255800887C52 /* FontSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		DF81278129216617007D7086 /* CategoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponent.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* DifficultyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewModel.swift; sourceTree = "<group>"; };
 		DF81278929216DF6007D7086 /* PausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
+		DF85AE612929241400887C52 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		DF85AE632929255800887C52 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +215,7 @@
 		DF5D37012911B7EC001A7BA1 /* BubbleWord */ = {
 			isa = PBXGroup;
 			children = (
+				DF85AE602929240C00887C52 /* Tokens */,
 				2693C4E22927EFB000B85817 /* Features */,
 				DF6A50E3291D3F990079341B /* Extensions */,
 				DF5D37102911B82D001A7BA1 /* Components */,
@@ -269,6 +274,15 @@
 				2693C4E62927F00600B85817 /* ViewModel */,
 			);
 			path = Difficulty;
+			sourceTree = "<group>";
+		};
+		DF85AE602929240C00887C52 /* Tokens */ = {
+			isa = PBXGroup;
+			children = (
+				DF85AE612929241400887C52 /* Spacing.swift */,
+				DF85AE632929255800887C52 /* FontSize.swift */,
+			);
+			path = Tokens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,9 +400,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
+				DF85AE642929255800887C52 /* FontSize.swift in Sources */,
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
 				DF81278229216617007D7086 /* CategoryComponent.swift in Sources */,
 				2693C4F12928032300B85817 /* HomeView.swift in Sources */,
+				DF85AE622929241400887C52 /* Spacing.swift in Sources */,
 				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,
@@ -530,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BubbleWord/Preview Content\"";
-				DEVELOPMENT_TEAM = L3PV92TM5K;
+				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BubbleWord/Info.plist;
@@ -567,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BubbleWord/Preview Content\"";
-				DEVELOPMENT_TEAM = L3PV92TM5K;
+				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BubbleWord/Info.plist;
