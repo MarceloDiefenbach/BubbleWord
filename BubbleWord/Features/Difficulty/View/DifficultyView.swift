@@ -26,7 +26,7 @@ struct DifficultyView: View {
             
             VStack {
                 Text(viewModel.title)
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 40)
