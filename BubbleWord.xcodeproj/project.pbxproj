@@ -29,6 +29,7 @@
 		DF85AE622929241400887C52 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE612929241400887C52 /* Spacing.swift */; };
 		DF85AE642929255800887C52 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE632929255800887C52 /* FontSize.swift */; };
 		DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE652929572F00887C52 /* ButtonComponent.swift */; };
+		DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE6729295F6200887C52 /* CornerRadius.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		DF85AE612929241400887C52 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		DF85AE632929255800887C52 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		DF85AE652929572F00887C52 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		DF85AE6729295F6200887C52 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +286,7 @@
 			children = (
 				DF85AE612929241400887C52 /* Spacing.swift */,
 				DF85AE632929255800887C52 /* FontSize.swift */,
+				DF85AE6729295F6200887C52 /* CornerRadius.swift */,
 			);
 			path = Tokens;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			files = (
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
 				DF85AE642929255800887C52 /* FontSize.swift in Sources */,
+				DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */,
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
 				DF81278229216617007D7086 /* CardComponent.swift in Sources */,
 				DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */,
