@@ -29,10 +29,10 @@ struct HomeView: View {
                 Spacer()
                 
                 Text("Letters.io")
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .padding(.vertical, 40)
+                    .padding(.vertical, Spacing.small.value)
                 
                 ButtonComponent(title: "Create Game", subtitle: "One or multiple devices", color: .appRed)
                     .onTapGesture {
@@ -54,10 +54,14 @@ struct HomeView: View {
                     Button {
                         isHowToPlayShowing.toggle()
                     } label: {
-                        Text("How to play?")
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
+                        HStack {
+                            Image("questionmark.circle")
+                            Text("How to play?")
+                                .font(.system(size: FontSize.xs.value, weight: .bold))
+                                .foregroundColor(.white)
+                        }
                     }
+                    .padding(.top, Spacing.xxs.value)
                     .adaptiveSheet(isPresented: $isHowToPlayShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                         Rectangle()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -90,10 +94,14 @@ struct HomeView: View {
                     Button {
                         isAboutShowing.toggle()
                     } label: {
-                        Text("About Us")
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
+                        HStack {
+                            Image("questionmark.circle")
+                            Text("About Us")
+                                .font(.system(size: FontSize.xs.value, weight: .bold))
+                                .foregroundColor(.white)
+                        }
                     }
+                    .padding(.top, Spacing.xxs.value)
                     .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                         Rectangle()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
