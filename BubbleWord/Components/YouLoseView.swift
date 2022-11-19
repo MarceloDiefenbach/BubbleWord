@@ -47,7 +47,7 @@ struct YouLoseView: View {
                             .padding(.vertical, 8)
                     }
                     .background(Color.white)
-                    .cornerRadius(50)
+                    .cornerRadius(CornerRadius.circular.value)
                 }.onTapGesture {
                     action()
                 }

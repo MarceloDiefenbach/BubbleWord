@@ -43,7 +43,7 @@ struct LetterComponent: View {
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .opacity(0.5)
             }
-        }.cornerRadius(50)
+        }.cornerRadius(CornerRadius.circular.value)
             .frame(width: 70, height: 70)
     }
 }

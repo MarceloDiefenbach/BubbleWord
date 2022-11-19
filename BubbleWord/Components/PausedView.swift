@@ -33,7 +33,7 @@ struct PausedView: View {
                             .padding(.vertical, 8)
                     }
                     .background(Color.white)
-                    .cornerRadius(50)
+                    .cornerRadius(CornerRadius.circular.value)
                     .onTapGesture {
                         playGame()
                     }
@@ -47,7 +47,7 @@ struct PausedView: View {
                             .padding(.vertical, 8)
                     }
                     .frame(width: UIScreen.main.bounds.width*0.5)
-                    .cornerRadius(50)
+                    .cornerRadius(CornerRadius.circular.value)
                     .padding(.bottom, 24)
                     .onTapGesture {
                         finishGame()

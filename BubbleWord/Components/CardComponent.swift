@@ -54,7 +54,7 @@ struct CardComponent: View {
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
         .background(color)
-        .cornerRadius(16)
+        .cornerRadius(CornerRadius.small.value)
     }
 }
 

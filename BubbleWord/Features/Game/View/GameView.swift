@@ -74,7 +74,7 @@ struct GameView: View {
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         .background(Color.white)
-                        .cornerRadius(50)
+                        .cornerRadius(CornerRadius.circular.value)
                         .offset(y: 20)
                 }
                 .frame(maxWidth: .infinity)
@@ -84,7 +84,7 @@ struct GameView: View {
                 
                 ZStack {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(Color("blue"))
+                        RoundedRectangle(cornerRadius: CornerRadius.small.value).foregroundColor(Color("blue"))
                         Text(viewModel.cardPhrase)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
@@ -93,7 +93,7 @@ struct GameView: View {
                     }.flipRotate(flipDegrees).opacity(viewModel.flipped ? 0.0 : 1.0)
                     
                     ZStack {
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(Color("yellow"))
+                        RoundedRectangle(cornerRadius: CornerRadius.small.value).foregroundColor(Color("yellow"))
                         Text(viewModel.cardPhrase)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
