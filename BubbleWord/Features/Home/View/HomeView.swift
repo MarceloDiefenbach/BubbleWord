@@ -54,12 +54,9 @@ struct HomeView: View {
                     Button {
                         isHowToPlayShowing.toggle()
                     } label: {
-                        HStack {
-                            Image("questionmark.circle")
-                            Text("How to play?")
-                                .font(.system(size: FontSize.xs.value, weight: .bold))
-                                .foregroundColor(.white)
-                        }
+                        Text("How to play?")
+                            .font(.system(size: FontSize.xs.value, weight: .bold))
+                            .foregroundColor(.white)
                     }
                     .padding(.top, Spacing.xxs.value)
                     .adaptiveSheet(isPresented: $isHowToPlayShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
@@ -94,12 +91,9 @@ struct HomeView: View {
                     Button {
                         isAboutShowing.toggle()
                     } label: {
-                        HStack {
-                            Image("questionmark.circle")
-                            Text("About Us")
-                                .font(.system(size: FontSize.xs.value, weight: .bold))
-                                .foregroundColor(.white)
-                        }
+                        Text("About Us")
+                            .font(.system(size: FontSize.xs.value, weight: .bold))
+                            .foregroundColor(.white)
                     }
                     .padding(.top, Spacing.xxs.value)
                     .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
