@@ -33,24 +33,24 @@ struct ButtonComponent: View {
                 HStack {
                     if !image.isEmpty {
                         Image(systemName: image)
-                            .font(.system(size: 32, weight: .bold))
+                            .font(.system(size: FontSize.large.value, weight: .bold))
                             .foregroundColor(.white)
                     }
                     
                     Text(title)
-                        .font(.system(size: 32, weight: .bold))
+                        .font(.system(size: FontSize.large.value, weight: .bold))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }
                 
                 if !subtitle.isEmpty {
                     Text(subtitle)
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.system(size: FontSize.xs.value, weight: .regular))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }
             }
-            .padding(.vertical, 40)
+            .padding(.vertical, Spacing.small.value)
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
         .background(color)
