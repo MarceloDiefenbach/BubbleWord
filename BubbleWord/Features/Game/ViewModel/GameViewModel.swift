@@ -90,7 +90,17 @@ class GameViewModel: ObservableObject {
         "Snacks do you usually eat at the movies",
         "Things you stop doing as you grow older?",
         "Things adults hate",
-        "Things young people hate"
+        "Things young people hate",
+        "Occasions to wear your lucky underwear",
+        "Name something that can to be Licked ",
+        "Name an activity that eequires using your lips",
+        "Other ways to say penis",
+        "Other ways to say vagina",
+        "Phrases you can say at work and in bed",
+        "Ways to become a millionaire",
+        "Words that don't have A",
+        "Name adjectives of a bad boss",
+        "Name red flags on a dating site"
     ]
     
     let initialTimeRemaining: Int = 10
