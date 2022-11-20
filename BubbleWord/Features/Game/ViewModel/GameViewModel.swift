@@ -93,7 +93,7 @@ class GameViewModel: ObservableObject {
         "Things young people hate",
         "Occasions to wear your lucky underwear",
         "Name something that can to be Licked ",
-        "Name an activity that eequires using your lips",
+        "Name an activity that requires using your lips",
         "Other ways to say penis",
         "Other ways to say vagina",
         "Phrases you can say at work and in bed",
