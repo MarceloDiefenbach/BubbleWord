@@ -63,11 +63,33 @@ struct HomeView: View {
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         .onTapGesture {
-                                            isAboutShowing.toggle()
+                                            isHowToPlayShowing.toggle()
                                         }
                                 )
                                 .ignoresSafeArea()
                         }
+                    } else {
+                        ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
+                            isHowToPlayShowing.toggle()
+                        })
+                        .padding(.top, Spacing.xxxs.value)
+                        .padding(.bottom, Spacing.xs.value)
+                        .fullScreenCover(isPresented: $isHowToPlayShowing, content: {
+                            Rectangle()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
+                                .overlay(
+                                    Text("Here's how to play:\n\nWhen a theme appears in the card, you will have 10 seconds to say of a word matching the theme and beginning with any of the letters in the poll of letters and tap it.")
+                                        .font(.system(size: 14, weight: .bold))
+                                        .foregroundColor(.white)
+                                        .multilineTextAlignment(.center)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .onTapGesture {
+                                            isHowToPlayShowing.toggle()
+                                        }
+                                )
+                                .ignoresSafeArea()
+                        })
                     }
                     
                     Spacer()
@@ -99,6 +121,28 @@ struct HomeView: View {
                                 )
                                 .ignoresSafeArea()
                         }
+                    } else {
+                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
+                            isAboutShowing.toggle()
+                        })
+                        .padding(.top, Spacing.xxxs.value)
+                        .padding(.bottom, Spacing.medium.value)
+                        .fullScreenCover(isPresented: $isAboutShowing, content: {
+                            Rectangle()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
+                                .overlay(
+                                    Text("App creators:\n\nAnnderson Oreto\n Marcelo Diefenbach\n\nContact-us via e-mail:\nanndersonp@gmail.com")
+                                        .font(.system(size: 14, weight: .bold))
+                                        .foregroundColor(.white)
+                                        .multilineTextAlignment(.center)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .onTapGesture {
+                                            isAboutShowing.toggle()
+                                        }
+                                )
+                                .ignoresSafeArea()
+                        })
                     }
                 }
                 
