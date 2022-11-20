@@ -45,8 +45,9 @@ struct GameView: View {
                 VStack {
                     ZStack {
                         Text("\(viewModel.timeRemaining)")
-                            .font(.system(size: 60, weight: .heavy))
+                            .font(.system(size: FontSize.extraExtraLarge.value, weight: .heavy))
                             .foregroundColor(.white)
+                            .padding(.top, Spacing.xxs.value)
                         
                         HStack {
                             Spacer()
@@ -58,24 +59,26 @@ struct GameView: View {
                                 .onTapGesture {
                                     viewModel.isStopped.toggle()
                                 }
-                        }.padding(.horizontal, 20)
+                        }.padding(.horizontal, Spacing.xxs.value)
                     }
                     
-                    Text(viewModel.currentPlayer)
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 24)
-                    
-                    Text(viewModel.currentPlayer)
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(Color.white)
-                        .cornerRadius(CornerRadius.circular.value)
-                        .offset(y: 20)
+                    VStack {
+                        Text(viewModel.nextPlayer)
+                            .font(.system(size: FontSize.xs.value, weight: .regular))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, Spacing.nano.value)
+                        
+                        Text(viewModel.currentPlayer)
+                            .font(.system(size: FontSize.small.value, weight: .bold))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, Spacing.xxxs.value)
+                            .padding(.vertical, Spacing.nano.value)
+                            .background(Color.white)
+                            .cornerRadius(CornerRadius.circular.value)
+                    }
+                    .offset(y: 20)
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color.appBlue)
@@ -86,7 +89,7 @@ struct GameView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: CornerRadius.small.value).foregroundColor(Color("blue"))
                         Text(viewModel.cardPhrase)
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: FontSize.medium.value, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.all, 16)
@@ -95,7 +98,7 @@ struct GameView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: CornerRadius.small.value).foregroundColor(Color("yellow"))
                         Text(viewModel.cardPhrase)
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: FontSize.medium.value, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.all, 16)
