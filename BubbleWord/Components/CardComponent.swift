@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonComponent: View {
+struct CardComponent: View {
     
     // MARK: - Variables
     
@@ -33,33 +33,33 @@ struct ButtonComponent: View {
                 HStack {
                     if !image.isEmpty {
                         Image(systemName: image)
-                            .font(.system(size: 32, weight: .bold))
+                            .font(.system(size: FontSize.large.value, weight: .bold))
                             .foregroundColor(.white)
                     }
                     
                     Text(title)
-                        .font(.system(size: 32, weight: .bold))
+                        .font(.system(size: FontSize.large.value, weight: .bold))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }
                 
                 if !subtitle.isEmpty {
                     Text(subtitle)
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.system(size: FontSize.xs.value, weight: .regular))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }
             }
-            .padding(.vertical, 40)
+            .padding(.vertical, Spacing.small.value)
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
         .background(color)
-        .cornerRadius(16)
+        .cornerRadius(CornerRadius.small.value)
     }
 }
 
-struct ButtonComponent_Previews: PreviewProvider {
+struct CardComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonComponent(title: "Casual", color: .appYellow)
+        CardComponent(title: "Casual", color: .appYellow)
     }
 }

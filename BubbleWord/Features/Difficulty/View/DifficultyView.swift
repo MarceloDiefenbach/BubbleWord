@@ -26,12 +26,13 @@ struct DifficultyView: View {
             
             VStack {
                 Text(viewModel.title)
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .padding(.vertical, 40)
+                    .padding(.bottom, Spacing.small.value)
+                    .padding(.top, -Spacing.large.value)
                 
-                ButtonComponent(title: Difficulty.easy.rawValue, color: .appYellow)
+                CardComponent(title: Difficulty.easy.rawValue, color: .appYellow)
                     .onTapGesture {
                         isShowingEasyGame = true
                     }
@@ -39,7 +40,7 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
                     })
                 
-                ButtonComponent(title: Difficulty.medium.rawValue, color: .appRed)
+                CardComponent(title: Difficulty.medium.rawValue, color: .appRed)
                     .onTapGesture {
                         isShowingMediumGame = true
                     }
@@ -47,19 +48,19 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
                     })
                 
-                ButtonComponent(title: Difficulty.hard.rawValue, color: .appBlue)
+                CardComponent(title: Difficulty.hard.rawValue, color: .appBlue)
                     .onTapGesture {
                         isShowingHardGame = true
                     }
                     .fullScreenCover(isPresented: $isShowingHardGame, content: {
                         GameView(gameDifficulty: .hard, isShowing: $isShowingHardGame)
                     })
-                    .padding(.bottom, 30)
+                    .padding(.bottom, Spacing.xs.value)
             }
             VStack {
                 Spacer()
                 BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, Spacing.xxxs.value)
             }
         }
     }

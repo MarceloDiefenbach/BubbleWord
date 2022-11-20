@@ -105,7 +105,8 @@ class GameViewModel: ObservableObject {
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
-    @Published var currentPlayer: String = "Your turn."
+    @Published var currentPlayer: String = "Your turn"
+    @Published var nextPlayer: String = "Next player: Fulano"
     private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
     

@@ -26,29 +26,29 @@ struct PausedView: View {
                     
                     HStack {
                         Text("Continue game")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: FontSize.small.value, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, Spacing.xxxs.value)
+                            .padding(.vertical, Spacing.nano.value)
                     }
                     .background(Color.white)
-                    .cornerRadius(50)
+                    .cornerRadius(CornerRadius.circular.value)
                     .onTapGesture {
                         playGame()
                     }
                     
                     HStack {
                         Text("Finish game")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.system(size: FontSize.small.value, weight: .medium))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, Spacing.xxxs.value)
+                            .padding(.vertical, Spacing.nano.value)
                     }
                     .frame(width: UIScreen.main.bounds.width*0.5)
-                    .cornerRadius(50)
-                    .padding(.bottom, 24)
+                    .cornerRadius(CornerRadius.circular.value)
+                    .padding(.bottom, Spacing.xxs.value)
                     .onTapGesture {
                         finishGame()
                     }

@@ -31,7 +31,7 @@ struct YouLoseView: View {
                             .font(.system(size: 80, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, Spacing.xxxs.value)
                     }
                 }
                 
@@ -43,11 +43,11 @@ struct YouLoseView: View {
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
+                            .padding(.horizontal, Spacing.xxxs.value)
+                            .padding(.vertical, Spacing.nano.value)
                     }
                     .background(Color.white)
-                    .cornerRadius(50)
+                    .cornerRadius(CornerRadius.circular.value)
                 }.onTapGesture {
                     action()
                 }

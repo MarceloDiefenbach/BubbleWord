@@ -33,17 +33,17 @@ struct LetterComponent: View {
                 }
                 Text(letter.letter)
                     .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .default))
+                    .font(.system(size: FontSize.large.value, weight: .bold, design: .default))
             } else {
                 Image("Inactive")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 Text(letter.letter)
                     .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .default))
+                    .font(.system(size: FontSize.large.value, weight: .bold, design: .default))
                     .opacity(0.5)
             }
-        }.cornerRadius(50)
+        }.cornerRadius(CornerRadius.circular.value)
             .frame(width: 70, height: 70)
     }
 }
