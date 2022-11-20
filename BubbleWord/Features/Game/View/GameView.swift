@@ -64,7 +64,7 @@ struct GameView: View {
                     
                     VStack {
                         Text(viewModel.nextPlayer)
-                            .font(.system(size: FontSize.xs.value, weight: .regular))
+                            .font(.system(size: FontSize.xxs.value, weight: .regular))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.bottom, Spacing.nano.value)
@@ -92,7 +92,7 @@ struct GameView: View {
                             .font(.system(size: FontSize.medium.value, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.all, 16)
+                            .padding(.all, Spacing.xxxs.value)
                     }.flipRotate(flipDegrees).opacity(viewModel.flipped ? 0.0 : 1.0)
                     
                     ZStack {
@@ -101,7 +101,7 @@ struct GameView: View {
                             .font(.system(size: FontSize.medium.value, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.all, 16)
+                            .padding(.all, Spacing.xxxs.value)
                     }.flipRotate(-180 + flipDegrees).opacity(viewModel.flipped ? 1.0 : 0.0)
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.65, height: hasNotch() ? UIScreen.main.bounds.width * 0.5 : UIScreen.main.bounds.width * 0.65)

@@ -58,7 +58,7 @@ struct HomeView: View {
                                 .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
                                 .overlay(
                                     Text("Here's how to play:\n\nWhen a theme appears in the card, you will have 10 seconds to say of a word matching the theme and beginning with any of the letters in the poll of letters and tap it.")
-                                        .font(.system(size: 14, weight: .bold))
+                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -80,7 +80,7 @@ struct HomeView: View {
                                 .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
                                 .overlay(
                                     Text("Here's how to play:\n\nWhen a theme appears in the card, you will have 10 seconds to say of a word matching the theme and beginning with any of the letters in the poll of letters and tap it.")
-                                        .font(.system(size: 14, weight: .bold))
+                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -111,7 +111,7 @@ struct HomeView: View {
                                 .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
                                 .overlay(
                                     Text("App creators:\n\nAnnderson Oreto\n Marcelo Diefenbach\n\nContact-us via e-mail:\nanndersonp@gmail.com")
-                                        .font(.system(size: 14, weight: .bold))
+                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -133,7 +133,7 @@ struct HomeView: View {
                                 .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
                                 .overlay(
                                     Text("App creators:\n\nAnnderson Oreto\n Marcelo Diefenbach\n\nContact-us via e-mail:\nanndersonp@gmail.com")
-                                        .font(.system(size: 14, weight: .bold))
+                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
