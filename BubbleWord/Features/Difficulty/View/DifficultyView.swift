@@ -29,7 +29,8 @@ struct DifficultyView: View {
                     .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .padding(.vertical, 40)
+                    .padding(.bottom, Spacing.small.value)
+                    .padding(.top, -Spacing.large.value)
                 
                 CardComponent(title: Difficulty.easy.rawValue, color: .appYellow)
                     .onTapGesture {
@@ -54,12 +55,12 @@ struct DifficultyView: View {
                     .fullScreenCover(isPresented: $isShowingHardGame, content: {
                         GameView(gameDifficulty: .hard, isShowing: $isShowingHardGame)
                     })
-                    .padding(.bottom, 30)
+                    .padding(.bottom, Spacing.xs.value)
             }
             VStack {
                 Spacer()
                 BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, Spacing.xxxs.value)
             }
         }
     }

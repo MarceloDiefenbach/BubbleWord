@@ -31,12 +31,12 @@ struct ButtonComponent: View {
                 HStack {
                     if !image.isEmpty {
                         Image(systemName: image)
-                            .font(.system(size: FontSize.xs.value, weight: .bold))
+                            .font(.system(size: FontSize.xs.value, weight: .regular))
                             .foregroundColor(.white)
                     }
                     
                     Text(label)
-                        .font(.system(size: FontSize.xs.value, weight: .bold))
+                        .font(.system(size: FontSize.xs.value, weight: .regular))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }

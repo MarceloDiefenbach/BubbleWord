@@ -77,7 +77,6 @@
 		2693C4E22927EFB000B85817 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				2693C4F5292815D700B85817 /* Store */,
 				2693C4EC2927FC9700B85817 /* Home */,
 				DF81277E29216499007D7086 /* Difficulty */,
 				DF6A50DF291D2FB30079341B /* Game */,
@@ -130,45 +129,14 @@
 			isa = PBXGroup;
 			children = (
 				2693C4EF2927FCAB00B85817 /* View */,
-				2693C4ED2927FC9C00B85817 /* ViewModel */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		2693C4ED2927FC9C00B85817 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2693C4EF2927FCAB00B85817 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2693C4F02928032300B85817 /* HomeView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2693C4F5292815D700B85817 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				2693C4F7292815E500B85817 /* View */,
-				2693C4F6292815DD00B85817 /* ViewModel */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		2693C4F6292815DD00B85817 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2693C4F7292815E500B85817 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
