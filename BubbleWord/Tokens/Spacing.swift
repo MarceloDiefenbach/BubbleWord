@@ -8,7 +8,7 @@
 import Foundation
 
 enum Spacing: String {
-    case quarck, nano, xxxs, xxs, xs, small, medium, large
+    case quarck, nano, xxxs, defaultMargin, xxs, xs, small, medium, large
     
     var value: CGFloat {
         switch self {
@@ -18,6 +18,8 @@ enum Spacing: String {
             return 8
         case .xxxs:
             return 16
+        case .defaultMargin:
+            return 20
         case .xxs:
             return 24
         case .xs:
