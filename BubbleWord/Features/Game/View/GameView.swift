@@ -124,6 +124,7 @@ struct GameView: View {
                                     .onTapGesture(perform: {
                                         if viewModel.letters[i].state == .active {
                                             viewModel.turnInactiveLetter(index: i)
+                                            Haptic.impact(.medium).generate()
                                         }
                                     })
                             }
@@ -144,6 +145,7 @@ struct GameView: View {
                                     .onTapGesture(perform: {
                                         if viewModel.letters[i].state == .active {
                                             viewModel.turnInactiveLetter(index: i)
+                                            Haptic.impact(.medium).generate()
                                         }
                                     })
                             }
@@ -164,6 +166,7 @@ struct GameView: View {
                                     .onTapGesture(perform: {
                                         if viewModel.letters[i].state == .active {
                                             viewModel.turnInactiveLetter(index: i)
+                                            Haptic.impact(.medium).generate()
                                         }
                                     })
                             }

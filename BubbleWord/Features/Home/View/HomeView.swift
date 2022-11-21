@@ -36,15 +36,15 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.vertical, Spacing.small.value)
                     
-                    CardComponent(title: "Create Game", subtitle: "One or multiple devices", color: .appRed)
+                    CardComponent(title: "Create Game", color: .appRed)
                         .onTapGesture {
                             self.isCreateGameViewShowing = true
                         }
                     
-                    CardComponent(title: "Join Game", subtitle: "Join a session", color: .appBlue)
-                        .onTapGesture {
-                            self.isJoinGameViewShowing = true
-                        }
+//                    CardComponent(title: "Join Game", subtitle: "Join a session", color: .appBlue)
+//                        .onTapGesture {
+//                            self.isJoinGameViewShowing = true
+//                        }
                     
                     if #available(iOS 15.0, *) {
                         ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
@@ -74,10 +74,10 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
-                        .onTapGesture {
-                            self.isStoreiewShowing = true
-                        }
+//                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
+//                        .onTapGesture {
+//                            self.isStoreiewShowing = true
+//                        }
                     
                     if #available(iOS 15.0, *) {
                         ButtonComponent(label: "About us", image: "person.text.rectangle", action: {

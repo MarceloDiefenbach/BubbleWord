@@ -12,6 +12,17 @@ enum Difficulty: String {
     case easy = "Easy"
     case medium = "Medium"
     case hard = "Hard"
+    
+    func difficultyDescription() -> String {
+        switch self {
+        case .easy:
+            return "Only common letters."
+        case .medium:
+            return "Adds tricky letters to play (e.g. Q)."
+        case .hard:
+            return "All letters from alphabet."
+        }
+    }
 }
 
 class GameViewModel: ObservableObject {
@@ -116,7 +127,7 @@ class GameViewModel: ObservableObject {
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
     @Published var currentPlayer: String = "Your turn"
-    @Published var nextPlayer: String = "Next player: Fulano"
+    @Published var nextPlayer: String = ""
     private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
     
