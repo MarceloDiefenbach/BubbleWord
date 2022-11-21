@@ -53,20 +53,10 @@ struct HomeView: View {
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xs.value)
                         .adaptiveSheet(isPresented: $isHowToPlayShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
-                            Rectangle()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
-                                .overlay(
-                                    Text("Here's how to play:\n\nWhen a theme appears in the card, you will have 10 seconds to say of a word matching the theme and beginning with any of the letters in the poll of letters and tap it.")
-                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .multilineTextAlignment(.center)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .onTapGesture {
-                                            isHowToPlayShowing.toggle()
-                                        }
-                                )
-                                .ignoresSafeArea()
+                            HowToPlay()
+                                .onTapGesture {
+                                    isHowToPlayShowing.toggle()
+                                }
                         }
                     } else {
                         ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
@@ -75,20 +65,10 @@ struct HomeView: View {
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xs.value)
                         .fullScreenCover(isPresented: $isHowToPlayShowing, content: {
-                            Rectangle()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
-                                .overlay(
-                                    Text("Here's how to play:\n\nWhen a theme appears in the card, you will have 10 seconds to say of a word matching the theme and beginning with any of the letters in the poll of letters and tap it.")
-                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .multilineTextAlignment(.center)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .onTapGesture {
-                                            isHowToPlayShowing.toggle()
-                                        }
-                                )
-                                .ignoresSafeArea()
+                            HowToPlay()
+                                .onTapGesture {
+                                    isHowToPlayShowing.toggle()
+                                }
                         })
                     }
                     
@@ -106,20 +86,10 @@ struct HomeView: View {
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.medium.value)
                         .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
-                            Rectangle()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
-                                .overlay(
-                                    Text("App creators:\n\nAnnderson Oreto\n Marcelo Diefenbach\n\nContact-us via e-mail:\nanndersonp@gmail.com")
-                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .multilineTextAlignment(.center)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .onTapGesture {
-                                            isAboutShowing.toggle()
-                                        }
-                                )
-                                .ignoresSafeArea()
+                            AboutUs()
+                                .onTapGesture {
+                                    isAboutShowing.toggle()
+                                }
                         }
                     } else {
                         ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
@@ -128,22 +98,15 @@ struct HomeView: View {
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.medium.value)
                         .fullScreenCover(isPresented: $isAboutShowing, content: {
-                            Rectangle()
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                .foregroundColor([.appRed, .appBlue, .appYellow].randomElement())
-                                .overlay(
-                                    Text("App creators:\n\nAnnderson Oreto\n Marcelo Diefenbach\n\nContact-us via e-mail:\nanndersonp@gmail.com")
-                                        .font(.system(size: FontSize.xxs.value, weight: .bold))
-                                        .foregroundColor(.white)
-                                        .multilineTextAlignment(.center)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .onTapGesture {
-                                            isAboutShowing.toggle()
-                                        }
-                                )
-                                .ignoresSafeArea()
+                            AboutUs()
+                                .onTapGesture {
+                                    isAboutShowing.toggle()
+                                }
                         })
                     }
+                    
+                    BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                        .padding(.bottom, Spacing.xxxs.value)
                 }
                 
                 //MARK: - navigations
