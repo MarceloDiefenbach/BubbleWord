@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum CardComponentType {
+    case small, large
+}
+
 struct CardComponent: View {
     
     // MARK: - Variables
@@ -15,19 +19,23 @@ struct CardComponent: View {
     var subtitle: String
     var image: String
     var color: Color
+    var variant: CardComponentType
+    var verticalPadding: CGFloat?
     
     // MARK: - Init
     
-    init(title: String, subtitle: String = "", image: String = "", color: Color) {
+    init(title: String, subtitle: String = "", image: String = "", color: Color, variant: CardComponentType = .large) {
         self.title = title
         self.subtitle = subtitle
         self.image = image
         self.color = color
+        self.variant = variant
     }
     
     // MARK: - Body
     
     var body: some View {
+        
         HStack {
             VStack {
                 HStack {
@@ -50,7 +58,7 @@ struct CardComponent: View {
                         .multilineTextAlignment(.center)
                 }
             }
-            .padding(.vertical, Spacing.small.value)
+            .padding(.vertical, variant == CardComponentType.large ? Spacing.small.value : Spacing.xxxs.value)
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
         .background(color)
