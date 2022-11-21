@@ -94,7 +94,7 @@ struct HomeView: View {
                     } else {
                         ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
                             isAboutShowing.toggle()
-                        })f
+                        })
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.medium.value)
                         .fullScreenCover(isPresented: $isAboutShowing, content: {
