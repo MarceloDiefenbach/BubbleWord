@@ -73,10 +73,10 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
-                        .onTapGesture {
-                            self.isStoreiewShowing = true
-                        }
+//                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
+//                        .onTapGesture {
+//                            self.isStoreiewShowing = true
+//                        }
                     
                     if #available(iOS 15.0, *) {
                         ButtonComponent(label: "About us", image: "person.text.rectangle", action: {

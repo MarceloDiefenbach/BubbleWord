@@ -53,7 +53,7 @@ struct CardComponent: View {
                 
                 if !subtitle.isEmpty {
                     Text(subtitle)
-                        .font(.system(size: FontSize.xs.value, weight: .regular))
+                        .font(.system(size: FontSize.xs.value, weight: .medium))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                 }

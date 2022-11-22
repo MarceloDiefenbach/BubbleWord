@@ -32,7 +32,8 @@ struct AboutUs: View {
                 
                 Rectangle()
                     .foregroundColor(.white)
-                    .frame(width: .infinity, height: 1)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 1)
                     .padding(.vertical, Spacing.xs.value)
                 
                 Text("Contact-us via e-mail:")

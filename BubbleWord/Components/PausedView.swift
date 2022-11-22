@@ -25,7 +25,7 @@ struct PausedView: View {
                     Spacer()
                     
                     HStack {
-                        Text("Continue game")
+                        Text("Continue playing")
                             .font(.system(size: FontSize.small.value, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
@@ -39,21 +39,22 @@ struct PausedView: View {
                     }
                     
                     HStack {
-                        Text("Finish game")
+                        Text("End game")
                             .font(.system(size: FontSize.small.value, weight: .medium))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, Spacing.xxxs.value)
                             .padding(.vertical, Spacing.nano.value)
                     }
-                    .frame(width: UIScreen.main.bounds.width*0.5)
+                    .frame(width: UIScreen.main.bounds.width * 0.5)
                     .cornerRadius(CornerRadius.circular.value)
                     .padding(.bottom, Spacing.xxs.value)
                     .onTapGesture {
                         finishGame()
                     }
                     
-                    BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274").frame(height: 50)
+                    BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274")
+                        .frame(height: 50)
                         .padding(.bottom, 80)
                 }
             }
