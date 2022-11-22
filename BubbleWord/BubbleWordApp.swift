@@ -18,6 +18,8 @@ struct ContentView: App {
         UXCamSwiftUI.start(with: config)
     }
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
             HomeView()

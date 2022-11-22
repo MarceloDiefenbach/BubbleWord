@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>704421271932-amnfl9esc7b4ms4brctqnobv6poqc56e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.704421271932-amnfl9esc7b4ms4brctqnobv6poqc56e</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>704421271932-c0gj9ohqdboko5isu7u3n5ksv9n355ql.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7Weim2PMKYcj4h3pgPLLYfdPRHauL0EY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>704421271932</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bubbleword</string>
+	<key>PROJECT_ID</key>
+	<string>mercado-wesz</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mercado-wesz.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:704421271932:ios:aa7b411c3096a4e0e06cf9</string>
+	<key>DATABASE_URL</key>
+	<string>https://mercado-wesz.firebaseio.com</string>
+</dict>
+</plist>

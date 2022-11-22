@@ -36,6 +36,8 @@
 		DF85AE642929255800887C52 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE632929255800887C52 /* FontSize.swift */; };
 		DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE652929572F00887C52 /* ButtonComponent.swift */; };
 		DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE6729295F6200887C52 /* CornerRadius.swift */; };
+		DF90E17E292D54E000D40716 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF90E17D292D54E000D40716 /* GoogleService-Info.plist */; };
+		DF90E180292D555000D40716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90E17F292D554C00D40716 /* AppDelegate.swift */; };
 		DFBAB37C292BBC480039DAC2 /* CreateGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
@@ -72,6 +74,8 @@
 		DF85AE632929255800887C52 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		DF85AE652929572F00887C52 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		DF85AE6729295F6200887C52 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		DF90E17D292D54E000D40716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DF90E17F292D554C00D40716 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameSession.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		DF5D36F62911B7EC001A7BA1 = {
 			isa = PBXGroup;
 			children = (
+				DF90E17D292D54E000D40716 /* GoogleService-Info.plist */,
 				DF5D37012911B7EC001A7BA1 /* BubbleWord */,
 				DF5D37002911B7EC001A7BA1 /* Products */,
 				4BF3536B9B7B88E52F4ED182 /* Pods */,
@@ -280,6 +285,7 @@
 		DF5D37012911B7EC001A7BA1 /* BubbleWord */ = {
 			isa = PBXGroup;
 			children = (
+				DF90E17F292D554C00D40716 /* AppDelegate.swift */,
 				2693C4E22927EFB000B85817 /* Features */,
 				DF6A50E3291D3F990079341B /* Extensions */,
 				DF85AE602929240C00887C52 /* Tokens */,
@@ -434,6 +440,7 @@
 			files = (
 				DF5D370A2911B7ED001A7BA1 /* Preview Assets.xcassets in Resources */,
 				DF5D37072911B7ED001A7BA1 /* Assets.xcassets in Resources */,
+				DF90E17E292D54E000D40716 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +497,7 @@
 				DF85AE642929255800887C52 /* FontSize.swift in Sources */,
 				DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */,
 				DF1BC865292AF4E300B17678 /* AboutUs.swift in Sources */,
+				DF90E180292D555000D40716 /* AppDelegate.swift in Sources */,
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
 				DF81278229216617007D7086 /* CardComponent.swift in Sources */,
 				DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */,
