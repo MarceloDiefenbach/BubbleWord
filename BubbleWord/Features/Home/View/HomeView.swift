@@ -12,8 +12,8 @@ struct HomeView: View {
     
     // MARK: - Variables
     
-    @State private var isCreateGameViewShowing: Bool = false
-    @State private var isJoinGameViewShowing: Bool = false
+    @State private var isSingleDeviceViewShowing: Bool = false
+    @State private var isMultiplayerViewShowing: Bool = false
     @State private var isStoreiewShowing: Bool = false
     @State private var isAboutShowing: Bool = false
     @State private var isHowToPlayShowing: Bool = false
@@ -28,7 +28,6 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Spacer()
                     
                     Text("Letters.io")
                         .font(.system(size: FontSize.large.value, weight: .bold))
@@ -36,15 +35,15 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.vertical, Spacing.small.value)
                     
-                    CardComponent(title: "Create Game", color: .appRed)
+                    CardComponent(title: "Single device", subtitle: "Play locally", color: .appRed)
                         .onTapGesture {
-                            self.isCreateGameViewShowing = true
+                            self.isSingleDeviceViewShowing = true
                         }
                     
-//                    CardComponent(title: "Join Game", subtitle: "Join a session", color: .appBlue)
-//                        .onTapGesture {
-//                            self.isJoinGameViewShowing = true
-//                        }
+                    CardComponent(title: "Multiplayer", subtitle: "Multiple online devices", color: .appBlue)
+                        .onTapGesture {
+                            self.isMultiplayerViewShowing = true
+                        }
                     
                     if #available(iOS 15.0, *) {
                         ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
@@ -74,17 +73,16 @@ struct HomeView: View {
                     
                     Spacer()
                     
-//                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
-//                        .onTapGesture {
-//                            self.isStoreiewShowing = true
-//                        }
+                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
+                        .onTapGesture {
+                            self.isStoreiewShowing = true
+                        }
                     
                     if #available(iOS 15.0, *) {
                         ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
-                        .padding(.bottom, Spacing.medium.value)
                         .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                             AboutUs()
                                 .onTapGesture {
@@ -96,7 +94,6 @@ struct HomeView: View {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
-                        .padding(.bottom, Spacing.medium.value)
                         .fullScreenCover(isPresented: $isAboutShowing, content: {
                             AboutUs()
                                 .onTapGesture {
@@ -111,17 +108,14 @@ struct HomeView: View {
                 
                 //MARK: - navigations
                 
-                NavigationLink("", isActive: $isCreateGameViewShowing) {
+                NavigationLink("", isActive: $isSingleDeviceViewShowing) {
                     DifficultyView()
                 }.hidden()
                 
-                NavigationLink("", isActive: $isJoinGameViewShowing) {
-                    EmptyView()
+                NavigationLink("", isActive: $isMultiplayerViewShowing) {
+                    JoinGame()
                 }.hidden()
                 
-                NavigationLink("", isActive: $isStoreiewShowing) {
-                    EmptyView()
-                }.hidden()
             }
             .navigationBarHidden(true)
         }
