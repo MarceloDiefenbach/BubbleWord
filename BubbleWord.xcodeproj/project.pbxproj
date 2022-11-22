@@ -109,7 +109,6 @@
 		2693C4E22927EFB000B85817 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				DFBAB37A292BBC2D0039DAC2 /* InviteParticipants */,
 				2693C4EC2927FC9700B85817 /* Home */,
 				DF81277E29216499007D7086 /* Difficulty */,
 				DF6A50DF291D2FB30079341B /* Game */,
@@ -201,6 +200,46 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		DF200C25292D0A74007F8B32 /* JoinGame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JoinGame;
+			sourceTree = "<group>";
+		};
+		DF200C26292D0A7E007F8B32 /* PlayGame */ = {
+			isa = PBXGroup;
+			children = (
+				2693C4E42927EFEF00B85817 /* View */,
+				2693C4E32927EFE200B85817 /* ViewModel */,
+				2693C4E52927EFF700B85817 /* Model */,
+			);
+			path = PlayGame;
+			sourceTree = "<group>";
+		};
+		DF200C27292D0A8F007F8B32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF200C28292D0A97007F8B32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF200C29292D0A9D007F8B32 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DF3FA87D2925D9D600FA003A /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,9 +308,9 @@
 		DF6A50DF291D2FB30079341B /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				2693C4E42927EFEF00B85817 /* View */,
-				2693C4E32927EFE200B85817 /* ViewModel */,
-				2693C4E52927EFF700B85817 /* Model */,
+				DF200C26292D0A7E007F8B32 /* PlayGame */,
+				DF200C25292D0A74007F8B32 /* JoinGame */,
+				DFBAB37A292BBC2D0039DAC2 /* CreateGame */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -304,13 +343,14 @@
 			path = Tokens;
 			sourceTree = "<group>";
 		};
-		DFBAB37A292BBC2D0039DAC2 /* InviteParticipants */ = {
+		DFBAB37A292BBC2D0039DAC2 /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
-				DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */,
-				DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */,
+				DF200C28292D0A97007F8B32 /* View */,
+				DF200C29292D0A9D007F8B32 /* ViewModel */,
+				DF200C27292D0A8F007F8B32 /* Model */,
 			);
-			path = InviteParticipants;
+			path = CreateGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
