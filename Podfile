@@ -7,5 +7,8 @@ target 'BubbleWord' do
 
   # Pods for BubbleWord
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseAnalytics'
 
 end
