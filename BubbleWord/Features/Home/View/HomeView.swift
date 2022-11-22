@@ -113,7 +113,7 @@ struct HomeView: View {
                 }.hidden()
                 
                 NavigationLink("", isActive: $isMultiplayerViewShowing) {
-                    JoinGame()
+                    MultiplayerView()
                 }.hidden()
                 
             }

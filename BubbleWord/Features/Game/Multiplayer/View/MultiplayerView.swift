@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct JoinGame: View {
+struct MultiplayerView: View {
     
     @State private var isCreateViewShowing: Bool = false
     @State private var textField: String = ""
@@ -25,7 +25,7 @@ struct JoinGame: View {
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.nano.value)
                 
-                LIOTextField(placeholder: "Insert your name here", textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: "Type your name here", textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
@@ -49,6 +49,6 @@ struct JoinGame: View {
 
 struct JoinGame_Previews: PreviewProvider {
     static var previews: some View {
-        JoinGame()
+        MultiplayerView()
     }
 }
