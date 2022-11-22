@@ -10,6 +10,7 @@ import SwiftUI
 struct MultiplayerView: View {
     
     @State private var isCreateViewShowing: Bool = false
+    @State private var isJoinViewShowing: Bool = false
     @State private var textField: String = ""
     
     var body: some View {
@@ -19,6 +20,8 @@ struct MultiplayerView: View {
                 .ignoresSafeArea()
             
             VStack {
+                
+                Spacer()
                 
                 Text("What's your name?")
                     .font(.system(size: FontSize.small.value, weight: .regular))
@@ -36,13 +39,19 @@ struct MultiplayerView: View {
                 
                 CardComponent(title: "Join session", color: .appBlue)
                     .onTapGesture {
-                        //TODO: - open joinView
+                        self.isJoinViewShowing = true
                     }
-                
-                NavigationLink("", isActive: $isCreateViewShowing) {
-                    CreateGameSession(inviteCode: "ABCDE")
-                }.hidden()
+                    .padding(.bottom, Spacing.xxxs.value)
+
             }
+            
+            NavigationLink("", isActive: $isCreateViewShowing) {
+                CreateGameSession(inviteCode: "ABCDE")
+            }.hidden()
+            
+            NavigationLink("", isActive: $isJoinViewShowing) {
+                JoinView()
+            }.hidden()
         }
     }
 }

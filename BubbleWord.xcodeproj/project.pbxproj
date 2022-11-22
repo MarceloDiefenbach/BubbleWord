@@ -42,6 +42,7 @@
 		DFBAB37C292BBC480039DAC2 /* CreateGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
+		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameSession.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
+		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,8 @@
 		DF200C25292D0A74007F8B32 /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
+				DFBAB37A292BBC2D0039DAC2 /* CreateGame */,
+				DFE633D7292D802900CB4B75 /* JoinGame */,
 				DF200C2C292D0B36007F8B32 /* View */,
 			);
 			path = Multiplayer;
@@ -330,7 +334,6 @@
 			children = (
 				DF200C26292D0A7E007F8B32 /* PlayGame */,
 				DF200C25292D0A74007F8B32 /* Multiplayer */,
-				DFBAB37A292BBC2D0039DAC2 /* CreateGame */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -371,6 +374,22 @@
 				DF200C27292D0A8F007F8B32 /* Model */,
 			);
 			path = CreateGame;
+			sourceTree = "<group>";
+		};
+		DFE633D7292D802900CB4B75 /* JoinGame */ = {
+			isa = PBXGroup;
+			children = (
+				DFE633D8292D804000CB4B75 /* View */,
+			);
+			path = JoinGame;
+			sourceTree = "<group>";
+		};
+		DFE633D8292D804000CB4B75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFE633D9292D804800CB4B75 /* JoinView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +543,7 @@
 				DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */,
 				DF2F100E291824DA00771C06 /* Letter.swift in Sources */,
 				2693C4EB2927F52200B85817 /* ConfettiParticles.swift in Sources */,
+				DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */,
 				2693C4F329280F4300B85817 /* CustomSheetParentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
