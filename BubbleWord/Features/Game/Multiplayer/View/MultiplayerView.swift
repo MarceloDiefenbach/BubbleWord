@@ -28,11 +28,6 @@ struct MultiplayerView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                Text("What's your name?")
-                    .font(.system(size: FontSize.small.value, weight: .regular))
-                    .foregroundColor(.white)
-                    .padding(.bottom, Spacing.nano.value)
-                
                 LIOTextField(placeholder: "Type your name here", textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
