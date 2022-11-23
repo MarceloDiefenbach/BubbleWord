@@ -179,13 +179,6 @@ struct GameView: View {
                 viewModel.oneSecondPassed()
             }
             
-            VStack {
-                Spacer()
-                
-                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
-                    .padding(.bottom, Spacing.xxxs.value)
-            }.ignoresSafeArea()
-            
             //MARK: - loseWinView
             if viewModel.lose {
                 YouLoseView(action: {
