@@ -28,11 +28,6 @@ struct JoinView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                Text(viewModel.subtitle)
-                    .font(.system(size: FontSize.small.value, weight: .regular))
-                    .foregroundColor(.white)
-                    .padding(.bottom, Spacing.nano.value)
-                
                 LIOTextField(placeholder: viewModel.placeholder, textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
@@ -49,7 +44,7 @@ struct JoinView: View {
                             }
                         })
                     }
-                    .padding(.bottom, Spacing.xxxs.value)
+                    .padding(.bottom, Spacing.xxxs.value+50)
                 
             }
             

@@ -14,7 +14,6 @@ enum JoinStatus {
 class JoinViewModel: ObservableObject {
     
     @Published var title: String = "Join Game"
-    @Published var subtitle: String = "Room code"
     @Published var placeholder: String = "Type room code here"
     @Published var buttonLabel: String = "Join Game"
     
