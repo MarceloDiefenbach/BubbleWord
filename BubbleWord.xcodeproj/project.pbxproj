@@ -39,6 +39,7 @@
 		DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE6729295F6200887C52 /* CornerRadius.swift */; };
 		DF90E17E292D54E000D40716 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF90E17D292D54E000D40716 /* GoogleService-Info.plist */; };
 		DF90E180292D555000D40716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90E17F292D554C00D40716 /* AppDelegate.swift */; };
+		DFA1C441292E5A2A00EA5031 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1C440292E5A2A00EA5031 /* JoinViewModel.swift */; };
 		DFBAB37C292BBC480039DAC2 /* CreateGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
@@ -79,6 +80,7 @@
 		DF85AE6729295F6200887C52 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		DF90E17D292D54E000D40716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF90E17F292D554C00D40716 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFA1C440292E5A2A00EA5031 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameSession.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
@@ -366,6 +368,14 @@
 			path = Tokens;
 			sourceTree = "<group>";
 		};
+		DFA1C43F292E5A1D00EA5031 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFA1C440292E5A2A00EA5031 /* JoinViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFBAB37A292BBC2D0039DAC2 /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +389,7 @@
 		DFE633D7292D802900CB4B75 /* JoinGame */ = {
 			isa = PBXGroup;
 			children = (
+				DFA1C43F292E5A1D00EA5031 /* ViewModel */,
 				DFE633D8292D804000CB4B75 /* View */,
 			);
 			path = JoinGame;
@@ -518,6 +529,7 @@
 				DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */,
 				DF85AE642929255800887C52 /* FontSize.swift in Sources */,
 				DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */,
+				DFA1C441292E5A2A00EA5031 /* JoinViewModel.swift in Sources */,
 				DF1BC865292AF4E300B17678 /* AboutUs.swift in Sources */,
 				DF90E180292D555000D40716 /* AppDelegate.swift in Sources */,
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,

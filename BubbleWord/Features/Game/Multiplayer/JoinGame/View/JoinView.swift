@@ -9,6 +9,8 @@ import SwiftUI
 
 struct JoinView: View {
     
+    @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
+    
     @State private var textField: String = ""
     
     var body: some View {
@@ -19,28 +21,33 @@ struct JoinView: View {
             
             VStack {
                 
-                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
-                    .padding(.bottom, Spacing.xxxs.value)
-                
                 Spacer()
                 
-                Text("Join game")
+                Text(viewModel.title)
                     .font(.system(size: FontSize.extraLarge.value, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                Text("Room code")
+                Text(viewModel.subtitle)
                     .font(.system(size: FontSize.small.value, weight: .regular))
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.nano.value)
                 
-                LIOTextField(placeholder: "Type room code here", textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: viewModel.placeholder, textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                CardComponent(title: "Join game", color: .appYellow, variant: .small)
+                CardComponent(title: viewModel.buttonLabel, color: .appYellow, variant: .small)
                     .onTapGesture {
-                        //TODO: - go to waiting view
+                        viewModel.joinGame(roomCode: textField, completionHandler: { (response) in
+                            if response == .success {
+                                //TODO: - go to waiting room
+                            } else if response == .failed {
+                                //TODO: - show alert
+                            } else {
+                                //TODO: - show activity indicator
+                            }
+                        })
                     }
                     .padding(.bottom, Spacing.xxxs.value)
                 
@@ -57,8 +64,8 @@ struct JoinView: View {
 
 }
 
-struct JoinView_Previews: PreviewProvider {
-    static var previews: some View {
-        JoinView()
-    }
-}
+//struct JoinView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        JoinView()
+//    }
+//}
