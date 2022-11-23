@@ -8,12 +8,22 @@
 import Foundation
 
 enum CornerRadius: String {
-    case none, small, circular
+    
+    /// 0
+    case none
+    /// 8
+    case xs
+    /// 16
+    case small
+    /// 500
+    case circular
     
     var value: CGFloat {
         switch self {
         case .none:
             return 0
+        case .xs:
+            return 8
         case .small:
             return 16
         case .circular:

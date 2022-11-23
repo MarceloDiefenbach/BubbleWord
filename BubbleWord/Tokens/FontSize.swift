@@ -8,7 +8,20 @@
 import Foundation
 
 enum FontSize: String {
-    case xxs, xs, small, medium, large, extraLarge, extraExtraLarge
+    /// 12
+    case xxs
+    /// 16
+    case xs
+    /// 20
+    case small
+    /// 24
+    case medium
+    /// 32
+    case large
+    /// 40
+    case extraLarge
+    /// 60
+    case extraExtraLarge
     
     var value: CGFloat {
         switch self {
