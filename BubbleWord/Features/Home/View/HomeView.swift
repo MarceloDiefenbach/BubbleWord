@@ -102,7 +102,7 @@ struct HomeView: View {
                         })
                     }
                     
-                    BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                    BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 30)
                         .padding(.bottom, Spacing.xxxs.value)
                 }
                 
@@ -115,7 +115,6 @@ struct HomeView: View {
                 NavigationLink("", isActive: $isMultiplayerViewShowing) {
                     MultiplayerView()
                 }.hidden()
-                
             }
             .navigationBarHidden(true)
         }
