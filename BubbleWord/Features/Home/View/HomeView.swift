@@ -83,6 +83,7 @@ struct HomeView: View {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
+                        .padding(.bottom, Spacing.xxs.value + 50)
                         .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
                             AboutUs()
                                 .onTapGesture {
@@ -94,6 +95,7 @@ struct HomeView: View {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
+                        .padding(.bottom, Spacing.xxs.value + 50)
                         .fullScreenCover(isPresented: $isAboutShowing, content: {
                             AboutUs()
                                 .onTapGesture {
@@ -101,10 +103,14 @@ struct HomeView: View {
                                 }
                         })
                     }
-                    
-                    BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 30)
-                        .padding(.bottom, Spacing.xxxs.value)
                 }
+                
+                VStack {
+                    Spacer()
+                    
+                    BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                        .padding(.bottom, Spacing.xxxs.value)
+                }.ignoresSafeArea()
                 
                 //MARK: - navigations
                 

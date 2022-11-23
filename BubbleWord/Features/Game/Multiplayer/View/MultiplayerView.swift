@@ -21,9 +21,6 @@ struct MultiplayerView: View {
             
             VStack {
                 
-                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
-                    .padding(.bottom, Spacing.xxxs.value)
-                
                 Spacer()
                 
                 Text("Multiplayer")
@@ -40,17 +37,24 @@ struct MultiplayerView: View {
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                CardComponent(title: "Create session", color: .appYellow)
+                CardComponent(title: "Create session", color: .appYellow, variant: .small)
                     .onTapGesture {
                         self.isCreateViewShowing = true
                     }
                 
-                CardComponent(title: "Join session", color: .appBlue)
+                CardComponent(title: "Join session", color: .appBlue, variant: .small)
                     .onTapGesture {
                         self.isJoinViewShowing = true
                     }
-                    .padding(.bottom, Spacing.xxxs.value)
+                    .padding(.bottom, Spacing.xxs.value + 50)
             }
+            
+            VStack {
+                Spacer()
+                
+                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                    .padding(.bottom, Spacing.xxxs.value)
+            }.ignoresSafeArea()
             
             NavigationLink("", isActive: $isCreateViewShowing) {
                 CreateGameSession(inviteCode: "ABCDE")
