@@ -63,6 +63,9 @@ struct CreateGameView: View {
                     
                     CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
                         .padding(.bottom, Spacing.xxxs.value)
+                        .onTapGesture {
+                            //TODO: - start game with participants already in
+                        }
                 }
                 .padding(.horizontal, Spacing.defaultMargin.value)
             }
