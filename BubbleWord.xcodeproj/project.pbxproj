@@ -39,8 +39,9 @@
 		DF85AE6829295F6200887C52 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF85AE6729295F6200887C52 /* CornerRadius.swift */; };
 		DF90E17E292D54E000D40716 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF90E17D292D54E000D40716 /* GoogleService-Info.plist */; };
 		DF90E180292D555000D40716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90E17F292D554C00D40716 /* AppDelegate.swift */; };
+		DF9C209E292EE9A500F59684 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C209D292EE9A500F59684 /* CreateGameViewModel.swift */; };
 		DFA1C441292E5A2A00EA5031 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1C440292E5A2A00EA5031 /* JoinViewModel.swift */; };
-		DFBAB37C292BBC480039DAC2 /* CreateGameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */; };
+		DFBAB37C292BBC480039DAC2 /* CreateGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
@@ -80,8 +81,9 @@
 		DF85AE6729295F6200887C52 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		DF90E17D292D54E000D40716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF90E17F292D554C00D40716 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF9C209D292EE9A500F59684 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		DFA1C440292E5A2A00EA5031 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
-		DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameSession.swift; sourceTree = "<group>"; };
+		DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameView.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
@@ -243,7 +245,7 @@
 		DF200C28292D0A97007F8B32 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DFBAB37B292BBC480039DAC2 /* CreateGameSession.swift */,
+				DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +253,7 @@
 		DF200C29292D0A9D007F8B32 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DF9C209D292EE9A500F59684 /* CreateGameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -535,11 +538,12 @@
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
 				DF81278229216617007D7086 /* CardComponent.swift in Sources */,
 				DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */,
-				DFBAB37C292BBC480039DAC2 /* CreateGameSession.swift in Sources */,
+				DFBAB37C292BBC480039DAC2 /* CreateGameView.swift in Sources */,
 				2693C4F12928032300B85817 /* HomeView.swift in Sources */,
 				2664C20A292BBCE600DFE8F0 /* Haptic.swift in Sources */,
 				DF85AE622929241400887C52 /* Spacing.swift in Sources */,
 				DF200C2B292D0B32007F8B32 /* MultiplayerView.swift in Sources */,
+				DF9C209E292EE9A500F59684 /* CreateGameViewModel.swift in Sources */,
 				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,

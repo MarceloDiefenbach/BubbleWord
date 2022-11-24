@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-struct CreateGameSession: View {
+struct CreateGameView: View {
     
-    @State var inviteCode: String
-    @State var inviteCodeArray: Array = ["a", "a", "a", "a", "a"]
-    @State var participants: [Participant] = [Participant(id: UUID(), name: "Marcelo"), Participant(id: UUID(), name: "Chumiga")]
+    @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,35 +20,35 @@ struct CreateGameSession: View {
                 
                 VStack {
                     
-                    Text("Play game")
+                    Text(viewModel.title)
                         .foregroundColor(.white)
                         .font(.system(size: FontSize.large.value, weight: .bold))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, Spacing.quarck.value)
                     
-                    Text("Share this code with your friends")
+                    Text(viewModel.instruction)
                         .foregroundColor(.white)
                         .font(.system(size: FontSize.small.value, weight: .regular))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, Spacing.small.value)
                     
                     HStack {
-                        ForEach(inviteCodeArray, id: \.self) {
+                        ForEach(viewModel.inviteCodeArray, id: \.self) {
                             InviteLetterComponent(letter: $0, variant: .onlyView)
                         }
                     }.frame(height: 80)
                         .padding(.bottom, Spacing.xxs.value)
                     
-                    Text("Participants already in")
+                    Text(viewModel.participantsTitle)
                         .foregroundColor(.white)
                         .font(.system(size: FontSize.xs.value, weight: .regular))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, Spacing.xxxs.value)
                     
                     ScrollView {
-                        ForEach(0..<Int(participants.count), content: { index in
+                        ForEach(0..<Int(viewModel.participants.count), content: { index in
                             HStack {
-                                Text(participants[index].name)
+                                Text(viewModel.participants[index].name)
                                     .foregroundColor(.white)
                                     .padding(.vertical, Spacing.xxxs.value)
                             }
@@ -63,7 +61,7 @@ struct CreateGameSession: View {
                     
                     Spacer()
                     
-                    CardComponent(title: "Start game", color: .appYellow, variant: .small)
+                    CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
                         .padding(.bottom, Spacing.xxxs.value)
                 }
                 .padding(.horizontal, Spacing.defaultMargin.value)
@@ -71,19 +69,18 @@ struct CreateGameSession: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .onAppear() {
-            inviteCodeArray = inviteCode.map { String($0) }
-            print(inviteCodeArray[0])
+            viewModel.inviteCodeArray = viewModel.inviteCode.map { String($0) }
         }
     }
     
     func copyInviteCode() {
-        UIPasteboard.general.string = self.inviteCode
+        UIPasteboard.general.string = self.viewModel.inviteCode
     }
     
 }
 
 struct InviteParticipants_Previews: PreviewProvider {
     static var previews: some View {
-        CreateGameSession(inviteCode: "ABCDE")
+        CreateGameView()
     }
 }

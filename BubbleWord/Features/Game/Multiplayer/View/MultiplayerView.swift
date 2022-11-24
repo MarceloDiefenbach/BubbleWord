@@ -52,7 +52,7 @@ struct MultiplayerView: View {
             }.ignoresSafeArea()
             
             NavigationLink("", isActive: $isCreateViewShowing) {
-                CreateGameSession(inviteCode: "ABCDE")
+                CreateGameView()
             }.hidden()
             
             NavigationLink("", isActive: $isJoinViewShowing) {
