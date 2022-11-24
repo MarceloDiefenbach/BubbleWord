@@ -21,4 +21,9 @@ class CreateGameViewModel: ObservableObject {
     @Published var inviteCode: String = ""
     @Published var inviteCodeArray: Array = ["a", "a", "a", "a", "a"]
     @Published var participants: [Participant] = [Participant(id: UUID(), name: "Marcelo"), Participant(id: UUID(), name: "Chumiga")]
+    
+    
+    func getParticipantsOfFirebase() {
+        //TODO: - update participants list
+    }
 }
