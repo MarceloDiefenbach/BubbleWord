@@ -15,7 +15,7 @@ struct HomeView: View {
     @State private var isSingleDeviceViewShowing: Bool = false
     @State private var isMultiplayerViewShowing: Bool = false
     @State private var isStoreiewShowing: Bool = false
-    @State private var isAboutShowing: Bool = false
+    @State private var isSettingsShowing: Bool = false
     @State private var isHowToPlayShowing: Bool = false
     
     // MARK: - Body
@@ -79,28 +79,22 @@ struct HomeView: View {
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
-                            isAboutShowing.toggle()
+                        ButtonComponent(label: "Settings", image: "gearshape", action: {
+                            isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xxs.value + 50)
-                        .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
-                            AboutUs()
-                                .onTapGesture {
-                                    isAboutShowing.toggle()
-                                }
+                        .adaptiveSheet(isPresented: $isSettingsShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
+                            Settings()
                         }
                     } else {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
-                            isAboutShowing.toggle()
+                        ButtonComponent(label: "Settings", image: "gearshape", action: {
+                            isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xxs.value + 50)
-                        .fullScreenCover(isPresented: $isAboutShowing, content: {
-                            AboutUs()
-                                .onTapGesture {
-                                    isAboutShowing.toggle()
-                                }
+                        .sheet(isPresented: $isSettingsShowing, content: {
+                            Settings()
                         })
                     }
                 }
