@@ -23,3 +23,12 @@
 // MARK: - About us
 "aboutUsTitle" = "App creators";
 "contactViaEmail" = "Contact-us via e-mail";
+
+// MARK: - Difficulty
+"difficultyTitle" = "Choose a difficulty to play";
+"easy"= "Easy";
+"medium"= "Medium";
+"hard"= "Hard";
+"easyDescription"= "Only common letters";
+"mediumDescription"= "Adds tricky letters (e.g. Q)";
+"hardDescription"= "All letters of the alphabet";

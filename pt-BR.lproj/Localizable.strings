@@ -23,3 +23,14 @@
 // MARK: - About us
 "aboutUsTitle" = "Criadores do app";
 "contactViaEmail" = "Entre em contato por e-mail";
+
+// MARK: - Difficulty
+"difficultyTitle" = "Escolha um nível de dificuldade";
+"easy"= "Fácil";
+"medium"= "Médio";
+"hard"= "Difícil";
+"easyDescription"= "Somente letras comuns";
+"mediumDescription"= "Algumas letras não tão comuns, como o Q";
+"hardDescription"= "Todas as letras do alfabeto";
+
+
