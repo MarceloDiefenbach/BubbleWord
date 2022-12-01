@@ -43,3 +43,10 @@
 // MARK: - Lose
 "loseTitle" = "You lose";
 "continueButtonLose" = "Continue playing";
+
+// MARK: - Multiplayer
+"multiplayerTitle" = "Multiplayer";
+"multiplayerField" = "Type your name here";
+"createSessionButton" = "Create Session";
+"joinSessionButton" = "Join Session";
+

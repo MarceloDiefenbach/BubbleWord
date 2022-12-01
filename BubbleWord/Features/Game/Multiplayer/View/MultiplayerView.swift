@@ -23,21 +23,21 @@ struct MultiplayerView: View {
                 
                 Spacer()
                 
-                Text("Multiplayer")
+                Text(NSLocalizedString("multiplayerTitle", comment: ""))
                     .font(.system(size: FontSize.extraLarge.value, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                LIOTextField(placeholder: "Type your name here", textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: NSLocalizedString("multiplayerField", comment: ""), textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                CardComponent(title: "Create session", color: .appYellow, variant: .small)
+                CardComponent(title: NSLocalizedString("createSessionButton", comment: ""), color: .appYellow, variant: .small)
                     .onTapGesture {
                         self.isCreateViewShowing = true
                     }
                 
-                CardComponent(title: "Join session", color: .appBlue, variant: .small)
+                CardComponent(title: NSLocalizedString("joinSessionButton", comment: ""), color: .appBlue, variant: .small)
                     .onTapGesture {
                         self.isJoinViewShowing = true
                     }
