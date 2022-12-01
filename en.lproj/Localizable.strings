@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  BubbleWord
+
+  Created by Marcelo Diefenbach on 01/12/22.
+  
+*/
+
+// MARK: - home
+"singleDeviceTitle" = "Um dispositivo";
+"singleDeviceDescription" = "Jogue localmente";
+"multiplayerTitle" = "Multiplayer";
+"multiplayerDescription" = "Vários dispositivos online";
+"howToPlayButton" = "Como jogar?";
+"storeButton" = "Loja";
+"aboutUsButton" = "Sobre nós";
+
+
