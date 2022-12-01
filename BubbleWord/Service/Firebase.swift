@@ -8,107 +8,106 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseDatabase
+import Firebase
+import FirebaseFirestore
 
 class FirebaseService {
     
+    enum ErrorType: Error {
+        case noCurrentCode
+        case noParticipantsFound
+    }
+    
+    // MARK: - Variables
+    
     static var standard = FirebaseService()
-
     var ref = Database.database().reference()
     var refRooms = Database.database().reference().child("rooms")
-    
     var room: Room!
     var participants: [Participant] = []
+    var currentCode: String? = "ABCD"
     
-    func createRoom(completionHandler: @escaping (String) -> Void) {
-        self.ref.child("rooms").child("ABCD").setValue([
-            "code": "ABCD",
+    // MARK: - Functions
+    
+    func randomString(length: Int = 4) -> String {
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement() ?? "A" })
+    }
+    
+    // MARK: - Requests
+    
+    func createRoom(completion: @escaping (String) -> Void) {
+        let code = randomString()
+        
+        self.refRooms.child(code).setValue([
+            "code": code,
             "hasBegun": "false",
             "participants": [
                 "1": UserDefaults.standard.string(forKey: "username")
             ]
         ])
-        completionHandler("abcd")
+        
+        self.currentCode = code
+        
+        completion(code)
     }
     
-    func getParticipants(completionHandler: @escaping ([Participant]) -> Void) {
+    func getParticipants(completion: @escaping (Result<[Participant], Error>) -> Void) {
+        var participantsList: [Participant] = []
         
-        var participants: [Participant] = []
-        refRooms.child("ABCD").child("participants").observe(DataEventType.value, with: { snapshot in
-            
-            let values = snapshot.value as? [String: AnyObject]
-            
-//            values?.forEach({ value in
-                print("# \(values?["a"] as? String ?? "")")
-//            })
-//            let username = value?["1"] as? String ?? ""
-//            let user = User(username: username)
-            
-//            let value = snapshot.value as! [String: Any]
-//            let count = 1...value.count
-//
-//            for number in count {
-//                print(number)
-//                let participant = Participant(id: UUID(), name: value["\(number)"] as? String ?? "")
-//                participants.append(participant)
-//            }
-        })
-        completionHandler(participants)
-    }
-    
-//    func joinRoom(completionHandler: @escaping (String) -> Void) {
-//        refRooms.child("ABCD").child("participants").observe(DataEventType.value, with: { snapshot in
-//            let value = snapshot.value as! [String: Any]
-//            let count = 1...value.count
-//
-//            var dic: [String: Any]
-//
-//            for number in count {
-//                print(number)
-//                let item: [String: Any] = [
-//                       "\(number)": "new value"
-//                   ]
-//                dic.append(item)
-//            }
-//        )
-//
-//        self.participants.append(Participant(id: UUID(), name: UserDefaults.standard.string(forKey: "username") ?? "Alpaca Anônima"))
-//    }
-    
-    func getRoom(completionHandler: @escaping (String) -> Void) {
-        
-        ref.child("rooms").child("ABCD").observe(DataEventType.value, with: { snapshot in
-            let value = snapshot.value as? NSDictionary
-            let code = value?["code"] as? String ?? ""
-            let hasBegun = value?["hasBegun"] as? Bool ?? false
-//            let participants = value?["participants"] as! [String: Any]
-//
-//            let count = 1...participants.count
-//
-//            for number in count {
-//                print(number)
-//                let participant = Participant(id: UUID(), name: participants["\(number)"] as? String ?? "")
-//                self.participants.append(participant)
-//            }
-//            print(self.participants)
-            
-            self.room = Room(
-                code: code,
-                participants: [],
-                hasBegun: hasBegun,
-                letters: [
-                ],
-                question: Question(
-                    questionText: "Texto da pergunta",
-                    questionColor: 1
-                )
-            )
-            
-            print(self.room)
-            
-        }) { error in
-          print(error.localizedDescription)
+        guard let currentCode = currentCode else {
+            completion(.failure(ErrorType.noCurrentCode))
+            return
         }
-        completionHandler("foi")
+        
+        refRooms.child(currentCode).child("participants").getData(completion: { err, snapshot in
+            if let participants = snapshot?.value as? [String] {
+                for participant in participants {
+                    participantsList.append(Participant(id: UUID(), name: participant))
+                }
+                completion(.success(participantsList))
+            } else {
+                completion(.failure(ErrorType.noParticipantsFound))
+            }
+        })
     }
+    
+    func participantsListener(completion: @escaping (Result<[Participant], Error>) -> Void) {
+        var participantsList: [Participant] = []
+        
+        guard let currentCode = currentCode else {
+            completion(.failure(ErrorType.noCurrentCode))
+            return
+        }
+        
+        refRooms.child(currentCode).child("participants").observe(DataEventType.value, with: { snapshot in
+            if let participants = snapshot.value as? [String] {
+                for participant in participants {
+                    participantsList.append(Participant(id: UUID(), name: participant))
+                }
+                completion(.success(participantsList))
+            } else {
+                completion(.failure(ErrorType.noParticipantsFound))
+            }
+        })
+    }
+    
+    func joinRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.getParticipants { result in
+            switch result {
+            case .success(let success):
+                var participants = success.map( { $0.name } )
+                let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
+                participants.append(username)
+                self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
+                    completion(.success(true))
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+                completion(.failure(ErrorType.noParticipantsFound))
+            }
+        }
+    }
+    
     
 }
