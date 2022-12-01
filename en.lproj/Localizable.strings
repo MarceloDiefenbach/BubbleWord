@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   BubbleWord
 
@@ -7,12 +7,19 @@
 */
 
 // MARK: - home
-"singleDeviceTitle" = "Um dispositivo";
-"singleDeviceDescription" = "Jogue localmente";
+"singleDeviceTitle" = "Single Device";
+"singleDeviceDescription" = "Play locally";
 "multiplayerTitle" = "Multiplayer";
-"multiplayerDescription" = "Vários dispositivos online";
-"howToPlayButton" = "Como jogar?";
-"storeButton" = "Loja";
-"aboutUsButton" = "Sobre nós";
+"multiplayerDescription" = "Multiple online devices";
+"howToPlayButton" = "How to play";
+"storeButton" = "Store";
+"aboutUsButton" = "About us";
 
+// MARK: - How To Play
+"howToPlayTitle" = "Here's how to play:";
+"howToPlayDescription1" = "You will have 10 seconds to say of a word matching the theme and beginning with any of the letters available in the poll of letters";
+"howToPlayDescription2" = "After spell the word, tap the letter to switch to next participant";
 
+// MARK: - About us
+"aboutUsTitle" = "App creators";
+"contactViaEmail" = "Contact-us via e-mail";

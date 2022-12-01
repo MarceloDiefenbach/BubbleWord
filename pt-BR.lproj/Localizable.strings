@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   BubbleWord
 
@@ -7,12 +7,19 @@
 */
 
 // MARK: - home
-"singleDeviceTitle" = "Single Device";
-"singleDeviceDescription" = "Play locally";
+"singleDeviceTitle" = "Um dispositivo";
+"singleDeviceDescription" = "Jogue localmente";
 "multiplayerTitle" = "Multiplayer";
-"multiplayerDescription" = "Multiple online devices";
-"howToPlayButton" = "How to play";
-"storeButton" = "Store";
-"aboutUsButton" = "About us";
+"multiplayerDescription" = "Vários dispositivos online";
+"howToPlayButton" = "Como jogar?";
+"storeButton" = "Loja";
+"aboutUsButton" = "Sobre nós";
 
+// MARK: - How To Play
+"howToPlayTitle" = "Veja como jogar:";
+"howToPlayDescription1" = "Você tem 10 segundos para dizer uma palavra que comece com uma das letras disponíveis na tela";
+"howToPlayDescription2" = "Depois de falar a palavra, marque a letra que você usou para passar para o próximo jogador";
 
+// MARK: - About us
+"aboutUsTitle" = "Criadores do app";
+"contactViaEmail" = "Entre em contato por e-mail";
