@@ -40,7 +40,7 @@ struct HomeView: View {
                             self.isSingleDeviceViewShowing = true
                         }
                     
-                    CardComponent(title: NSLocalizedString("multiplayerTitle", comment: ""), subtitle: NSLocalizedString("singleDeviceDescription", comment: ""), color: .appBlue)
+                    CardComponent(title: NSLocalizedString("multiplayerTitle", comment: ""), subtitle: NSLocalizedString("multiplayerDescription", comment: ""), color: .appBlue)
                         .onTapGesture {
                             self.isMultiplayerViewShowing = true
                         }
