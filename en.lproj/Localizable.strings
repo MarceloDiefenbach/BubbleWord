@@ -50,3 +50,13 @@
 "createSessionButton" = "Create Session";
 "joinSessionButton" = "Join Session";
 
+// MARK: - Create room
+"createRoomTitle" = "Play game";
+"createRoomSubtitle" = "Share this code with your friends";
+"participantsAlreadyIn" = "Participant already in";
+"createRoomStartButton" = "Start";
+
+// MARK: - Join room
+"joinRoomTitle" = "Join Game";
+"joinRoomField" = "Type room code";
+"joinRoomButton" = "Join game";
