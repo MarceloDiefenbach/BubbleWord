@@ -32,3 +32,14 @@
 "easyDescription"= "Only common letters";
 "mediumDescription"= "Adds tricky letters (e.g. Q)";
 "hardDescription"= "All letters of the alphabet";
+
+// MARK: - Game
+"currentPlayer" = "Your turn";
+
+// MARK: - Pause
+"continueButton" = "Continue playing";
+"endButton" = "End game";
+
+// MARK: - Lose
+"loseTitle" = "You lose";
+"continueButtonLose" = "Continue playing";
