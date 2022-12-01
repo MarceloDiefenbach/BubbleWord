@@ -7,20 +7,32 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 enum Difficulty: String {
-    case easy = "Easy"
-    case medium = "Medium"
-    case hard = "Hard"
+    case easy
+    case medium
+    case hard
+    
+    func title() -> String {
+        switch self {
+        case .easy:
+            return NSLocalizedString("easy", comment: "")
+        case .medium:
+            return NSLocalizedString("medium", comment: "")
+        case .hard:
+            return NSLocalizedString("hard", comment: "")
+        }
+    }
     
     func difficultyDescription() -> String {
         switch self {
         case .easy:
-            return "Only common letters."
+            return NSLocalizedString("easyDescription", comment: "")
         case .medium:
-            return "Adds tricky letters to play (e.g. Q)."
+            return NSLocalizedString("mediumDescription", comment: "")
         case .hard:
-            return "All letters from alphabet."
+            return NSLocalizedString("hardDescription", comment: "")
         }
     }
 }

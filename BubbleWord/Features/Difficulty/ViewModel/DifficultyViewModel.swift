@@ -11,7 +11,7 @@ class DifficultyViewModel: ObservableObject {
     
     // MARK: - Constants
 
-    let title: String = "Choose a\ndifficulty to play"
+    let title: String = NSLocalizedString("difficultyTitle", comment: "")
     let casual: [String] = [
         "Car brands",
         "City",
@@ -24,4 +24,13 @@ class DifficultyViewModel: ObservableObject {
         "Bathroom things",
         "Insults"
     ]
+    
+    //MARK: - difficulties labels
+    let easyTitle: String = Difficulty.easy.title()
+    let mediumTitle: String = Difficulty.medium.title()
+    let hardTitle: String = Difficulty.hard.title()
+    let easyDescription: String = Difficulty.easy.difficultyDescription()
+    let mediumDescription: String = Difficulty.medium.difficultyDescription()
+    let hardDescription: String = Difficulty.hard.difficultyDescription()
+    
 }
