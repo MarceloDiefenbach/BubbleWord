@@ -138,7 +138,7 @@ class GameViewModel: ObservableObject {
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
-    @Published var currentPlayer: String = "Your turn"
+    @Published var currentPlayer: String = NSLocalizedString("currentPlayer", comment: "")
     @Published var nextPlayer: String = ""
     private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
