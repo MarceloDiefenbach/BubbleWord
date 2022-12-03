@@ -25,7 +25,7 @@ struct PausedView: View {
                     Spacer()
                     
                     HStack {
-                        Text("Continue playing")
+                        Text(NSLocalizedString("continueButton", comment: ""))
                             .font(.system(size: FontSize.small.value, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct PausedView: View {
                     }
                     
                     HStack {
-                        Text("End game")
+                        Text(NSLocalizedString("endButton", comment: ""))
                             .font(.system(size: FontSize.small.value, weight: .medium))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)

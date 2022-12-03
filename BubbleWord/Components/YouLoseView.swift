@@ -27,7 +27,7 @@ struct YouLoseView: View {
                 
                 VStack {
                     HStack {
-                        Text("You\nlose")
+                        Text(NSLocalizedString("loseTitle", comment: ""))
                             .font(.system(size: 80, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct YouLoseView: View {
                     Spacer()
                     
                     HStack {
-                        Text("Continue playing")
+                        Text(NSLocalizedString("continueButtonLose", comment: ""))
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)

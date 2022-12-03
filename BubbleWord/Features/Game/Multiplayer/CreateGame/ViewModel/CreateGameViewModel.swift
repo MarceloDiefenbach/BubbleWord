@@ -11,10 +11,10 @@ class CreateGameViewModel: ObservableObject {
     
     //MARK: - texts
     
-    @Published var title: String = "Play game"
-    @Published var instruction: String = "Share this code with your friends"
-    @Published var participantsTitle: String = "Participants already in"
-    @Published var startButtonLabel: String = "Start game"
+    @Published var title: String = NSLocalizedString("createRoomTitle", comment: "")
+    @Published var instruction: String = NSLocalizedString("createRoomSubtitle", comment: "")
+    @Published var participantsTitle: String = NSLocalizedString("participantsAlreadyIn", comment: "")
+    @Published var startButtonLabel: String = NSLocalizedString("createRoomStartButton", comment: "")
     
     //MARK: - variable
     
