@@ -45,6 +45,7 @@
 		DFBAB37C292BBC480039DAC2 /* CreateGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
+		DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameView.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
+		DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				DFBAB37A292BBC2D0039DAC2 /* CreateGame */,
 				DFE633D7292D802900CB4B75 /* JoinGame */,
 				DF200C2C292D0B36007F8B32 /* View */,
+				DFDE43FA293B86060002A6B2 /* ViewModel */,
 			);
 			path = Multiplayer;
 			sourceTree = "<group>";
@@ -393,11 +396,19 @@
 			path = CreateGame;
 			sourceTree = "<group>";
 		};
+		DFDE43FA293B86060002A6B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFE633D7292D802900CB4B75 /* JoinGame */ = {
 			isa = PBXGroup;
 			children = (
-				DFA1C43F292E5A1D00EA5031 /* ViewModel */,
 				DFE633D8292D804000CB4B75 /* View */,
+				DFA1C43F292E5A1D00EA5031 /* ViewModel */,
 			);
 			path = JoinGame;
 			sourceTree = "<group>";
@@ -553,6 +564,7 @@
 				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,
+				DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */,
 				2693C4E92927F04200B85817 /* Color.swift in Sources */,
 				DF6A50E5291D3FA30079341B /* View.swift in Sources */,
 				DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */,
