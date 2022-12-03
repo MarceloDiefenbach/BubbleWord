@@ -35,18 +35,18 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.vertical, Spacing.small.value)
                     
-                    CardComponent(title: "Single device", subtitle: "Play locally", color: .appRed)
+                    CardComponent(title: NSLocalizedString("singleDeviceTitle", comment: ""), subtitle: NSLocalizedString("singleDeviceDescription", comment: ""), color: .appRed)
                         .onTapGesture {
                             self.isSingleDeviceViewShowing = true
                         }
                     
-                    CardComponent(title: "Multiplayer", subtitle: "Multiple online devices", color: .appBlue)
+                    CardComponent(title: NSLocalizedString("multiplayerTitle", comment: ""), subtitle: NSLocalizedString("multiplayerDescription", comment: ""), color: .appBlue)
                         .onTapGesture {
                             self.isMultiplayerViewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
+                        ButtonComponent(label: NSLocalizedString("howToPlayButton", comment: ""), image: "questionmark.circle", action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -58,7 +58,7 @@ struct HomeView: View {
                                 }
                         }
                     } else {
-                        ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
+                        ButtonComponent(label: NSLocalizedString("howToPlayButton", comment: ""), image: "questionmark.circle", action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -73,13 +73,13 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
+                    CardComponent(title: NSLocalizedString("storeButton", comment: ""), image: "bag.circle", color: .appYellow)
                         .onTapGesture {
                             self.isStoreiewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
+                        ButtonComponent(label: NSLocalizedString("aboutUsButton", comment: ""), image: "person.text.rectangle", action: {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -91,7 +91,7 @@ struct HomeView: View {
                                 }
                         }
                     } else {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
+                        ButtonComponent(label: NSLocalizedString("aboutUsButton", comment: ""), image: "person.text.rectangle", action: {
                             isAboutShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)

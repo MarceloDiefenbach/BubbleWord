@@ -14,11 +14,12 @@ enum JoinStatus {
 class JoinViewModel: ObservableObject {
     
     // MARK: - Variables
-    
-    @Published var title: String = "Join Game"
-    @Published var placeholder: String = "Type room code here"
-    @Published var buttonLabel: String = "Join Game"
+
+    @Published var title: String = NSLocalizedString("joinRoomTitle", comment: "")
+    @Published var placeholder: String = NSLocalizedString("joinRoomField", comment: "")
+    @Published var buttonLabel: String = NSLocalizedString("joinRoomButton", comment: "")
     var firebase: FirebaseService = FirebaseService()
+
     
     // MARK: - Init
     

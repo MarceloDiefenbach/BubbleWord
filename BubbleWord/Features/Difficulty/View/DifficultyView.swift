@@ -32,7 +32,7 @@ struct DifficultyView: View {
                     .padding(.bottom, Spacing.small.value)
                     .padding(.top, -Spacing.large.value)
                 
-                CardComponent(title: Difficulty.easy.rawValue, subtitle: Difficulty.easy.difficultyDescription(), color: .appYellow)
+                CardComponent(title: viewModel.easyTitle, subtitle: viewModel.easyDescription, color: .appYellow)
                     .onTapGesture {
                         isShowingEasyGame = true
                     }
@@ -40,7 +40,7 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
                     })
                 
-                CardComponent(title: Difficulty.medium.rawValue, subtitle: Difficulty.medium.difficultyDescription(), color: .appRed)
+                CardComponent(title: viewModel.mediumTitle, subtitle: viewModel.mediumDescription, color: .appRed)
                     .onTapGesture {
                         isShowingMediumGame = true
                     }
@@ -48,7 +48,7 @@ struct DifficultyView: View {
                         GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
                     })
                 
-                CardComponent(title: Difficulty.hard.rawValue, subtitle: Difficulty.hard.difficultyDescription(), color: .appBlue)
+                CardComponent(title: viewModel.hardTitle, subtitle: viewModel.hardDescription, color: .appBlue)
                     .onTapGesture {
                         isShowingHardGame = true
                     }

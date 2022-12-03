@@ -7,20 +7,32 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 enum Difficulty: String {
-    case easy = "Easy"
-    case medium = "Medium"
-    case hard = "Hard"
+    case easy
+    case medium
+    case hard
+    
+    func title() -> String {
+        switch self {
+        case .easy:
+            return NSLocalizedString("easy", comment: "")
+        case .medium:
+            return NSLocalizedString("medium", comment: "")
+        case .hard:
+            return NSLocalizedString("hard", comment: "")
+        }
+    }
     
     func difficultyDescription() -> String {
         switch self {
         case .easy:
-            return "Only common letters."
+            return NSLocalizedString("easyDescription", comment: "")
         case .medium:
-            return "Adds tricky letters to play (e.g. Q)."
+            return NSLocalizedString("mediumDescription", comment: "")
         case .hard:
-            return "All letters from alphabet."
+            return NSLocalizedString("hardDescription", comment: "")
         }
     }
 }
@@ -126,7 +138,7 @@ class GameViewModel: ObservableObject {
     @Published var lose: Bool = false
     @Published var flipped: Bool = false
     @Published var cardPhrase: String = ""
-    @Published var currentPlayer: String = "Your turn"
+    @Published var currentPlayer: String = NSLocalizedString("currentPlayer", comment: "")
     @Published var nextPlayer: String = ""
     private var cardPhraseIndex: Int = 0
     private var controlIfGameFinish: Int = 0
