@@ -13,7 +13,7 @@ struct MultiplayerView: View {
     
     @State private var isCreateViewShowing: Bool = false
     @State private var isJoinViewShowing: Bool = false
-    @State private var textField: String = ""
+    @State private var textField: String = UserDefaults.standard.string(forKey: "username") ?? ""
     
     var body: some View {
         ZStack {
