@@ -14,6 +14,7 @@
 "howToPlayButton" = "How to play";
 "storeButton" = "Store";
 "aboutUsButton" = "About us";
+"settingsTitle" = "Settings";
 
 // MARK: - How To Play
 "howToPlayTitle" = "Here's how to play:";

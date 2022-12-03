@@ -10,6 +10,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
+    
     // MARK: - Variables
     
     @State private var isSingleDeviceViewShowing: Bool = false
@@ -29,24 +31,24 @@ struct HomeView: View {
                 
                 VStack {
                     
-                    Text("Letters.io")
+                    Text(viewModel.title)
                         .font(.system(size: FontSize.large.value, weight: .bold))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.vertical, Spacing.small.value)
                     
-                    CardComponent(title: NSLocalizedString("singleDeviceTitle", comment: ""), subtitle: NSLocalizedString("singleDeviceDescription", comment: ""), color: .appRed)
+                    CardComponent(title: viewModel.singleDeviceTitle, subtitle: viewModel.singleDeviceDescription, color: .appRed)
                         .onTapGesture {
                             self.isSingleDeviceViewShowing = true
                         }
                     
-                    CardComponent(title: NSLocalizedString("multiplayerTitle", comment: ""), subtitle: NSLocalizedString("multiplayerDescription", comment: ""), color: .appBlue)
+                    CardComponent(title: viewModel.multiplayerTitle, subtitle: viewModel.multiplayerDescription, color: .appBlue)
                         .onTapGesture {
                             self.isMultiplayerViewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: NSLocalizedString("howToPlayButton", comment: ""), image: "questionmark.circle", action: {
+                        ButtonComponent(label: viewModel.howToPlayButton, image: viewModel.howToPlayIcon, action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -58,7 +60,7 @@ struct HomeView: View {
                                 }
                         }
                     } else {
-                        ButtonComponent(label: NSLocalizedString("howToPlayButton", comment: ""), image: "questionmark.circle", action: {
+                        ButtonComponent(label: viewModel.howToPlayButton, image: viewModel.howToPlayIcon, action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -73,13 +75,13 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    CardComponent(title: NSLocalizedString("storeButton", comment: ""), image: "bag.circle", color: .appYellow)
+                    CardComponent(title: viewModel.storeButton, image: viewModel.storeIcon, color: .appYellow)
                         .onTapGesture {
                             self.isStoreiewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "Settings", image: "gearshape", action: {
+                        ButtonComponent(label: viewModel.settingsTitle, image: viewModel.settingsIcon, action: {
                             isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -88,7 +90,7 @@ struct HomeView: View {
                             Settings()
                         }
                     } else {
-                        ButtonComponent(label: "Settings", image: "gearshape", action: {
+                        ButtonComponent(label: viewModel.settingsTitle, image: viewModel.settingsIcon, action: {
                             isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)

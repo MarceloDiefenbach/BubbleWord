@@ -47,6 +47,7 @@
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
 		DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */; };
+		DFDE43FF293B89300002A6B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
 		DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
+		DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 		2693C4EC2927FC9700B85817 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DFDE43FD293B89250002A6B2 /* ViewModel */,
 				2693C4EF2927FCAB00B85817 /* View */,
 			);
 			path = Home;
@@ -415,6 +418,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DFDE43FD293B89250002A6B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFE633D7292D802900CB4B75 /* JoinGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +591,7 @@
 				2693C4E92927F04200B85817 /* Color.swift in Sources */,
 				DF6A50E5291D3FA30079341B /* View.swift in Sources */,
 				DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */,
+				DFDE43FF293B89300002A6B2 /* HomeViewModel.swift in Sources */,
 				DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */,
 				DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */,
 				DF812780292164A4007D7086 /* DifficultyView.swift in Sources */,
