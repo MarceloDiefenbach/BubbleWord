@@ -13,7 +13,7 @@ struct AboutUs: View {
             Color.appRed.ignoresSafeArea()
             VStack {
                 
-                Text("App creators")
+                Text(NSLocalizedString("aboutUsTitle", comment: ""))
                     .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.top, Spacing.large.value)
@@ -36,7 +36,7 @@ struct AboutUs: View {
                     .frame(height: 1)
                     .padding(.vertical, Spacing.xs.value)
                 
-                Text("Contact-us via e-mail:")
+                Text(NSLocalizedString("contactViaEmail", comment: ""))
                     .font(.system(size: FontSize.xs.value, weight: .medium))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.leading)

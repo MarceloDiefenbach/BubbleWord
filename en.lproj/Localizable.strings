@@ -1,0 +1,62 @@
+/*
+  Localizable.strings
+  BubbleWord
+
+  Created by Marcelo Diefenbach on 01/12/22.
+  
+*/
+
+// MARK: - home
+"singleDeviceTitle" = "Single Device";
+"singleDeviceDescription" = "Play locally";
+"multiplayerTitle" = "Multiplayer";
+"multiplayerDescription" = "Multiple online devices";
+"howToPlayButton" = "How to play";
+"storeButton" = "Store";
+"aboutUsButton" = "About us";
+
+// MARK: - How To Play
+"howToPlayTitle" = "Here's how to play:";
+"howToPlayDescription1" = "You will have 10 seconds to say of a word matching the theme and beginning with any of the letters available in the poll of letters";
+"howToPlayDescription2" = "After spell the word, tap the letter to switch to next participant";
+
+// MARK: - About us
+"aboutUsTitle" = "App creators";
+"contactViaEmail" = "Contact-us via e-mail";
+
+// MARK: - Difficulty
+"difficultyTitle" = "Choose a difficulty to play";
+"easy"= "Easy";
+"medium"= "Medium";
+"hard"= "Hard";
+"easyDescription"= "Only common letters";
+"mediumDescription"= "Adds tricky letters (e.g. Q)";
+"hardDescription"= "All letters of the alphabet";
+
+// MARK: - Game
+"currentPlayer" = "Your turn";
+
+// MARK: - Pause
+"continueButton" = "Continue playing";
+"endButton" = "End game";
+
+// MARK: - Lose
+"loseTitle" = "You lose";
+"continueButtonLose" = "Continue playing";
+
+// MARK: - Multiplayer
+"multiplayerTitle" = "Multiplayer";
+"multiplayerField" = "Type your name here";
+"createSessionButton" = "Create Session";
+"joinSessionButton" = "Join Session";
+
+// MARK: - Create room
+"createRoomTitle" = "Play game";
+"createRoomSubtitle" = "Share this code with your friends";
+"participantsAlreadyIn" = "Participant already in";
+"createRoomStartButton" = "Start";
+
+// MARK: - Join room
+"joinRoomTitle" = "Join Game";
+"joinRoomField" = "Type room code";
+"joinRoomButton" = "Join game";

@@ -13,6 +13,7 @@
 		2693C4F12928032300B85817 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693C4F02928032300B85817 /* HomeView.swift */; };
 		2693C4F329280F4300B85817 /* CustomSheetParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693C4F229280F4300B85817 /* CustomSheetParentView.swift */; };
 		2EC7E6D2ED8AD9A204076C11 /* Pods_BubbleWord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */; };
+		DF1808D22938F41E00B64085 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF1808D42938F41E00B64085 /* Localizable.strings */; };
 		DF1BC862292AF4A000B17678 /* HowToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BC861292AF4A000B17678 /* HowToPlay.swift */; };
 		DF1BC865292AF4E300B17678 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BC864292AF4E300B17678 /* AboutUs.swift */; };
 		DF200C2B292D0B32007F8B32 /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF200C2A292D0B32007F8B32 /* MultiplayerView.swift */; };
@@ -44,6 +45,7 @@
 		DFBAB37C292BBC480039DAC2 /* CreateGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */; };
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
+		DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		2693C4F229280F4300B85817 /* CustomSheetParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetParentView.swift; sourceTree = "<group>"; };
 		5C05C53C6309410241F1ABA8 /* Pods_BubbleWord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BubbleWord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F95F634DD59C8FA7A51E004 /* Pods-BubbleWord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.debug.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.debug.xcconfig"; sourceTree = "<group>"; };
+		DF1808D32938F41E00B64085 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DF1808D52938F42200B64085 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DF1BC861292AF4A000B17678 /* HowToPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlay.swift; sourceTree = "<group>"; };
 		DF1BC864292AF4E300B17678 /* AboutUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUs.swift; sourceTree = "<group>"; };
 		DF200C2A292D0B32007F8B32 /* MultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		DFBAB37B292BBC480039DAC2 /* CreateGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameView.swift; sourceTree = "<group>"; };
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
+		DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +225,7 @@
 				DFBAB37A292BBC2D0039DAC2 /* CreateGame */,
 				DFE633D7292D802900CB4B75 /* JoinGame */,
 				DF200C2C292D0B36007F8B32 /* View */,
+				DFDE43FA293B86060002A6B2 /* ViewModel */,
 			);
 			path = Multiplayer;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 		DF5D36F62911B7EC001A7BA1 = {
 			isa = PBXGroup;
 			children = (
+				DF1808D42938F41E00B64085 /* Localizable.strings */,
 				DF90E17D292D54E000D40716 /* GoogleService-Info.plist */,
 				DF5D37012911B7EC001A7BA1 /* BubbleWord */,
 				DF5D37002911B7EC001A7BA1 /* Products */,
@@ -389,11 +396,19 @@
 			path = CreateGame;
 			sourceTree = "<group>";
 		};
+		DFDE43FA293B86060002A6B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DFE633D7292D802900CB4B75 /* JoinGame */ = {
 			isa = PBXGroup;
 			children = (
-				DFA1C43F292E5A1D00EA5031 /* ViewModel */,
 				DFE633D8292D804000CB4B75 /* View */,
+				DFA1C43F292E5A1D00EA5031 /* ViewModel */,
 			);
 			path = JoinGame;
 			sourceTree = "<group>";
@@ -454,6 +469,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = DF5D36F62911B7EC001A7BA1;
 			packageReferences = (
@@ -475,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5D370A2911B7ED001A7BA1 /* Preview Assets.xcassets in Resources */,
+				DF1808D22938F41E00B64085 /* Localizable.strings in Resources */,
 				DF5D37072911B7ED001A7BA1 /* Assets.xcassets in Resources */,
 				DF90E17E292D54E000D40716 /* GoogleService-Info.plist in Resources */,
 			);
@@ -547,6 +564,7 @@
 				DF81278A29216DF6007D7086 /* PausedView.swift in Sources */,
 				DF5D37122911B839001A7BA1 /* LetterComponent.swift in Sources */,
 				DF5D37052911B7EC001A7BA1 /* GameView.swift in Sources */,
+				DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */,
 				2693C4E92927F04200B85817 /* Color.swift in Sources */,
 				DF6A50E5291D3FA30079341B /* View.swift in Sources */,
 				DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */,
@@ -565,6 +583,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DF1808D42938F41E00B64085 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF1808D32938F41E00B64085 /* en */,
+				DF1808D52938F42200B64085 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DF5D370B2911B7ED001A7BA1 /* Debug */ = {
