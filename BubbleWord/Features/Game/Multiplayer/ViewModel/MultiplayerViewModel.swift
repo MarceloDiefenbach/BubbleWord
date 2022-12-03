@@ -9,11 +9,11 @@ import Foundation
 
 class MultiplayerViewModel: ObservableObject {
 
-    // MARK: - Lables
+    // MARK: - Variables
     
-    let title = NSLocalizedString("multiplayerTitle", comment: "")
-    let texfield = NSLocalizedString("multiplayerField", comment: "")
-    let createSessionButton = NSLocalizedString("createSessionButton", comment: "")
-    let joinSessionButton = NSLocalizedString("joinSessionButton", comment: "")
+    @Published var title = NSLocalizedString("multiplayerTitle", comment: "")
+    @Published var texfield = NSLocalizedString("multiplayerField", comment: "")
+    @Published var createSessionButton = NSLocalizedString("createSessionButton", comment: "")
+    @Published var joinSessionButton = NSLocalizedString("joinSessionButton", comment: "")
 
 }
