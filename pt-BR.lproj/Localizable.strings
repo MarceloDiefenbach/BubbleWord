@@ -1,0 +1,63 @@
+/*
+  Localizable.strings
+  BubbleWord
+
+  Created by Marcelo Diefenbach on 01/12/22.
+  
+*/
+
+// MARK: - home
+"singleDeviceTitle" = "Um dispositivo";
+"singleDeviceDescription" = "Jogue localmente";
+"multiplayerTitle" = "Multiplayer";
+"multiplayerDescription" = "Vários dispositivos online";
+"howToPlayButton" = "Como jogar?";
+"storeButton" = "Loja";
+"aboutUsButton" = "Sobre nós";
+"settingsTitle" = "Configurações";
+
+// MARK: - How To Play
+"howToPlayTitle" = "Veja como jogar:";
+"howToPlayDescription1" = "Você tem 10 segundos para dizer uma palavra que comece com uma das letras disponíveis na tela";
+"howToPlayDescription2" = "Depois de falar a palavra, marque a letra que você usou para passar para o próximo jogador";
+
+// MARK: - About us
+"aboutUsTitle" = "Criadores do app";
+"contactViaEmail" = "Entre em contato por e-mail";
+
+// MARK: - Difficulty
+"difficultyTitle" = "Escolha um nível de dificuldade";
+"easy"= "Fácil";
+"medium"= "Médio";
+"hard"= "Difícil";
+"easyDescription"= "Somente letras comuns";
+"mediumDescription"= "Algumas letras não tão comuns, como o Q";
+"hardDescription"= "Todas as letras do alfabeto";
+
+// MARK: - Game
+"currentPlayer" = "Sua vez";
+
+// MARK: - Pause
+"continueButton" = "Continuar jogando";
+"endButton" = "Finalizar jogo";
+
+// MARK: - Lose
+"loseTitle" = "Você perdeu";
+"continueButtonLose" = "Continuar jogando";
+
+// MARK: - Multiplayer
+"multiplayerTitle" = "Multiplayer";
+"multiplayerField" = "Digite o seu nome";
+"createSessionButton" = "Criar jogo";
+"joinSessionButton" = "Entrar em um jogo";
+
+// MARK: - Create room
+"createRoomTitle" = "Jogar";
+"createRoomSubtitle" = "Compartilhe este código com seus amigos";
+"participantsAlreadyIn" = "Participantes que já entraram";
+"createRoomStartButton" = "Começar";
+
+// MARK: - Join room
+"joinRoomTitle" = "Entrar em um jogo";
+"joinRoomField" = "Digite o código da sala";
+"joinRoomButton" = "Entrar";

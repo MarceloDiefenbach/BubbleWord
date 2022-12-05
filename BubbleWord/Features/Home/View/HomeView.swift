@@ -10,12 +10,14 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
+    
     // MARK: - Variables
     
     @State private var isSingleDeviceViewShowing: Bool = false
     @State private var isMultiplayerViewShowing: Bool = false
     @State private var isStoreiewShowing: Bool = false
-    @State private var isAboutShowing: Bool = false
+    @State private var isSettingsShowing: Bool = false
     @State private var isHowToPlayShowing: Bool = false
     
     // MARK: - Body
@@ -29,24 +31,24 @@ struct HomeView: View {
                 
                 VStack {
                     
-                    Text("Letters.io")
+                    Text(viewModel.title)
                         .font(.system(size: FontSize.large.value, weight: .bold))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.vertical, Spacing.small.value)
                     
-                    CardComponent(title: "Single device", subtitle: "Play locally", color: .appRed)
+                    CardComponent(title: viewModel.singleDeviceTitle, subtitle: viewModel.singleDeviceDescription, color: .appRed)
                         .onTapGesture {
                             self.isSingleDeviceViewShowing = true
                         }
                     
-                    CardComponent(title: "Multiplayer", subtitle: "Multiple online devices", color: .appBlue)
+                    CardComponent(title: viewModel.multiplayerTitle, subtitle: viewModel.multiplayerDescription, color: .appBlue)
                         .onTapGesture {
                             self.isMultiplayerViewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
+                        ButtonComponent(label: viewModel.howToPlayButton, image: viewModel.howToPlayIcon, action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -58,7 +60,7 @@ struct HomeView: View {
                                 }
                         }
                     } else {
-                        ButtonComponent(label: "How to play?", image: "questionmark.circle", action: {
+                        ButtonComponent(label: viewModel.howToPlayButton, image: viewModel.howToPlayIcon, action: {
                             isHowToPlayShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
@@ -73,34 +75,28 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    CardComponent(title: "Store", image: "bag.circle", color: .appYellow)
+                    CardComponent(title: viewModel.storeButton, image: viewModel.storeIcon, color: .appYellow)
                         .onTapGesture {
                             self.isStoreiewShowing = true
                         }
                     
                     if #available(iOS 15.0, *) {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
-                            isAboutShowing.toggle()
+                        ButtonComponent(label: viewModel.settingsTitle, image: viewModel.settingsIcon, action: {
+                            isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xxs.value + 50)
-                        .adaptiveSheet(isPresented: $isAboutShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
-                            AboutUs()
-                                .onTapGesture {
-                                    isAboutShowing.toggle()
-                                }
+                        .adaptiveSheet(isPresented: $isSettingsShowing, detents: [.medium()], smallestUndimmedDetentIdentifier: .medium){
+                            Settings()
                         }
                     } else {
-                        ButtonComponent(label: "About us", image: "person.text.rectangle", action: {
-                            isAboutShowing.toggle()
+                        ButtonComponent(label: viewModel.settingsTitle, image: viewModel.settingsIcon, action: {
+                            isSettingsShowing.toggle()
                         })
                         .padding(.top, Spacing.xxxs.value)
                         .padding(.bottom, Spacing.xxs.value + 50)
-                        .fullScreenCover(isPresented: $isAboutShowing, content: {
-                            AboutUs()
-                                .onTapGesture {
-                                    isAboutShowing.toggle()
-                                }
+                        .sheet(isPresented: $isSettingsShowing, content: {
+                            Settings()
                         })
                     }
                 }

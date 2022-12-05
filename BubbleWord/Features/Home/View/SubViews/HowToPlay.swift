@@ -13,20 +13,20 @@ struct HowToPlay: View {
             Color.appRed.ignoresSafeArea()
             VStack {
 
-                Text("Here's how to play:")
+                Text(NSLocalizedString("howToPlayTitle", comment: ""))
                     .font(.system(size: FontSize.large.value, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.top, Spacing.large.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                Text("You will have 10 seconds to say of a word matching the theme and beginning with any of the letters available in the poll of letters")
+                Text(NSLocalizedString("howToPlayDescription1", comment: ""))
                     .font(.system(size: FontSize.xs.value, weight: .regular))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding(.top, Spacing.xxxs.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                Text("After spell the word, tap the letter to switch to next participant")
+                Text(NSLocalizedString("howToPlayDescription2", comment: ""))
                     .font(.system(size: FontSize.xs.value, weight: .regular))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)

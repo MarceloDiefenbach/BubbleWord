@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MultiplayerView: View {
     
+    @ObservedObject private var viewModel: MultiplayerViewModel = MultiplayerViewModel()
+    
     @State private var isCreateViewShowing: Bool = false
     @State private var isJoinViewShowing: Bool = false
     @State private var textField: String = ""
@@ -23,21 +25,21 @@ struct MultiplayerView: View {
                 
                 Spacer()
                 
-                Text("Multiplayer")
+                Text(viewModel.title)
                     .font(.system(size: FontSize.extraLarge.value, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                LIOTextField(placeholder: "Type your name here", textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: viewModel.texfield, textField: $textField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
-                CardComponent(title: "Create session", color: .appYellow, variant: .small)
+                CardComponent(title: viewModel.createSessionButton, color: .appYellow, variant: .small)
                     .onTapGesture {
                         self.isCreateViewShowing = true
                     }
                 
-                CardComponent(title: "Join session", color: .appBlue, variant: .small)
+                CardComponent(title: viewModel.joinSessionButton, color: .appBlue, variant: .small)
                     .onTapGesture {
                         self.isJoinViewShowing = true
                     }
