@@ -14,6 +14,7 @@
 "howToPlayButton" = "Como jogar?";
 "storeButton" = "Loja";
 "aboutUsButton" = "Sobre nós";
+"settingsTitle" = "Configurações";
 
 // MARK: - How To Play
 "howToPlayTitle" = "Veja como jogar:";

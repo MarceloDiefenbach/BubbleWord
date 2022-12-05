@@ -34,6 +34,7 @@
 		DF60395C291EFB3A00CB1E27 /* YouLoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60395B291EFB3A00CB1E27 /* YouLoseView.swift */; };
 		DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E0291D2FBF0079341B /* GameViewModel.swift */; };
 		DF6A50E5291D3FA30079341B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6A50E4291D3FA30079341B /* View.swift */; };
+		DF7B837B2938C9A1001BFAB7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B837A2938C9A1001BFAB7 /* Settings.swift */; };
 		DF812780292164A4007D7086 /* DifficultyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81277F292164A4007D7086 /* DifficultyView.swift */; };
 		DF81278229216617007D7086 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278129216617007D7086 /* CardComponent.swift */; };
 		DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81278629216A6E007D7086 /* DifficultyViewModel.swift */; };
@@ -50,6 +51,7 @@
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
 		DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */; };
+		DFDE43FF293B89300002A6B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,7 @@
 		DF60395B291EFB3A00CB1E27 /* YouLoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouLoseView.swift; sourceTree = "<group>"; };
 		DF6A50E0291D2FBF0079341B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		DF6A50E4291D3FA30079341B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DF7B837A2938C9A1001BFAB7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		DF81277F292164A4007D7086 /* DifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyView.swift; sourceTree = "<group>"; };
 		DF81278129216617007D7086 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		DF81278629216A6E007D7086 /* DifficultyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
 		DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
+		DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		EB92963F68377157FAC04EBB /* Pods-BubbleWord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleWord.release.xcconfig"; path = "Target Support Files/Pods-BubbleWord/Pods-BubbleWord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +166,7 @@
 		2693C4E22927EFB000B85817 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DF7B83792938C998001BFAB7 /* Settings */,
 				2693C4EC2927FC9700B85817 /* Home */,
 				DF81277E29216499007D7086 /* Difficulty */,
 				DF6A50DF291D2FB30079341B /* Game */,
@@ -213,6 +218,7 @@
 		2693C4EC2927FC9700B85817 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DFDE43FD293B89250002A6B2 /* ViewModel */,
 				2693C4EF2927FCAB00B85817 /* View */,
 			);
 			path = Home;
@@ -395,6 +401,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DF7B83792938C998001BFAB7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DF7B837A2938C9A1001BFAB7 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		DF81277E29216499007D7086 /* Difficulty */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +450,14 @@
 			isa = PBXGroup;
 			children = (
 				DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DFDE43FD293B89250002A6B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -593,6 +615,7 @@
 				DF81278729216A6E007D7086 /* DifficultyViewModel.swift in Sources */,
 				DF81278229216617007D7086 /* CardComponent.swift in Sources */,
 				DF85AE662929572F00887C52 /* ButtonComponent.swift in Sources */,
+				DF7B837B2938C9A1001BFAB7 /* Settings.swift in Sources */,
 				DFBAB37C292BBC480039DAC2 /* CreateGameView.swift in Sources */,
 				2693C4F12928032300B85817 /* HomeView.swift in Sources */,
 				2664C20A292BBCE600DFE8F0 /* Haptic.swift in Sources */,
@@ -607,6 +630,7 @@
 				2693C4E92927F04200B85817 /* Color.swift in Sources */,
 				DF6A50E5291D3FA30079341B /* View.swift in Sources */,
 				DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */,
+				DFDE43FF293B89300002A6B2 /* HomeViewModel.swift in Sources */,
 				DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */,
 				DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */,
 				DF812780292164A4007D7086 /* DifficultyView.swift in Sources */,

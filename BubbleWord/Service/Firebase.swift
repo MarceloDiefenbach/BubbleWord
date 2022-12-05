@@ -81,6 +81,7 @@ class FirebaseService {
         }
         
         refRooms.child(currentCode).child("participants").observe(DataEventType.value, with: { snapshot in
+            participantsList = []
             if let participants = snapshot.value as? [String] {
                 for participant in participants {
                     participantsList.append(Participant(id: UUID(), name: participant))

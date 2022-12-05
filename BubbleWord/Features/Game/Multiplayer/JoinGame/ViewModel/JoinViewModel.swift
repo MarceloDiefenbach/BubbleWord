@@ -20,7 +20,6 @@ class JoinViewModel: ObservableObject {
     @Published var buttonLabel: String = NSLocalizedString("joinRoomButton", comment: "")
     var firebase: FirebaseService = FirebaseService()
 
-    
     // MARK: - Init
     
     init() {
