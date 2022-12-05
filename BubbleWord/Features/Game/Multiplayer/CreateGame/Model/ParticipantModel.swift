@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Participant: Identifiable {
-    
+struct Participant: Identifiable, Hashable {
     var id: UUID
     var name: String
-    
 }

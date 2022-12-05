@@ -9,9 +9,14 @@ import SwiftUI
 
 struct JoinView: View {
     
-    @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
+    // MARK: - Variables
     
+    @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
     @State private var textField: String = ""
+    @State private var isWaitingRoomShowing: Bool = false
+    @State private var isAlertPresenting: Bool = false
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {
@@ -20,7 +25,6 @@ struct JoinView: View {
                 .ignoresSafeArea()
             
             VStack {
-                
                 Spacer()
                 
                 Text(viewModel.title)
@@ -34,18 +38,21 @@ struct JoinView: View {
                 
                 CardComponent(title: viewModel.buttonLabel, color: .appYellow, variant: .small)
                     .onTapGesture {
-                        viewModel.joinGame(roomCode: textField, completionHandler: { (response) in
-                            if response == .success {
-                                //TODO: - go to waiting room
-                            } else if response == .failed {
-                                //TODO: - show alert
-                            } else {
-                                //TODO: - show activity indicator
+                        viewModel.joinGame(roomCode: textField) { response in
+                            switch response {
+                            case .success:
+                                self.isWaitingRoomShowing = true
+                                break
+                            case .failed:
+                                self.isAlertPresenting = true
+                                break
+                            case .waiting:
+#warning("show activity indicator")
+                                break
                             }
-                        })
+                        }
                     }
-                    .padding(.bottom, Spacing.xxxs.value+50)
-                
+                    .padding(.bottom, Spacing.xxxs.value + 50)
             }
             
             VStack {
@@ -55,12 +62,18 @@ struct JoinView: View {
                     .padding(.bottom, Spacing.xxxs.value)
             }.ignoresSafeArea()
         }
+        .fullScreenCover(isPresented: $isWaitingRoomShowing) {
+            WaitingRoomView()
+        }
+        .alert(isPresented: $isAlertPresenting) {
+            Alert(title: Text("Can't join room"), message: Text("Room code is invalid."))
+        }
     }
-
+    
 }
 
-//struct JoinView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        JoinView()
-//    }
-//}
+struct JoinView_Previews: PreviewProvider {
+    static var previews: some View {
+        JoinView()
+    }
+}
