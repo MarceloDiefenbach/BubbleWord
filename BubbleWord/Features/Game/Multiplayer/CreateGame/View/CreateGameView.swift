@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateGameView: View {
     
     @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
+    @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
         NavigationView {
@@ -64,7 +65,13 @@ struct CreateGameView: View {
                     CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
                         .padding(.bottom, Spacing.xxxs.value)
                         .onTapGesture {
-                            //TODO: - start game with participants already in
+                            coordinator.isPresentingView = .playGame
+                        }
+                    
+                    Text("Finalizar jogo")
+                        .font(.system(size: 12))
+                        .onTapGesture {
+                            
                         }
                 }
                 .padding(.horizontal, Spacing.defaultMargin.value)

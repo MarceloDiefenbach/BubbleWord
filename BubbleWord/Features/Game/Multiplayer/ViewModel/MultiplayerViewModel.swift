@@ -15,5 +15,19 @@ class MultiplayerViewModel: ObservableObject {
     @Published var texfield = NSLocalizedString("multiplayerField", comment: "")
     @Published var createSessionButton = NSLocalizedString("createSessionButton", comment: "")
     @Published var joinSessionButton = NSLocalizedString("joinSessionButton", comment: "")
-
+    @Published var isShowingAlert: Bool = false
+    @Published var isCreatedGame: Bool = false
+    
+    var firebase: FirebaseService = FirebaseService()
+    
+    func createRoom() {
+        firebase.createRoom(completion: { (code) in
+            if code != "error" {
+                self.isCreatedGame = true
+            } else {
+                self.isShowingAlert = true
+                //TODO: - present error alert
+            }
+        })
+    }
 }

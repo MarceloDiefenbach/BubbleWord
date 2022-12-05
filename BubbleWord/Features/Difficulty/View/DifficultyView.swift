@@ -12,6 +12,8 @@ struct DifficultyView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: DifficultyViewModel = DifficultyViewModel()
+    @EnvironmentObject var coordinator: Coordinator
+    
     @State var isShowingEasyGame: Bool = false
     @State var isShowingMediumGame: Bool = false
     @State var isShowingHardGame: Bool = false

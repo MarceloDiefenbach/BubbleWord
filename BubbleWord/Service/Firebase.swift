@@ -29,8 +29,9 @@ class FirebaseService {
     
     // MARK: - Functions
     
-    func randomString(length: Int = 4) -> String {
+    func randomString(length: Int = 5) -> String {
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        //TODO: - here we need to verify if already exist some room with this code
         return String((0..<length).map{ _ in letters.randomElement() ?? "A" })
     }
     
@@ -45,11 +46,16 @@ class FirebaseService {
             "participants": [
                 "1": UserDefaults.standard.string(forKey: "username")
             ]
-        ])
+        ], withCompletionBlock: { (error, ref) -> Void in
+            if error != nil {
+                completion("error")
+            } else {
+                UserDefaults.standard.set(code, forKey: "roomCode")
+                completion(code)
+            }
+        })
         
         self.currentCode = code
-        
-        completion(code)
     }
     
     func getParticipants(completion: @escaping (Result<[Participant], Error>) -> Void) {

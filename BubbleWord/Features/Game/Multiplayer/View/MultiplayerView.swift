@@ -36,8 +36,16 @@ struct MultiplayerView: View {
                 
                 CardComponent(title: viewModel.createSessionButton, color: .appYellow, variant: .small)
                     .onTapGesture {
-                        self.isCreateViewShowing = true
+                        viewModel.createRoom()
                     }
+                    .onChange(of: viewModel.isCreatedGame, perform: { value in
+                        if value == true {
+                            isCreateViewShowing = true
+                        }
+                    })
+                    .fullScreenCover(isPresented: $isCreateViewShowing, content: {
+                        GameCoordinatorControl()
+                    })
                 
                 CardComponent(title: viewModel.joinSessionButton, color: .appBlue, variant: .small)
                     .onTapGesture {
@@ -52,10 +60,6 @@ struct MultiplayerView: View {
                 BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
                     .padding(.bottom, Spacing.xxxs.value)
             }.ignoresSafeArea()
-            
-            NavigationLink("", isActive: $isCreateViewShowing) {
-                CreateGameView()
-            }.hidden()
             
             NavigationLink("", isActive: $isJoinViewShowing) {
                 JoinView()

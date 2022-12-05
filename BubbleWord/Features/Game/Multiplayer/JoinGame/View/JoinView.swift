@@ -12,6 +12,8 @@ struct JoinView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
+    @EnvironmentObject var coordinator: Coordinator
+    
     @State private var textField: String = ""
     @State private var isWaitingRoomShowing: Bool = false
     @State private var isAlertPresenting: Bool = false
