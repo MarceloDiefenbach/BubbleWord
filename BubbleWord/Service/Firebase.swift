@@ -61,7 +61,7 @@ class FirebaseService {
     func getParticipants(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
-        refRooms.child("KAXZM").child("participants").getData(completion: { err, snapshot in
+        refRooms.child(code).child("participants").getData(completion: { err, snapshot in
             if let participants = snapshot?.value as? [String] {
                 for participant in participants {
                     participantsList.append(Participant(id: UUID(), name: participant))
