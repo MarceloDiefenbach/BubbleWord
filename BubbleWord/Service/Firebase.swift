@@ -25,7 +25,6 @@ class FirebaseService {
     var refRooms = Database.database().reference().child("rooms")
     var room: Room!
     var participants: [Participant] = []
-    var currentCode: String? = "ABCD"
     
     // MARK: - Functions
     
@@ -54,8 +53,6 @@ class FirebaseService {
                 completion(code)
             }
         })
-        
-        self.currentCode = code
     }
     
     func getParticipants(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
@@ -73,15 +70,10 @@ class FirebaseService {
         })
     }
     
-    func participantsListener(completion: @escaping (Result<[Participant], Error>) -> Void) {
+    func participantsListener(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
-        guard let currentCode = currentCode else {
-            completion(.failure(ErrorType.noCurrentCode))
-            return
-        }
-        
-        refRooms.child(currentCode).child("participants").observe(DataEventType.value, with: { snapshot in
+        refRooms.child(code).child("participants").observe(DataEventType.value, with: { snapshot in
             participantsList = []
             if let participants = snapshot.value as? [String] {
                 for participant in participants {
@@ -103,6 +95,7 @@ class FirebaseService {
                 participants.append(username)
                 //TODO: - this return error
                 self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
+                    print(err)
                     completion(.success(true))
                 }
             case .failure(let failure):
