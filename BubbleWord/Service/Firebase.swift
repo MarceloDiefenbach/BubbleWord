@@ -58,15 +58,10 @@ class FirebaseService {
         self.currentCode = code
     }
     
-    func getParticipants(completion: @escaping (Result<[Participant], Error>) -> Void) {
+    func getParticipants(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
-        guard let currentCode = currentCode else {
-            completion(.failure(ErrorType.noCurrentCode))
-            return
-        }
-        
-        refRooms.child(currentCode).child("participants").getData(completion: { err, snapshot in
+        refRooms.child("KAXZM").child("participants").getData(completion: { err, snapshot in
             if let participants = snapshot?.value as? [String] {
                 for participant in participants {
                     participantsList.append(Participant(id: UUID(), name: participant))
@@ -100,12 +95,13 @@ class FirebaseService {
     }
     
     func joinRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.getParticipants { result in
+        self.getParticipants(code: code) { result in
             switch result {
             case .success(let success):
                 var participants = success.map( { $0.name } )
                 let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
                 participants.append(username)
+                //TODO: - this return error
                 self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
                     completion(.success(true))
                 }
