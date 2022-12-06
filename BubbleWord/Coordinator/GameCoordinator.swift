@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum PresentingViews {
+enum PresentingViewsGameCoordinator {
     case createGameView, difficultySelector, playGame, multiplayerView, joinGameView, waintingRoom;
 }
 
 class GameCoordinator: ObservableObject {
     
-    @Published var isPresentingView: PresentingViews = .createGameView
+    @Published var isPresentingView: PresentingViewsGameCoordinator = .createGameView
     
 }

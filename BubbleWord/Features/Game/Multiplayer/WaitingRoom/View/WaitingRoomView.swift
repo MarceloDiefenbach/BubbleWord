@@ -10,6 +10,7 @@ import SwiftUI
 struct WaitingRoomView: View {
     
     @ObservedObject private var viewModel: WaitingRoomViewModel = WaitingRoomViewModel()
+    @EnvironmentObject var coordinator: HomeCoordinator
     
     var body: some View {
         ZStack {
@@ -54,7 +55,9 @@ struct WaitingRoomView: View {
                 .padding(.bottom, Spacing.xxs.value)
                 
                 ButtonComponent(label: "Leave the game", image: "rectangle.portrait.and.arrow.right", action: {
+                    //TODO: - show an alert to confirm if user want to leave the game
                     viewModel.leaveRoom()
+                    coordinator.isPresentingView = .home
                 })
             }
             .padding(.horizontal, Spacing.defaultMargin.value)

@@ -12,7 +12,7 @@ struct JoinView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
-    @EnvironmentObject var coordinator: GameCoordinator
+    @EnvironmentObject var coordinator: HomeCoordinator
     
     @State private var textField: String = ""
     @State private var isWaitingRoomShowing: Bool = false
@@ -44,7 +44,7 @@ struct JoinView: View {
                         viewModel.joinGame(roomCode: textField) { response in
                             switch response {
                             case .success:
-                                self.isWaitingRoomShowing = true
+                                self.coordinator.isPresentingView = .waitingRoom
                                 break
                             case .failed:
                                 self.isAlertPresenting = true

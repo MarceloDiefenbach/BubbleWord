@@ -12,6 +12,8 @@ import UXCam
 @main
 struct ContentView: App {
     
+    @ObservedObject private var homeCoordinator: HomeCoordinator = HomeCoordinator()
+    
     init(){
         UXCam.optIntoSchematicRecordings()
         let config = UXCamSwiftUI.Configuration(appKey: "4rihizv13f61l6y")
@@ -22,7 +24,13 @@ struct ContentView: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            if homeCoordinator.isPresentingView == .home {
+                HomeView()
+                    .environmentObject(homeCoordinator)
+            } else if homeCoordinator.isPresentingView == .waitingRoom {
+                WaitingRoomView()
+                    .environmentObject(homeCoordinator)
+            }
         }
     }
 }
