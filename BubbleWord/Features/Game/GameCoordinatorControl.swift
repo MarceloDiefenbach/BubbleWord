@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameCoordinatorControl: View {
     
-    @StateObject private var coordinator: Coordinator = Coordinator()
+    @StateObject private var coordinator: GameCoordinator = GameCoordinator()
     
     var body: some View {
         if coordinator.isPresentingView == .createGameView {

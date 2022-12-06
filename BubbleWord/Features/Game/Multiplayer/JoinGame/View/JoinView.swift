@@ -12,7 +12,7 @@ struct JoinView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
-    @EnvironmentObject var coordinator: Coordinator
+    @EnvironmentObject var coordinator: GameCoordinator
     
     @State private var textField: String = ""
     @State private var isWaitingRoomShowing: Bool = false

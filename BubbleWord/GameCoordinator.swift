@@ -11,7 +11,7 @@ enum PresentingViews {
     case createGameView, difficultySelector, playGame, multiplayerView, joinGameView, waintingRoom;
 }
 
-class Coordinator: ObservableObject {
+class GameCoordinator: ObservableObject {
     
     @Published var isPresentingView: PresentingViews = .createGameView
     

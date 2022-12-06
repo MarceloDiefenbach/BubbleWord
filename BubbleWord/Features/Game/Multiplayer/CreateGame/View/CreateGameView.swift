@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateGameView: View {
     
     @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
-    @EnvironmentObject var coordinator: Coordinator
+    @EnvironmentObject var coordinator: GameCoordinator
     
     var body: some View {
         NavigationView {

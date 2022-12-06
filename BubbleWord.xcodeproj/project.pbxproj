@@ -23,7 +23,7 @@
 		DF2F100E291824DA00771C06 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2F100D291824DA00771C06 /* Letter.swift */; };
 		DF33767C2932A7BD002808A4 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33767B2932A7BD002808A4 /* Firebase.swift */; };
 		DF3FA8802925D9D600FA003A /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3FA87E2925D9D600FA003A /* BannerAd.swift */; };
-		DF4BCCB4293EA01B002724A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCCB3293EA01B002724A7 /* Coordinator.swift */; };
+		DF4BCCB4293EA01B002724A7 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCCB3293EA01B002724A7 /* GameCoordinator.swift */; };
 		DF4BCCB6293EA14A002724A7 /* GameCoordinatorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCCB5293EA14A002724A7 /* GameCoordinatorControl.swift */; };
 		DF4CEDC3292D71500090342C /* LIOTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CEDC2292D71500090342C /* LIOTextField.swift */; };
 		DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */; };
@@ -77,7 +77,7 @@
 		DF33767B2932A7BD002808A4 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		DF3FA87E2925D9D600FA003A /* BannerAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		DF3FA8822925DABA00FA003A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		DF4BCCB3293EA01B002724A7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DF4BCCB3293EA01B002724A7 /* GameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		DF4BCCB5293EA14A002724A7 /* GameCoordinatorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorControl.swift; sourceTree = "<group>"; };
 		DF4CEDC2292D71500090342C /* LIOTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIOTextField.swift; sourceTree = "<group>"; };
 		DF5D36FF2911B7EC001A7BA1 /* BubbleWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,7 +354,7 @@
 				DF5D37102911B82D001A7BA1 /* Components */,
 				2664C207292BBCD200DFE8F0 /* Service */,
 				DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */,
-				DF4BCCB3293EA01B002724A7 /* Coordinator.swift */,
+				DF4BCCB3293EA01B002724A7 /* GameCoordinator.swift */,
 				DF90E17F292D554C00D40716 /* AppDelegate.swift */,
 				DF5D37062911B7ED001A7BA1 /* Assets.xcassets */,
 				DF3FA8822925DABA00FA003A /* Info.plist */,
@@ -391,9 +391,9 @@
 		DF6A50DF291D2FB30079341B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				DF4BCCB5293EA14A002724A7 /* GameCoordinatorControl.swift */,
 				DF200C26292D0A7E007F8B32 /* PlayGame */,
 				DF200C25292D0A74007F8B32 /* Multiplayer */,
-				DF4BCCB5293EA14A002724A7 /* GameCoordinatorControl.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -643,7 +643,7 @@
 				DF812780292164A4007D7086 /* DifficultyView.swift in Sources */,
 				DF4CEDC3292D71500090342C /* LIOTextField.swift in Sources */,
 				DF1BC862292AF4A000B17678 /* HowToPlay.swift in Sources */,
-				DF4BCCB4293EA01B002724A7 /* Coordinator.swift in Sources */,
+				DF4BCCB4293EA01B002724A7 /* GameCoordinator.swift in Sources */,
 				DF12A85C2932AEF0007E82A5 /* Model.swift in Sources */,
 				DF6A50E1291D2FBF0079341B /* GameViewModel.swift in Sources */,
 				DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */,
