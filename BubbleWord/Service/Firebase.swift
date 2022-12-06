@@ -44,7 +44,7 @@ class FirebaseService {
             "code": code,
             "hasBegun": "false",
             "participants": [
-                "1": UserDefaults.standard.string(forKey: "username")
+                "0": UserDefaults.standard.string(forKey: "username")
             ]
         ], withCompletionBlock: { (error, ref) -> Void in
             if error != nil {
