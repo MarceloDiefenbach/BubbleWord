@@ -41,7 +41,7 @@ struct WaitingRoomView: View {
                     ForEach(viewModel.participants, id: \.id) { participant in
                         HStack {
                             Text(participant.name)
-                                .font(.system(size: FontSize.large.value, weight: .bold))
+                                .font(.system(size: FontSize.medium.value, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.vertical, Spacing.xxxs.value)
                         }
