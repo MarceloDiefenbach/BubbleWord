@@ -12,53 +12,53 @@ struct WaitingRoomView: View {
     @ObservedObject private var viewModel: WaitingRoomViewModel = WaitingRoomViewModel()
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Image("background")
-                    .resizable()
-                    .ignoresSafeArea()
+        ZStack {
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack {
+                Text(viewModel.title)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.large.value, weight: .bold))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, Spacing.quarck.value)
                 
-                VStack {
-                    
-                    Text(viewModel.title)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.large.value, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.quarck.value)
-                    
-                    Text(viewModel.instruction)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.small.value, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.small.value)
-                    
-                    Text(viewModel.participantsTitle)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.xs.value, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.xxxs.value)
-                    
-                    ScrollView {
-                        ForEach(viewModel.participants, id: \.id) { participant in
-                            HStack {
-                                Text(participant.name)
-                                    .foregroundColor(.white)
-                                    .padding(.vertical, Spacing.xxxs.value)
-                            }
-                            .frame(width: UIScreen.main.bounds.width*0.9)
-                            .background(Color.appGray)
-                            .cornerRadius(CornerRadius.small.value)
+                Text(viewModel.instruction)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.small.value, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, Spacing.small.value)
+                
+                Text(viewModel.participantsTitle)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.xs.value, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, Spacing.xxxs.value)
+                
+                ScrollView(showsIndicators: false) {
+                    ForEach(viewModel.participants, id: \.id) { participant in
+                        HStack {
+                            Text(participant.name)
+                                .font(.system(size: FontSize.large.value, weight: .bold))
+                                .foregroundColor(.white)
+                                .padding(.vertical, Spacing.xxxs.value)
                         }
+                        .frame(width: UIScreen.main.bounds.width*0.9)
+                        .background(Color.appGray)
+                        .cornerRadius(CornerRadius.small.value)
                     }
-                    .frame(height: UIScreen.main.bounds.height*0.3)
-                    .frame(maxWidth: .infinity)
-                    
-                    Spacer()
                 }
-                .padding(.horizontal, Spacing.defaultMargin.value)
+                .frame(height: UIScreen.main.bounds.height*0.5)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, Spacing.xxs.value)
+                
+                ButtonComponent(label: "Leave the game", image: "rectangle.portrait.and.arrow.right", action: {
+                    
+                })
             }
+            .padding(.horizontal, Spacing.defaultMargin.value)
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
