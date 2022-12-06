@@ -12,6 +12,7 @@ struct CreateGameView: View {
     @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
     @EnvironmentObject var coordinator: GameCoordinator
     @EnvironmentObject var homeCoordinator: HomeCoordinator
+    var firebase: FirebaseService = FirebaseService()
     
     var body: some View {
         ZStack {
@@ -67,8 +68,12 @@ struct CreateGameView: View {
                         coordinator.isPresentingView = .playGame
                     }
                 
-                ButtonComponent(label: "End game", image: "rectangle.portrait.and.arrow.right", action: {
+                ButtonComponent(label: viewModel.finisButtonLabel, image: viewModel.finisButtonIcon, action: {
                     homeCoordinator.isPresentingView = .home
+                    //TODO: - show alert to confirm user want to finish session
+                    firebase.deleteRoom(code: viewModel.inviteCode, completion: { result in
+                        homeCoordinator.isPresentingView = .home
+                    })
                 })
                 .padding(.top, Spacing.quarck.value)
                 .padding(.bottom, Spacing.xs.value)

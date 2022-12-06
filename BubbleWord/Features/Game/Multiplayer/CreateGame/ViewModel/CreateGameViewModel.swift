@@ -16,6 +16,7 @@ class CreateGameViewModel: ObservableObject {
     @Published var participantsTitle: String = NSLocalizedString("participantsAlreadyIn", comment: "")
     @Published var startButtonLabel: String = NSLocalizedString("createRoomStartButton", comment: "")
     @Published var finisButtonLabel: String = NSLocalizedString("finishRoomStartButton", comment: "")
+    @Published var finisButtonIcon: String = "rectangle.portrait.and.arrow.right"
     
     //MARK: - variable
     
