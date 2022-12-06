@@ -12,11 +12,11 @@ struct DifficultyView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: DifficultyViewModel = DifficultyViewModel()
-    @EnvironmentObject var coordinator: GameCoordinator
+    @EnvironmentObject var coordinator: GameCoordinator //maybe isnt used
+    @EnvironmentObject var homeCoordinator: HomeCoordinator
     
-    @State var isShowingEasyGame: Bool = false
-    @State var isShowingMediumGame: Bool = false
-    @State var isShowingHardGame: Bool = false
+    @State var isShowingGame: Bool = false
+
     
     // MARK: - Body
     
@@ -36,27 +36,21 @@ struct DifficultyView: View {
                 
                 CardComponent(title: viewModel.easyTitle, subtitle: viewModel.easyDescription, color: .appYellow)
                     .onTapGesture {
-                        isShowingEasyGame = true
+                        UserDefaults.standard.set("easy", forKey: "difficulty")
+                        self.homeCoordinator.isPresentingView = .playSinglePlayer
                     }
-                    .fullScreenCover(isPresented: $isShowingEasyGame, content: {
-                        GameView(gameDifficulty: .easy, isShowing: $isShowingEasyGame)
-                    })
                 
                 CardComponent(title: viewModel.mediumTitle, subtitle: viewModel.mediumDescription, color: .appRed)
                     .onTapGesture {
-                        isShowingMediumGame = true
+                        UserDefaults.standard.set("medium", forKey: "difficulty")
+                        self.homeCoordinator.isPresentingView = .playSinglePlayer
                     }
-                    .fullScreenCover(isPresented: $isShowingMediumGame, content: {
-                        GameView(gameDifficulty: .medium, isShowing: $isShowingMediumGame)
-                    })
                 
                 CardComponent(title: viewModel.hardTitle, subtitle: viewModel.hardDescription, color: .appBlue)
                     .onTapGesture {
-                        isShowingHardGame = true
+                        UserDefaults.standard.set("hard", forKey: "difficulty")
+                        self.homeCoordinator.isPresentingView = .playSinglePlayer
                     }
-                    .fullScreenCover(isPresented: $isShowingHardGame, content: {
-                        GameView(gameDifficulty: .hard, isShowing: $isShowingHardGame)
-                    })
                     .padding(.bottom, Spacing.xs.value)
             }
             

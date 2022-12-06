@@ -30,6 +30,9 @@ struct ContentView: App {
             } else if homeCoordinator.isPresentingView == .waitingRoom {
                 WaitingRoomView()
                     .environmentObject(homeCoordinator)
+            } else if homeCoordinator.isPresentingView == .playSinglePlayer {
+                GameView()
+                    .environmentObject(homeCoordinator)
             }
         }
     }
