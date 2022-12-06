@@ -125,5 +125,9 @@ class FirebaseService {
         }
     }
     
+    func deleteRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.refRooms.child(code).removeValue()
+    }
+    
     
 }
