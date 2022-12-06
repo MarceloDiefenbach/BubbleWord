@@ -40,6 +40,7 @@ struct JoinView: View {
                 
                 CardComponent(title: viewModel.buttonLabel, color: .appYellow, variant: .small)
                     .onTapGesture {
+                        UserDefaults.standard.set(textField, forKey: "roomCode")
                         viewModel.joinGame(roomCode: textField) { response in
                             switch response {
                             case .success:
