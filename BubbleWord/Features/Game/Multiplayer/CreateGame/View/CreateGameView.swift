@@ -12,7 +12,6 @@ struct CreateGameView: View {
     @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
     @EnvironmentObject var coordinator: GameCoordinator
     @EnvironmentObject var homeCoordinator: HomeCoordinator
-    var firebase: FirebaseService = FirebaseService()
     
     var body: some View {
         ZStack {
@@ -49,9 +48,9 @@ struct CreateGameView: View {
                     .padding(.bottom, Spacing.xxxs.value)
                 
                 ScrollView {
-                    ForEach(0..<Int(viewModel.participants.count), content: { index in
+                    ForEach(viewModel.participants, id: \.id) { participant in
                         HStack {
-                            Text(viewModel.participants[index].name)
+                            Text(participant.name)
                                 .font(.system(size: FontSize.medium.value, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.vertical, Spacing.xxxs.value)
@@ -59,7 +58,7 @@ struct CreateGameView: View {
                         .frame(width: UIScreen.main.bounds.width*0.9)
                         .background(Color.appGray)
                         .cornerRadius(CornerRadius.small.value)
-                    })
+                    }
                 }
                 
                 CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
@@ -72,10 +71,7 @@ struct CreateGameView: View {
                     homeCoordinator.isPresentingView = .home
                     
                     //TODO: - show alert to confirm user want to finish session
-                    
-                    firebase.deleteRoom(code: viewModel.inviteCode, completion: { result in
-                        homeCoordinator.isPresentingView = .home
-                    })
+                    viewModel.deleteRoom()
                 })
                 .padding(.top, Spacing.quarck.value)
                 .padding(.bottom, Spacing.xs.value)

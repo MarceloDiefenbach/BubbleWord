@@ -18,10 +18,8 @@ class MultiplayerViewModel: ObservableObject {
     @Published var isShowingAlert: Bool = false
     @Published var isCreatedGame: Bool = false
     
-    var firebase: FirebaseService = FirebaseService()
-    
     func createRoom() {
-        firebase.createRoom(completion: { (code) in
+        FirebaseService.instance.createRoom(completion: { (code) in
             if code != "error" {
                 self.isCreatedGame = true
             } else {

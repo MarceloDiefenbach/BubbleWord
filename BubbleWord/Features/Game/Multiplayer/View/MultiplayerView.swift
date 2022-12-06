@@ -13,7 +13,7 @@ struct MultiplayerView: View {
     
     @State private var isCreateViewShowing: Bool = false
     @State private var isJoinViewShowing: Bool = false
-    @State private var textField: String = UserDefaults.standard.string(forKey: "username") ?? ""
+    @State private var usernameField: String = ""
     
     var body: some View {
         ZStack {
@@ -30,9 +30,15 @@ struct MultiplayerView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                LIOTextField(placeholder: viewModel.texfield, textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: viewModel.texfield, textField: $usernameField, textFieldType: .name)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
+                    .onAppear() {
+                        usernameField = UserDefaults.standard.string(forKey: "username") ?? ""
+                    }
+                    .onChange(of: usernameField, perform: { value in
+                        UserDefaults.standard.set(value, forKey: "username")
+                    })
                 
                 CardComponent(title: viewModel.createSessionButton, color: .appYellow, variant: .small)
                     .onTapGesture {

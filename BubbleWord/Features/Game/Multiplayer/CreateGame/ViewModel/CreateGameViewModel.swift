@@ -20,12 +20,32 @@ class CreateGameViewModel: ObservableObject {
     
     //MARK: - variable
     
-    @Published var inviteCode: String = UserDefaults.standard.string(forKey: "roomCode") ?? ""
-    @Published var inviteCodeArray: Array = "\(UserDefaults.standard.string(forKey: "roomCode") ?? "")".components(separatedBy: "")
-    @Published var participants: [Participant] = [Participant(id: UUID(), name: "Marcelo"), Participant(id: UUID(), name: "Chumiga")]
+    @Published var inviteCode: String = FirebaseService.instance.roomCode
+    @Published var inviteCodeArray: Array = "\(FirebaseService.instance.roomCode)".components(separatedBy: "")
+    @Published var participants: [Participant] = []
+    
+    init() {
+        self.getParticipantsOfFirebase()
+    }
     
     
     func getParticipantsOfFirebase() {
-        //TODO: - update participants list
+        FirebaseService.instance.participantsListener { result in
+            switch result {
+            case .success(let success):
+                print(success)
+                self.participants = success
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteRoom(){
+        FirebaseService.instance.deleteRoom { result in
+//            homeCoordinator.isPresentingView = .home
+            //TODO: - fix to return result of delete
+            //TODO: - go to homeView
+        }
     }
 }

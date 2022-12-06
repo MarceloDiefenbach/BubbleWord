@@ -13,6 +13,8 @@ import FirebaseFirestore
 
 class FirebaseService {
     
+    static var instance: FirebaseService = FirebaseService()
+    
     enum ErrorType: Error {
         case noCurrentCode
         case noParticipantsFound
@@ -23,13 +25,14 @@ class FirebaseService {
     static var standard = FirebaseService()
     var ref = Database.database().reference()
     var refRooms = Database.database().reference().child("rooms")
-    var room: Room!
     var participants: [Participant] = []
+    var roomCode: String = ""
+    var username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
     
     // MARK: - Functions
     
     func randomString(length: Int = 5) -> String {
-        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         //TODO: - here we need to verify if already exist some room with this code
         return String((0..<length).map{ _ in letters.randomElement() ?? "A" })
     }
@@ -37,28 +40,27 @@ class FirebaseService {
     // MARK: - Requests
     
     func createRoom(completion: @escaping (String) -> Void) {
-        let code = randomString()
+        roomCode = randomString().uppercased()
         
-        self.refRooms.child(code).setValue([
-            "code": code,
+        self.refRooms.child(self.roomCode).setValue([
+            "code": self.roomCode,
             "hasBegun": "false",
             "participants": [
-                "0": UserDefaults.standard.string(forKey: "username")
+                "0": self.username
             ]
         ], withCompletionBlock: { (error, ref) -> Void in
             if error != nil {
                 completion("error")
             } else {
-                UserDefaults.standard.set(code, forKey: "roomCode")
-                completion(code)
+                completion(self.roomCode)
             }
         })
     }
     
-    func getParticipants(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
+    func getParticipants(completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
-        refRooms.child(code).child("participants").getData(completion: { err, snapshot in
+        refRooms.child(self.roomCode).child("participants").getData(completion: { err, snapshot in
             if let participants = snapshot?.value as? [String] {
                 for participant in participants {
                     participantsList.append(Participant(id: UUID(), name: participant))
@@ -70,10 +72,10 @@ class FirebaseService {
         })
     }
     
-    func participantsListener(code: String, completion: @escaping (Result<[Participant], Error>) -> Void) {
+    func participantsListener(completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
-        refRooms.child(code).child("participants").observe(DataEventType.value, with: { snapshot in
+        refRooms.child(self.roomCode).child("participants").observe(DataEventType.value, with: { snapshot in
             participantsList = []
             if let participants = snapshot.value as? [String] {
                 for participant in participants {
@@ -87,14 +89,15 @@ class FirebaseService {
     }
     
     func joinRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.getParticipants(code: code) { result in
+        self.roomCode = code.uppercased()
+        
+        self.getParticipants() { result in
             switch result {
             case .success(let success):
                 var participants = success.map( { $0.name } )
-                let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
-                participants.append(username)
+                participants.append(self.username)
                 
-                self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
+                self.refRooms.child(self.roomCode).updateChildValues(["participants": participants]) { err, ref in
                     print(err)
                     completion(.success(true))
                 }
@@ -105,16 +108,15 @@ class FirebaseService {
         }
     }
     
-    func leaveRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.getParticipants(code: code) { result in
+    func leaveRoom(completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.getParticipants { result in
             switch result {
             case .success(let success):
                 var participants = success.map( { $0.name } )
-                let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
-                if let index = participants.firstIndex(of: username) {
+                if let index = participants.firstIndex(of: self.username) {
                     participants.remove(at: index)
                 }
-                self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
+                self.refRooms.child(self.roomCode).updateChildValues(["participants": participants]) { err, ref in
                     print(err)
                     completion(.success(true))
                 }
@@ -125,8 +127,8 @@ class FirebaseService {
         }
     }
     
-    func deleteRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.refRooms.child(code).removeValue()
+    func deleteRoom(completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.refRooms.child(self.roomCode).removeValue()
     }
     
     
