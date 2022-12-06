@@ -93,7 +93,27 @@ class FirebaseService {
                 var participants = success.map( { $0.name } )
                 let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
                 participants.append(username)
-                //TODO: - this return error
+                
+                self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
+                    print(err)
+                    completion(.success(true))
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+                completion(.failure(ErrorType.noParticipantsFound))
+            }
+        }
+    }
+    
+    func leaveRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.getParticipants(code: code) { result in
+            switch result {
+            case .success(let success):
+                var participants = success.map( { $0.name } )
+                let username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
+                if let index = participants.firstIndex(of: username) {
+                    participants.remove(at: index)
+                }
                 self.refRooms.child(code).updateChildValues(["participants": participants]) { err, ref in
                     print(err)
                     completion(.success(true))
