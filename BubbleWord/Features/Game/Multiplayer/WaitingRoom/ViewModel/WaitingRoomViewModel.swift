@@ -35,4 +35,10 @@ class WaitingRoomViewModel: ObservableObject {
             }
         }
     }
+    
+    func leaveRoom() {
+        firebase.leaveRoom(code: UserDefaults.standard.string(forKey: "roomCode")!, completion: { result in
+            //TODO: - back to homeView
+        })
+    }
 }

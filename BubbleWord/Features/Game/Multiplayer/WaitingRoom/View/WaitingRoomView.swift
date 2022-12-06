@@ -54,7 +54,7 @@ struct WaitingRoomView: View {
                 .padding(.bottom, Spacing.xxs.value)
                 
                 ButtonComponent(label: "Leave the game", image: "rectangle.portrait.and.arrow.right", action: {
-                    
+                    viewModel.leaveRoom()
                 })
             }
             .padding(.horizontal, Spacing.defaultMargin.value)
