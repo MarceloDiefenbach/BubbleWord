@@ -26,7 +26,7 @@ class WaitingRoomViewModel: ObservableObject {
     // MARK: - Functions
     
     func fetchParticipants() {
-        self.firebase.getParticipants(code: UserDefaults.standard.string(forKey: "roomCode") ?? "") { result in
+        self.firebase.participantsListener(code: UserDefaults.standard.string(forKey: "roomCode") ?? "") { result in
             switch result {
             case .success(let success):
                 self.participants = success
