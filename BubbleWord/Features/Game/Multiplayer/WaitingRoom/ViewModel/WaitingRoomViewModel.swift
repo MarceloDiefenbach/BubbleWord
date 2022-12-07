@@ -15,7 +15,6 @@ class WaitingRoomViewModel: ObservableObject {
     @Published var instruction: String = "The game will start when host get ready"
     @Published var participantsTitle: String = "Participants already in"
     @Published var participants: [Participant] = []
-    var firebase: FirebaseService = FirebaseService()
     
     // MARK: - Init
     
@@ -26,13 +25,19 @@ class WaitingRoomViewModel: ObservableObject {
     // MARK: - Functions
     
     func fetchParticipants() {
-        self.firebase.getParticipants { result in
+        FirebaseService.instance.participantsListener { result in
             switch result {
             case .success(let success):
                 self.participants = success
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
+        }
+    }
+    
+    func leaveRoom() {
+        FirebaseService.instance.leaveRoom { result in
+            //TODO: - back to homeViewz
         }
     }
 }

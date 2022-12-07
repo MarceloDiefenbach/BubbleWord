@@ -16,12 +16,10 @@ struct LIOTextField: View {
     @State var placeholder: String
     @Binding var textField: String
     @State var textFieldType: TextFieldType
-//    @FocusState private var keyboardFocused: Bool
     
     var body: some View {
         HStack {
                 TextField("", text: self.$textField)
-//                    .focused($keyboardFocused)
                     .font(.system(size: FontSize.small.value, weight: .bold))
                     .foregroundColor(.white)
                     .disableAutocorrection(true)
@@ -34,17 +32,12 @@ struct LIOTextField: View {
                             .multilineTextAlignment(.center)
                     }
                     .keyboardType(UIKeyboardType.default)
-                    .autocapitalization(.none)
+                    .autocapitalization(.allCharacters)
                     .padding(.vertical, Spacing.xxxs.value)
                     .onChange(of: textField) { newValue in
                         if textFieldType == .name {
                             UserDefaults.standard.set(newValue, forKey: "username")
                         }
-                    }
-                    .onAppear(){
-                        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
-//                            keyboardFocused = true
-                        })
                     }
         }
         .overlay(

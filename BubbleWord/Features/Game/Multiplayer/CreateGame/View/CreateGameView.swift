@@ -10,67 +10,74 @@ import SwiftUI
 struct CreateGameView: View {
     
     @ObservedObject private var viewModel: CreateGameViewModel = CreateGameViewModel()
+    @EnvironmentObject var coordinator: GameCoordinator
+    @EnvironmentObject var homeCoordinator: HomeCoordinator
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Image("background")
-                    .resizable()
-                    .ignoresSafeArea()
+        ZStack {
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack {
                 
-                VStack {
-                    
-                    Text(viewModel.title)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.large.value, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.quarck.value)
-                    
-                    Text(viewModel.instruction)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.small.value, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.small.value)
-                    
-                    HStack {
-                        ForEach(viewModel.inviteCodeArray, id: \.self) {
-                            InviteLetterComponent(letter: $0, variant: .onlyView)
-                        }
-                    }.frame(height: 80)
-                        .padding(.bottom, Spacing.xxs.value)
-                    
-                    Text(viewModel.participantsTitle)
-                        .foregroundColor(.white)
-                        .font(.system(size: FontSize.xs.value, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, Spacing.xxxs.value)
-                    
-                    ScrollView {
-                        ForEach(0..<Int(viewModel.participants.count), content: { index in
-                            HStack {
-                                Text(viewModel.participants[index].name)
-                                    .foregroundColor(.white)
-                                    .padding(.vertical, Spacing.xxxs.value)
-                            }
-                            .frame(width: UIScreen.main.bounds.width*0.9)
-                            .background(Color.appGray)
-                            .cornerRadius(CornerRadius.small.value)
-                        })
+                Text(viewModel.title)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.large.value, weight: .bold))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, Spacing.xxxs.value)
+                    .padding(.bottom, Spacing.quarck.value)
+                
+                Text(viewModel.instruction)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.small.value, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, Spacing.small.value)
+                
+                HStack {
+                    ForEach(viewModel.inviteCodeArray, id: \.self) {
+                        InviteLetterComponent(letter: $0, variant: .onlyView)
                     }
-                    .frame(width: .infinity, height: UIScreen.main.bounds.height*0.3)
-                    
-                    Spacer()
-                    
-                    CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
-                        .padding(.bottom, Spacing.xxxs.value)
-                        .onTapGesture {
-                            //TODO: - start game with participants already in
+                }.frame(height: 80)
+                    .padding(.bottom, Spacing.xxs.value)
+                
+                Text(viewModel.participantsTitle)
+                    .foregroundColor(.white)
+                    .font(.system(size: FontSize.xs.value, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, Spacing.xxxs.value)
+                
+                ScrollView {
+                    ForEach(viewModel.participants, id: \.id) { participant in
+                        HStack {
+                            Text(participant.name)
+                                .font(.system(size: FontSize.medium.value, weight: .bold))
+                                .foregroundColor(.white)
+                                .padding(.vertical, Spacing.xxxs.value)
                         }
+                        .frame(width: UIScreen.main.bounds.width*0.9)
+                        .background(Color.appGray)
+                        .cornerRadius(CornerRadius.small.value)
+                    }
                 }
-                .padding(.horizontal, Spacing.defaultMargin.value)
+                
+                CardComponent(title: viewModel.startButtonLabel, color: .appYellow, variant: .small)
+                    .padding(.bottom, Spacing.xxxs.value)
+                    .onTapGesture {
+                        coordinator.isPresentingView = .playGame
+                    }
+                
+                ButtonComponent(label: viewModel.finisButtonLabel, image: viewModel.finisButtonIcon, action: {
+                    homeCoordinator.isPresentingView = .home
+                    
+                    //TODO: - show alert to confirm user want to finish session
+                    viewModel.deleteRoom()
+                })
+                .padding(.top, Spacing.quarck.value)
+                .padding(.bottom, Spacing.xs.value)
             }
+            .padding(.horizontal, Spacing.defaultMargin.value)
         }
-        .navigationBarTitleDisplayMode(.inline)
         .onAppear() {
             viewModel.inviteCodeArray = viewModel.inviteCode.map { String($0) }
         }

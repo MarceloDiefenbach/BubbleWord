@@ -12,7 +12,9 @@ struct JoinView: View {
     // MARK: - Variables
     
     @ObservedObject private var viewModel: JoinViewModel = JoinViewModel()
-    @State private var textField: String = ""
+    @EnvironmentObject var coordinator: HomeCoordinator
+    
+    @State private var roomCodeField: String = ""
     @State private var isWaitingRoomShowing: Bool = false
     @State private var isAlertPresenting: Bool = false
     
@@ -32,16 +34,17 @@ struct JoinView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, Spacing.xxs.value)
                 
-                LIOTextField(placeholder: viewModel.placeholder, textField: $textField, textFieldType: .name)
+                LIOTextField(placeholder: viewModel.placeholder, textField: $roomCodeField, textFieldType: .roomCode)
                     .padding(.horizontal, Spacing.defaultMargin.value)
                     .padding(.bottom, Spacing.xxxs.value)
                 
                 CardComponent(title: viewModel.buttonLabel, color: .appYellow, variant: .small)
                     .onTapGesture {
-                        viewModel.joinGame(roomCode: textField) { response in
+                        UserDefaults.standard.set(roomCodeField, forKey: "roomCode")
+                        viewModel.joinGame(roomCode: roomCodeField) { response in
                             switch response {
                             case .success:
-                                self.isWaitingRoomShowing = true
+                                self.coordinator.isPresentingView = .waitingRoom
                                 break
                             case .failed:
                                 self.isAlertPresenting = true

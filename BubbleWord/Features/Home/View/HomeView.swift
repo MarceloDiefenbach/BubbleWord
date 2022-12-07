@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
+    @EnvironmentObject var coordinator: HomeCoordinator
     
     // MARK: - Variables
     

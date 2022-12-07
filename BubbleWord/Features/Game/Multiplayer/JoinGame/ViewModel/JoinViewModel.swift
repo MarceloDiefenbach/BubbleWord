@@ -14,12 +14,11 @@ enum JoinStatus {
 class JoinViewModel: ObservableObject {
     
     // MARK: - Variables
-    
+
     @Published var title: String = NSLocalizedString("joinRoomTitle", comment: "")
     @Published var placeholder: String = NSLocalizedString("joinRoomField", comment: "")
     @Published var buttonLabel: String = NSLocalizedString("joinRoomButton", comment: "")
-    var firebase: FirebaseService = FirebaseService()
-    
+
     // MARK: - Init
     
     init() {
@@ -29,7 +28,7 @@ class JoinViewModel: ObservableObject {
     // MARK: - Functions
     
     func joinGame(roomCode code: String, completion: @escaping (JoinStatus) -> Void) {
-        self.firebase.joinRoom(code: code) { result in
+        FirebaseService.instance.joinRoom(code: code) { result in
             switch result {
             case .success(_):
                 completion(.success)

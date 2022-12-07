@@ -56,6 +56,7 @@
 "createRoomSubtitle" = "Share this code with your friends";
 "participantsAlreadyIn" = "Participant already in";
 "createRoomStartButton" = "Start";
+"finishRoomStartButton" = "End session";
 
 // MARK: - Join room
 "joinRoomTitle" = "Join Game";

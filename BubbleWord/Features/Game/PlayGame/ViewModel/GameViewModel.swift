@@ -145,8 +145,16 @@ class GameViewModel: ObservableObject {
     
     // MARK: - Init
     
-    public init(gameDifficulty: Difficulty) {
-        self.gameDifficulty = gameDifficulty
+    public init() {
+        let difficultyDefaults: String = UserDefaults.standard.string(forKey: "difficulty") ?? ""
+        
+        if difficultyDefaults == "easy" {
+            self.gameDifficulty = .easy
+        } else if difficultyDefaults == "medium" {
+            self.gameDifficulty = .medium
+        } else {
+            self.gameDifficulty = .hard
+        }
         timeRemaining = initialTimeRemaining
         shuffleThemePhraseList()
         letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)

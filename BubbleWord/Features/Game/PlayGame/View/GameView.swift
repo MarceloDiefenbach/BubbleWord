@@ -11,15 +11,8 @@ struct GameView: View {
     
     // MARK: - Variables
     
-    @ObservedObject private var viewModel: GameViewModel
-    @Binding var isShowing: Bool
-    
-    // MARK: - Init
-    
-    public init(gameDifficulty: Difficulty, isShowing: Binding<Bool>) {
-        self.viewModel = GameViewModel(gameDifficulty: gameDifficulty)
-        self._isShowing = isShowing
-    }
+    @ObservedObject private var viewModel: GameViewModel = GameViewModel()
+    @EnvironmentObject var coordinator: HomeCoordinator
     
     // MARK: - Body
     
@@ -190,7 +183,7 @@ struct GameView: View {
                 PausedView(playGame: {
                     viewModel.isStopped.toggle()
                 }, finishGame: {
-                    isShowing.toggle()
+                    coordinator.isPresentingView = .home
                 })
             }
         }
@@ -198,6 +191,6 @@ struct GameView: View {
 }
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameDifficulty: .easy, isShowing: .constant(true))
+        GameView()
     }
 }
