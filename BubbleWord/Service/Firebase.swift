@@ -28,6 +28,7 @@ class FirebaseService {
     var participants: [Participant] = []
     var roomCode: String = ""
     var username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
+    var isOnline: Bool = false
     
     // MARK: - Functions
     
@@ -45,6 +46,7 @@ class FirebaseService {
         self.refRooms.child(self.roomCode).setValue([
             "code": self.roomCode,
             "hasBegun": "false",
+            "letters": [],
             "participants": [
                 "0": self.username
             ]
@@ -131,5 +133,39 @@ class FirebaseService {
         self.refRooms.child(self.roomCode).removeValue()
     }
     
+    
+    func saveLetters(letters: [Letter]) {
+        self.refRooms.child(roomCode).child("letters").removeValue()
+        for letter in letters {
+            self.refRooms.child(roomCode).child("letters").childByAutoId().setValue(["letter": letter.letter, "state": letter.state, "colorIndex": letter.colorIndex])
+        }
+    }
+    
+    func getLetters(completion: @escaping ([Letter]) -> Void) {
+        var letters: [Letter] = []
+        self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
+            letters = []
+            for child in snapshot.children {
+                let data = child as! DataSnapshot
+                let letterDict = data.value as! [String:Any]
+                let letter = Letter(letter: letterDict["letter"] as! String, state: letterDict["state"] as! Bool, colorIndex: letterDict["colorIndex"] as! Int)
+                letters.append(letter)
+            }
+            completion(letters)
+        })
+    }
+    
+    func markLetterAsUded(_ letter: Letter) {
+      let dbRef = Firebase.Database.database().reference()
+        self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
+        for child in snapshot.children {
+          let data = child as! DataSnapshot
+          let letterDict = data.value as! [String:Any]
+          if letterDict["letter"] as! String == letter.letter {
+            data.ref.updateChildValues(["state": false])
+          }
+        }
+      })
+    }
     
 }

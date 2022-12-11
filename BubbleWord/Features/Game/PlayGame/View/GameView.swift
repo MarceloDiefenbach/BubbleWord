@@ -106,7 +106,7 @@ struct GameView: View {
                     HStack {
                         ForEach(0..<4) { i in
                             ZStack {
-                                if viewModel.letters[i].state == .inactive {
+                                if viewModel.letters[i].state == false {
                                     Circle()
                                         .fill(Color.blue)
                                         .frame(width: 12, height: 12)
@@ -115,7 +115,7 @@ struct GameView: View {
                                 
                                 LetterComponent(letter: viewModel.letters[i])
                                     .onTapGesture(perform: {
-                                        if viewModel.letters[i].state == .active {
+                                        if viewModel.letters[i].state == true {
                                             viewModel.turnInactiveLetter(index: i)
                                             Haptic.impact(.medium).generate()
                                         }
@@ -127,7 +127,7 @@ struct GameView: View {
                     HStack {
                         ForEach(4..<8) { i in
                             ZStack {
-                                if viewModel.letters[i].state == .inactive {
+                                if viewModel.letters[i].state == false {
                                     Circle()
                                         .fill(Color.blue)
                                         .frame(width: 12, height: 12)
@@ -136,7 +136,7 @@ struct GameView: View {
                                 
                                 LetterComponent(letter: viewModel.letters[i])
                                     .onTapGesture(perform: {
-                                        if viewModel.letters[i].state == .active {
+                                        if viewModel.letters[i].state == true {
                                             viewModel.turnInactiveLetter(index: i)
                                             Haptic.impact(.medium).generate()
                                         }
@@ -148,7 +148,7 @@ struct GameView: View {
                     HStack {
                         ForEach(8..<12) { i in
                             ZStack {
-                                if viewModel.letters[i].state == .inactive {
+                                if viewModel.letters[i].state == false {
                                     Circle()
                                         .fill(Color.blue)
                                         .frame(width: 12, height: 12)
@@ -157,7 +157,7 @@ struct GameView: View {
                                 
                                 LetterComponent(letter: viewModel.letters[i])
                                     .onTapGesture(perform: {
-                                        if viewModel.letters[i].state == .active {
+                                        if viewModel.letters[i].state == true {
                                             viewModel.turnInactiveLetter(index: i)
                                             Haptic.impact(.medium).generate()
                                         }
