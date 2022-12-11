@@ -50,7 +50,7 @@ struct GameView: View {
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.white)
                                 .onTapGesture {
-                                    viewModel.isStopped.toggle()
+                                    viewModel.stopGame()
                                 }
                         }.padding(.horizontal, Spacing.xxs.value)
                     }
@@ -173,15 +173,17 @@ struct GameView: View {
             }
             
             //MARK: - loseWinView
-            if viewModel.lose {
-                YouLoseView(action: {
-                    viewModel.nextParticipant()
-                }).ignoresSafeArea()
+            if FirebaseService.instance.isMyTimeToPlay {
+                if viewModel.lose {
+                    YouLoseView(action: {
+                        viewModel.nextParticipant()
+                    }).ignoresSafeArea()
+                }
             }
             
             if viewModel.isStopped {
                 PausedView(playGame: {
-                    viewModel.isStopped.toggle()
+                    viewModel.resumeGame()
                 }, finishGame: {
                     coordinator.isPresentingView = .home
                 })

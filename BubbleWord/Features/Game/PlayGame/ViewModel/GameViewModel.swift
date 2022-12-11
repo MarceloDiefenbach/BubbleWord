@@ -165,6 +165,14 @@ class GameViewModel: ObservableObject {
             FirebaseService.instance.getLetters(completion: {(response) in
                 self.letters = response
             })
+            
+            FirebaseService.instance.isStoped(completion: {(response) in
+                if response == true {
+                    self.isStopped = true
+                } else {
+                    self.isStopped = false
+                }
+            })
         }
     }
     
@@ -229,9 +237,11 @@ class GameViewModel: ObservableObject {
         
         letterListToDraw.shuffle()
         
-        FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
-            lhs.letter < rhs.letter
-        } )
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
+                lhs.letter < rhs.letter
+            } )
+        }
         
         return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
             lhs.letter < rhs.letter
@@ -253,6 +263,22 @@ class GameViewModel: ObservableObject {
     func nextParticipant() {
         lose = false
         timeRemaining = initialTimeRemaining
+    }
+    
+    func stopGame() {
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.stopGame()
+        } else {
+            isStopped = true
+        }
+    }
+    
+    func resumeGame() {
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.resumeGame()
+        } else {
+            isStopped = false
+        }
     }
     
 }
