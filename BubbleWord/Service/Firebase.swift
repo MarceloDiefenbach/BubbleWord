@@ -29,6 +29,7 @@ class FirebaseService {
     var roomCode: String = ""
     var username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
     var isOnline: Bool = false
+    var isMyTimeToPlay: Bool = true
     
     // MARK: - Functions
     
@@ -47,6 +48,7 @@ class FirebaseService {
             "code": self.roomCode,
             "hasBegun": "false",
             "letters": [],
+            "isStopped": false,
             "participants": [
                 "0": self.username
             ]
@@ -156,16 +158,37 @@ class FirebaseService {
     }
     
     func markLetterAsUded(_ letter: Letter) {
-      let dbRef = Firebase.Database.database().reference()
         self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
-        for child in snapshot.children {
-          let data = child as! DataSnapshot
-          let letterDict = data.value as! [String:Any]
-          if letterDict["letter"] as! String == letter.letter {
-            data.ref.updateChildValues(["state": false])
-          }
-        }
-      })
+            for child in snapshot.children {
+                let data = child as! DataSnapshot
+                let letterDict = data.value as! [String:Any]
+                if letterDict["letter"] as! String == letter.letter {
+                    data.ref.updateChildValues(["state": false])
+                }
+            }
+        })
+    }
+    
+    func stopGame() {
+        self.refRooms.child(roomCode).child("isStopped").setValue(true)
+    }
+    
+    func resumeGame() {
+        self.refRooms.child(roomCode).child("isStopped").setValue(false)
+    }
+    
+    func isStoped(completion: @escaping (Bool) -> Void) {
+        self.refRooms.child(roomCode).child("isStopped").observe(.value, with: { snapshot in
+            if let value = snapshot.value as? Bool {
+                if value == true {
+                    print("is Stoped")
+                    completion(true)
+                } else {
+                    print("is running")
+                    completion(false)
+                }
+            }
+        })
     }
     
 }
