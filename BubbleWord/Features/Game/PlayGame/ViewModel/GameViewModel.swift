@@ -42,36 +42,36 @@ class GameViewModel: ObservableObject {
     // MARK: - Constants
     
     let easyDifficultyLetters: [Letter] = [
-        Letter(letter: "A", state: .active, colorIndex: 1),
-        Letter(letter: "B", state: .active, colorIndex: 2),
-        Letter(letter: "C", state: .active, colorIndex: 3),
-        Letter(letter: "D", state: .active, colorIndex: 1),
-        Letter(letter: "E", state: .active, colorIndex: 2),
-        Letter(letter: "F", state: .active, colorIndex: 3),
-        Letter(letter: "G", state: .active, colorIndex: 1),
-        Letter(letter: "L", state: .active, colorIndex: 1),
-        Letter(letter: "M", state: .active, colorIndex: 1),
-        Letter(letter: "N", state: .active, colorIndex: 2),
-        Letter(letter: "O", state: .active, colorIndex: 3),
-        Letter(letter: "P", state: .active, colorIndex: 1),
-        Letter(letter: "R", state: .active, colorIndex: 3),
-        Letter(letter: "S", state: .active, colorIndex: 1),
-        Letter(letter: "T", state: .active, colorIndex: 2),
+        Letter(letter: "A", state: true, colorIndex: 1),
+        Letter(letter: "B", state: true, colorIndex: 2),
+        Letter(letter: "C", state: true, colorIndex: 3),
+        Letter(letter: "D", state: true, colorIndex: 1),
+        Letter(letter: "E", state: true, colorIndex: 2),
+        Letter(letter: "F", state: true, colorIndex: 3),
+        Letter(letter: "G", state: true, colorIndex: 1),
+        Letter(letter: "L", state: true, colorIndex: 1),
+        Letter(letter: "M", state: true, colorIndex: 1),
+        Letter(letter: "N", state: true, colorIndex: 2),
+        Letter(letter: "O", state: true, colorIndex: 3),
+        Letter(letter: "P", state: true, colorIndex: 1),
+        Letter(letter: "R", state: true, colorIndex: 3),
+        Letter(letter: "S", state: true, colorIndex: 1),
+        Letter(letter: "T", state: true, colorIndex: 2),
     ]
     let mediumDifficultyLetters: [Letter] = [
-        Letter(letter: "H", state: .active, colorIndex: 2),
-        Letter(letter: "I", state: .active, colorIndex: 1),
-        Letter(letter: "J", state: .active, colorIndex: 2),
-        Letter(letter: "Q", state: .active, colorIndex: 2),
-        Letter(letter: "U", state: .active, colorIndex: 1),
-        Letter(letter: "V", state: .active, colorIndex: 2),
+        Letter(letter: "H", state: true, colorIndex: 2),
+        Letter(letter: "I", state: true, colorIndex: 1),
+        Letter(letter: "J", state: true, colorIndex: 2),
+        Letter(letter: "Q", state: true, colorIndex: 2),
+        Letter(letter: "U", state: true, colorIndex: 1),
+        Letter(letter: "V", state: true, colorIndex: 2),
     ]
     let hardDifficultyLetters: [Letter] = [
-        Letter(letter: "K", state: .active, colorIndex: 3),
-        Letter(letter: "X", state: .active, colorIndex: 3),
-        Letter(letter: "Y", state: .active, colorIndex: 1),
-        Letter(letter: "W", state: .active, colorIndex: 1),
-        Letter(letter: "Z", state: .active, colorIndex: 2)
+        Letter(letter: "K", state: true, colorIndex: 3),
+        Letter(letter: "X", state: true, colorIndex: 3),
+        Letter(letter: "Y", state: true, colorIndex: 1),
+        Letter(letter: "W", state: true, colorIndex: 1),
+        Letter(letter: "Z", state: true, colorIndex: 2)
     ]
     var themePhraseList: [String] = [
         "Car brand",
@@ -157,22 +157,39 @@ class GameViewModel: ObservableObject {
         }
         timeRemaining = initialTimeRemaining
         shuffleThemePhraseList()
-        letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
         generateNewCardPhrase()
+        
+        letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+        
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.getLetters(completion: {(response) in
+                self.letters = response
+            })
+        }
     }
     
     // MARK: - Functions
     
     func turnInactiveLetter(index: Int) {
-        if letters[index].state == .active {
-            letters[index].state = .inactive
+        if letters[index].state == true {
+            letters[index].state = false
             timeRemaining = initialTimeRemaining
             controlIfGameFinish += 1
+            if FirebaseService.instance.isOnline {
+                FirebaseService.instance.markLetterAsUded(letters[index])
+            } else {
+                letters[index].state = false
+            }
         }
         
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
             letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+            if FirebaseService.instance.isOnline {
+                FirebaseService.instance.getLetters(completion: {(response) in
+                    self.letters = response
+                })
+            }
             changeCard()
         }
     }
@@ -211,6 +228,10 @@ class GameViewModel: ObservableObject {
         }
         
         letterListToDraw.shuffle()
+        
+        FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
+            lhs.letter < rhs.letter
+        } )
         
         return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
             lhs.letter < rhs.letter

@@ -17,7 +17,7 @@ struct LetterComponent: View {
     
     var body: some View {
         ZStack {            
-            if letter.state == .active {
+            if letter.state == true {
                 if 1 == letter.colorIndex {
                     Image("Blue")
                         .resizable()
@@ -50,6 +50,6 @@ struct LetterComponent: View {
 
 struct Letter_Previews: PreviewProvider {
     static var previews: some View {
-        LetterComponent(letter: Letter(letter: "a", state: .active, colorIndex: 1))
+        LetterComponent(letter: Letter(letter: "a", state: true, colorIndex: 1))
     }
 }

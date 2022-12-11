@@ -9,12 +9,8 @@ import Foundation
 
 struct Letter {
     var letter: String
-    var state: StateOfLetter
+    var state: Bool
     var colorIndex: Int
-}
-
-enum StateOfLetter {
-    case active, inactive
 }
 
 enum SoundTypes {
