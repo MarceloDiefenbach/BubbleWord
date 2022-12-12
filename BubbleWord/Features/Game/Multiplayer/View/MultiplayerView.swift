@@ -43,6 +43,7 @@ struct MultiplayerView: View {
                 CardComponent(title: viewModel.createSessionButton, color: .appYellow, variant: .small)
                     .onTapGesture {
                         viewModel.createRoom()
+                        FirebaseService.instance.isOwner = true
                     }
                     .onChange(of: viewModel.isCreatedGame, perform: { value in
                         if value == true {
@@ -56,6 +57,7 @@ struct MultiplayerView: View {
                 CardComponent(title: viewModel.joinSessionButton, color: .appBlue, variant: .small)
                     .onTapGesture {
                         self.isJoinViewShowing = true
+                        FirebaseService.instance.isOwner = false
                     }
                     .padding(.bottom, Spacing.xxs.value + 50)
             }
