@@ -42,17 +42,19 @@ struct GameView: View {
                             .foregroundColor(.white)
                             .padding(.top, Spacing.xxs.value)
                         
-                        HStack {
-                            Spacer()
-                            
-                            Image(systemName: "pause.circle.fill")
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .foregroundColor(.white)
-                                .onTapGesture {
-                                    viewModel.stopGame()
-                                }
-                        }.padding(.horizontal, Spacing.xxs.value)
+                        if FirebaseService.instance.isOwner {
+                            HStack {
+                                Spacer()
+                                
+                                Image(systemName: "pause.circle.fill")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(.white)
+                                    .onTapGesture {
+                                        viewModel.stopGame()
+                                    }
+                            }.padding(.horizontal, Spacing.xxs.value)
+                        }
                     }
                     
                     VStack {
