@@ -214,4 +214,17 @@ class FirebaseService {
         self.refRooms.child(roomCode).child("actualTheme").setValue(theme)
         //TODO: - here we need to verify if an error occurred
     }
+    
+    func updateTimeRemaining(time: Int) {
+        self.refRooms.child(self.roomCode).child("timeRemaining").setValue(time)
+    }
+    
+    func getTimeRemaining(completion: @escaping (Int) -> Void) {
+        self.refRooms.child(roomCode).child("timeRemaining").observe(.value, with: { (snapshot) in
+            if let data = snapshot.value as? Int {
+                completion(data)
+            }
+            //TODO: - here we need to verify if an error occurred
+        })
+    }
 }

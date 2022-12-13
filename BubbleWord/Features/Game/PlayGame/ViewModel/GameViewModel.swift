@@ -133,6 +133,7 @@ class GameViewModel: ObservableObject {
     // MARK: - Variables
     
     @Published var timeRemaining: Int
+    @Published var timeRemainingShowOnView: Int = 0
     @Published var isStopped: Bool = false
     @Published var letters: [Letter] = []
     @Published var lose: Bool = false
@@ -278,6 +279,9 @@ class GameViewModel: ObservableObject {
             if timeRemaining > 0 {
                 if !isStopped {
                     timeRemaining -= 1
+                    if RoomSettings.instance.isOnline {
+                        FirebaseService.instance.updateTimeRemaining(time: timeRemaining)
+                    }
                 }
             }
         }
