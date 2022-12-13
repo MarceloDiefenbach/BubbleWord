@@ -104,7 +104,7 @@ struct GameView: View {
                 .animation(.easeInOut(duration: 0.3))
                 
                 //MAKR: - Letters grid
-                if !viewModel.letters.isEmpty {
+                if viewModel.letters.count >= 12 {
                     HStack {
                         ForEach(0..<4) { i in
                             ZStack {

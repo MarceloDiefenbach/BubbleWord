@@ -50,6 +50,7 @@ class FirebaseService {
             "hasBegun": "false",
             "letters": [],
             "isStopped": false,
+            "actualTheme": "",
             "participants": [
                 "0": self.username
             ]
@@ -134,13 +135,17 @@ class FirebaseService {
     
     func deleteRoom(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.refRooms.child(self.roomCode).removeValue()
+        //TODO: - here we need to verify if an error occurred
     }
     
     
     func saveLetters(letters: [Letter]) {
-        self.refRooms.child(roomCode).child("letters").removeValue()
-        for letter in letters {
-            self.refRooms.child(roomCode).child("letters").childByAutoId().setValue(["letter": letter.letter, "state": letter.state, "colorIndex": letter.colorIndex])
+        //This dispatch to prevent that save new letters before game finish
+        
+        self.refRooms.child(self.roomCode).child("letters").removeValue()
+        
+        for (index, letter) in letters.enumerated() {
+            self.refRooms.child(self.roomCode).child("letters").child("\(index)").setValue(["letter": letter.letter, "state": true, "colorIndex": letter.colorIndex])
         }
     }
     
@@ -150,21 +155,28 @@ class FirebaseService {
             letters = []
             for child in snapshot.children {
                 let data = child as! DataSnapshot
-                let letterDict = data.value as! [String:Any]
-                let letter = Letter(letter: letterDict["letter"] as! String, state: letterDict["state"] as! Bool, colorIndex: letterDict["colorIndex"] as! Int)
-                letters.append(letter)
+                if let letterDict = data.value as? [String:Any] {
+                    let letter = Letter(letter: letterDict["letter"] as? String ?? "", state: letterDict["state"] as? Bool ?? false, colorIndex: letterDict["colorIndex"] as? Int ?? 1)
+                    letters.append(letter)
+                }
             }
             completion(letters)
         })
     }
     
+    
     func markLetterAsUded(_ letter: Letter) {
         self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
+            
             for child in snapshot.children {
                 let data = child as! DataSnapshot
                 let letterDict = data.value as! [String:Any]
-                if letterDict["letter"] as! String == letter.letter {
-                    data.ref.updateChildValues(["state": false])
+                if let letterFirebase = letterDict["letter"] as? String {
+                    if letterFirebase == letter.letter {
+                        data.ref.updateChildValues(["state": false])
+                    }
+                } else {
+                    print("found nil")
                 }
             }
         })
@@ -172,10 +184,12 @@ class FirebaseService {
     
     func stopGame() {
         self.refRooms.child(roomCode).child("isStopped").setValue(true)
+        //TODO: - here we need to verify if an error occurred
     }
     
     func resumeGame() {
         self.refRooms.child(roomCode).child("isStopped").setValue(false)
+        //TODO: - here we need to verify if an error occurred
     }
     
     func isStoped(completion: @escaping (Bool) -> Void) {
@@ -192,4 +206,18 @@ class FirebaseService {
         })
     }
     
+    func getActualTheme(completion: @escaping (String) -> Void) {
+        self.refRooms.child(roomCode).child("actualTheme").observe(.value, with: { (snapshot) in
+            if let data = snapshot.value as? String {
+                print(data)
+                completion(data)
+            }
+            //TODO: - here we need to verify if an error occurred
+        })
+    }
+    
+    func changeActualTheme(theme: String) {
+        self.refRooms.child(roomCode).child("actualTheme").setValue(theme)
+        //TODO: - here we need to verify if an error occurred
+    }
 }

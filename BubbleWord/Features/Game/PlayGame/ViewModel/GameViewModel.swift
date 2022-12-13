@@ -159,9 +159,10 @@ class GameViewModel: ObservableObject {
         shuffleThemePhraseList()
         generateNewCardPhrase()
         
-        letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
-        
         if FirebaseService.instance.isOnline {
+            
+            let internletters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+            
             FirebaseService.instance.getLetters(completion: {(response) in
                 self.letters = response
             })
@@ -173,6 +174,13 @@ class GameViewModel: ObservableObject {
                     self.isStopped = false
                 }
             })
+            
+            FirebaseService.instance.getActualTheme(completion: {(actualTheme) in
+                self.cardPhrase = actualTheme
+            })
+            
+        } else {
+            letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
         }
     }
     
@@ -192,13 +200,17 @@ class GameViewModel: ObservableObject {
         
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
-            letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
-            if FirebaseService.instance.isOnline {
-                FirebaseService.instance.getLetters(completion: {(response) in
-                    self.letters = response
-                })
-            }
-            changeCard()
+            let internLetters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                if FirebaseService.instance.isOnline {
+                    FirebaseService.instance.getLetters(completion: {(response) in
+                        self.letters = response
+                    })
+                } else {
+                    self.letters = internLetters
+                }
+                self.changeCard()
+            })
         }
     }
     
@@ -213,7 +225,11 @@ class GameViewModel: ObservableObject {
     
     private func generateNewCardPhrase() {
         if cardPhraseIndex >= themePhraseList.count { cardPhraseIndex = 0 }
-        cardPhrase = themePhraseList[cardPhraseIndex]
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.changeActualTheme(theme: themePhraseList[cardPhraseIndex])
+        } else {
+            cardPhrase = themePhraseList[cardPhraseIndex]
+        }
         cardPhraseIndex += 1
     }
     
@@ -241,6 +257,8 @@ class GameViewModel: ObservableObject {
             FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
                 lhs.letter < rhs.letter
             } )
+            
+            print(letters)
         }
         
         return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
@@ -254,7 +272,7 @@ class GameViewModel: ObservableObject {
         } else {
             if timeRemaining > 0 {
                 if !isStopped {
-                    timeRemaining -= 1
+//                    timeRemaining -= 1
                 }
             }
         }
