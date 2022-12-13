@@ -272,7 +272,7 @@ class GameViewModel: ObservableObject {
         } else {
             if timeRemaining > 0 {
                 if !isStopped {
-//                    timeRemaining -= 1
+                    timeRemaining -= 1
                 }
             }
         }
