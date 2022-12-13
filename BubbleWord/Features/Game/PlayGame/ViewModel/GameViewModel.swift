@@ -186,6 +186,7 @@ class GameViewModel: ObservableObject {
             
         } else {
             letters = internletters
+            self.timeRemainingShowOnView = self.timeRemaining
         }
     }
     
