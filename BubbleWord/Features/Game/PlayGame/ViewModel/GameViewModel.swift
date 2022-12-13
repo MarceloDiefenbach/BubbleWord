@@ -159,9 +159,9 @@ class GameViewModel: ObservableObject {
         shuffleThemePhraseList()
         generateNewCardPhrase()
         
+        let internletters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+        
         if FirebaseService.instance.isOnline {
-            
-            let internletters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
             
             FirebaseService.instance.getLetters(completion: {(response) in
                 self.letters = response
@@ -180,7 +180,7 @@ class GameViewModel: ObservableObject {
             })
             
         } else {
-            letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+            letters = internletters
         }
     }
     
@@ -191,6 +191,7 @@ class GameViewModel: ObservableObject {
             letters[index].state = false
             timeRemaining = initialTimeRemaining
             controlIfGameFinish += 1
+            
             if FirebaseService.instance.isOnline {
                 FirebaseService.instance.markLetterAsUded(letters[index])
             } else {
@@ -201,16 +202,15 @@ class GameViewModel: ObservableObject {
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
             let internLetters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                if FirebaseService.instance.isOnline {
-                    FirebaseService.instance.getLetters(completion: {(response) in
-                        self.letters = response
-                    })
-                } else {
-                    self.letters = internLetters
-                }
-                self.changeCard()
-            })
+            
+            if FirebaseService.instance.isOnline {
+                FirebaseService.instance.getLetters(completion: {(response) in
+                    self.letters = response
+                })
+            } else {
+                self.letters = internLetters
+            }
+            self.changeCard()
         }
     }
     
@@ -253,17 +253,18 @@ class GameViewModel: ObservableObject {
         
         letterListToDraw.shuffle()
         
+        let array = Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
+            lhs.letter < rhs.letter
+        }
+        
         if FirebaseService.instance.isOnline {
-            FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
-                lhs.letter < rhs.letter
-            } )
+            
+            FirebaseService.instance.saveLetters(letters: array)
             
             print(letters)
         }
         
-        return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
-            lhs.letter < rhs.letter
-        }
+        return array
     }
     
     func oneSecondPassed() {

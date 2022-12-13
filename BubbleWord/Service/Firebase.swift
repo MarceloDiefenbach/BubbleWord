@@ -140,10 +140,8 @@ class FirebaseService {
     
     
     func saveLetters(letters: [Letter]) {
-        //This dispatch to prevent that save new letters before game finish
         
-        self.refRooms.child(self.roomCode).child("letters").removeValue()
-        
+        //TODO: - This save letters on roomCode/letters but some letters are starting with false on state. IDK how to fix this
         for (index, letter) in letters.enumerated() {
             self.refRooms.child(self.roomCode).child("letters").child("\(index)").setValue(["letter": letter.letter, "state": true, "colorIndex": letter.colorIndex])
         }
@@ -163,7 +161,6 @@ class FirebaseService {
             completion(letters)
         })
     }
-    
     
     func markLetterAsUded(_ letter: Letter) {
         self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
