@@ -28,9 +28,6 @@ class FirebaseService {
     var participants: [Participant] = []
     var roomCode: String = ""
     var username: String = UserDefaults.standard.string(forKey: "username") ?? "Anonimo"
-    var isOnline: Bool = false
-    var isMyTimeToPlay: Bool = true
-    var isOwner: Bool = true
     
     // MARK: - Functions
     
