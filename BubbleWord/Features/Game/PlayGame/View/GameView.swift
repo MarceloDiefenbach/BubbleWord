@@ -42,7 +42,7 @@ struct GameView: View {
                             .foregroundColor(.white)
                             .padding(.top, Spacing.xxs.value)
                         
-                        if FirebaseService.instance.isOwner {
+                        if RoomSettings.instance.isOwner {
                             HStack {
                                 Spacer()
                                 
@@ -171,11 +171,13 @@ struct GameView: View {
                 }
             }
             .onReceive(viewModel.timer) { time in
-                viewModel.oneSecondPassed()
+                if RoomSettings.instance.isOwner {
+                    viewModel.oneSecondPassed()
+                }
             }
             
             //MARK: - loseWinView
-            if FirebaseService.instance.isMyTimeToPlay {
+            if RoomSettings.instance.isMyTimeToPlay {
                 if viewModel.lose {
                     YouLoseView(action: {
                         viewModel.nextParticipant()
