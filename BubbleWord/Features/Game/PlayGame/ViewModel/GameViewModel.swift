@@ -299,4 +299,14 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    func finishGame() {
+        if FirebaseService.instance.isOnline {
+            FirebaseService.instance.deleteRoom(completion: {(response) in
+                //TODO: - here we need to use the response to show alert if error ocurred
+            })
+        } else {
+            isStopped = false
+        }
+    }
+    
 }

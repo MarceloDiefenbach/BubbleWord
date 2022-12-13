@@ -187,6 +187,7 @@ struct GameView: View {
                 PausedView(playGame: {
                     viewModel.resumeGame()
                 }, finishGame: {
+                    viewModel.finishGame()
                     coordinator.isPresentingView = .home
                 })
             }
