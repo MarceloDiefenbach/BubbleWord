@@ -77,6 +77,13 @@ struct CreateGameView: View {
                 .padding(.bottom, Spacing.xs.value)
             }
             .padding(.horizontal, Spacing.defaultMargin.value)
+            
+            VStack {
+                Spacer()
+                
+                BannerAd(unitID: "ca-app-pub-7490663355066325/1338913116").frame(height: 50)
+                    .padding(.bottom, Spacing.xxxs.value)
+            }.ignoresSafeArea()
         }
         .onAppear() {
             viewModel.inviteCodeArray = viewModel.inviteCode.map { String($0) }
