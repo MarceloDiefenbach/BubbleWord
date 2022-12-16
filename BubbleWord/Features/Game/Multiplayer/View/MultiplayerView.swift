@@ -65,7 +65,7 @@ struct MultiplayerView: View {
             VStack {
                 Spacer()
                 
-                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                BannerAd(unitID: "ca-app-pub-7490663355066325/9964628152").frame(height: 50)
                     .padding(.bottom, Spacing.xxxs.value)
             }.ignoresSafeArea()
             
