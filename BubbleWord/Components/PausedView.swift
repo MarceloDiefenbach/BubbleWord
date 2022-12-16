@@ -38,24 +38,29 @@ struct PausedView: View {
                         playGame()
                     }
                     
-                    HStack {
-                        Text(NSLocalizedString("endButton", comment: ""))
-                            .font(.system(size: FontSize.small.value, weight: .medium))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, Spacing.xxxs.value)
-                            .padding(.vertical, Spacing.nano.value)
-                    }
-                    .frame(width: UIScreen.main.bounds.width * 0.5)
-                    .cornerRadius(CornerRadius.circular.value)
-                    .padding(.bottom, Spacing.xxs.value)
-                    .onTapGesture {
-                        finishGame()
+                    if RoomSettings.instance.isOwner {
+                        HStack {
+                            Text(NSLocalizedString("endButton", comment: ""))
+                                .font(.system(size: FontSize.small.value, weight: .medium))
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, Spacing.xxxs.value)
+                                .padding(.vertical, Spacing.nano.value)
+                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.5)
+                        .cornerRadius(CornerRadius.circular.value)
+                        .padding(.bottom, Spacing.xxs.value)
+                        .onTapGesture {
+                            finishGame()
+                        }
+                    } else {
+                        //TODO: - add leave room button
                     }
                     
                     BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274")
                         .frame(height: 50)
                         .padding(.bottom, 80)
+                        .padding(.top, 20)
                 }
             }
         }

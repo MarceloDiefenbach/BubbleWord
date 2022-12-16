@@ -59,6 +59,13 @@ struct WaitingRoomView: View {
                     viewModel.leaveRoom()
                     coordinator.isPresentingView = .home
                 })
+                .onAppear(){
+                    viewModel.verifyIfAlreadyStart(completion: {(response) in
+                        if response {
+                            coordinator.isPresentingView = .play
+                        }
+                    })
+                }
             }
             .padding(.horizontal, Spacing.defaultMargin.value)
         }

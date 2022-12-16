@@ -8,7 +8,7 @@
 import Foundation
 
 enum PresentingViewsHomeCoordinator {
-    case home, waitingRoom, playSinglePlayer, playMultiplayer
+    case home, waitingRoom, play
 }
 
 class HomeCoordinator: ObservableObject {

@@ -133,6 +133,7 @@ class GameViewModel: ObservableObject {
     // MARK: - Variables
     
     @Published var timeRemaining: Int
+    @Published var timeRemainingShowOnView: Int = 0
     @Published var isStopped: Bool = false
     @Published var letters: [Letter] = []
     @Published var lose: Bool = false
@@ -159,9 +160,14 @@ class GameViewModel: ObservableObject {
         shuffleThemePhraseList()
         generateNewCardPhrase()
         
-        letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+        let internletters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
         
-        if FirebaseService.instance.isOnline {
+        if RoomSettings.instance.isOnline {
+            
+            FirebaseService.instance.getTimeRemaining(completion: {(response) in
+                self.timeRemainingShowOnView = response
+            })
+            
             FirebaseService.instance.getLetters(completion: {(response) in
                 self.letters = response
             })
@@ -173,6 +179,14 @@ class GameViewModel: ObservableObject {
                     self.isStopped = false
                 }
             })
+            
+            FirebaseService.instance.getActualTheme(completion: {(actualTheme) in
+                self.cardPhrase = actualTheme
+            })
+            
+        } else {
+            letters = internletters
+            self.timeRemainingShowOnView = self.timeRemaining
         }
     }
     
@@ -183,7 +197,8 @@ class GameViewModel: ObservableObject {
             letters[index].state = false
             timeRemaining = initialTimeRemaining
             controlIfGameFinish += 1
-            if FirebaseService.instance.isOnline {
+            
+            if RoomSettings.instance.isOnline {
                 FirebaseService.instance.markLetterAsUded(letters[index])
             } else {
                 letters[index].state = false
@@ -192,13 +207,16 @@ class GameViewModel: ObservableObject {
         
         if controlIfGameFinish == 12 {
             controlIfGameFinish = 0
-            letters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
-            if FirebaseService.instance.isOnline {
+            let internLetters = generateNewSetOfLetters(difficulty: gameDifficulty, amount: 12)
+            
+            if RoomSettings.instance.isOnline {
                 FirebaseService.instance.getLetters(completion: {(response) in
                     self.letters = response
                 })
+            } else {
+                self.letters = internLetters
             }
-            changeCard()
+            self.changeCard()
         }
     }
     
@@ -213,7 +231,11 @@ class GameViewModel: ObservableObject {
     
     private func generateNewCardPhrase() {
         if cardPhraseIndex >= themePhraseList.count { cardPhraseIndex = 0 }
-        cardPhrase = themePhraseList[cardPhraseIndex]
+        if RoomSettings.instance.isOnline {
+            FirebaseService.instance.changeActualTheme(theme: themePhraseList[cardPhraseIndex])
+        } else {
+            cardPhrase = themePhraseList[cardPhraseIndex]
+        }
         cardPhraseIndex += 1
     }
     
@@ -237,15 +259,18 @@ class GameViewModel: ObservableObject {
         
         letterListToDraw.shuffle()
         
-        if FirebaseService.instance.isOnline {
-            FirebaseService.instance.saveLetters(letters: Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
-                lhs.letter < rhs.letter
-            } )
-        }
-        
-        return Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
+        let array = Array(letterListToDraw[0...amount-1]).sorted { lhs, rhs in
             lhs.letter < rhs.letter
         }
+        
+        if RoomSettings.instance.isOnline {
+            
+            FirebaseService.instance.saveLetters(letters: array)
+            
+            print(letters)
+        }
+        
+        return array
     }
     
     func oneSecondPassed() {
@@ -255,6 +280,9 @@ class GameViewModel: ObservableObject {
             if timeRemaining > 0 {
                 if !isStopped {
                     timeRemaining -= 1
+                    if RoomSettings.instance.isOnline {
+                        FirebaseService.instance.updateTimeRemaining(time: timeRemaining)
+                    }
                 }
             }
         }
@@ -266,7 +294,7 @@ class GameViewModel: ObservableObject {
     }
     
     func stopGame() {
-        if FirebaseService.instance.isOnline {
+        if RoomSettings.instance.isOnline {
             FirebaseService.instance.stopGame()
         } else {
             isStopped = true
@@ -274,8 +302,24 @@ class GameViewModel: ObservableObject {
     }
     
     func resumeGame() {
-        if FirebaseService.instance.isOnline {
+        if RoomSettings.instance.isOnline {
             FirebaseService.instance.resumeGame()
+        } else {
+            isStopped = false
+        }
+    }
+    
+    func startGame() {
+        if RoomSettings.instance.isOnline {
+            FirebaseService.instance.startGame()
+        }
+    }
+    
+    func finishGame() {
+        if RoomSettings.instance.isOnline {
+            FirebaseService.instance.deleteRoom(completion: {(response) in
+                //TODO: - here we need to use the response to show alert if error ocurred
+            })
         } else {
             isStopped = false
         }

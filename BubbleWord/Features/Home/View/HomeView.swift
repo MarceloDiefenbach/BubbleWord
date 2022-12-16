@@ -41,13 +41,13 @@ struct HomeView: View {
                     CardComponent(title: viewModel.singleDeviceTitle, subtitle: viewModel.singleDeviceDescription, color: .appRed)
                         .onTapGesture {
                             self.isSingleDeviceViewShowing = true
-                            FirebaseService.instance.isOnline = false
+                            RoomSettings.instance.isOnline = false
                         }
                     
                     CardComponent(title: viewModel.multiplayerTitle, subtitle: viewModel.multiplayerDescription, color: .appBlue)
                         .onTapGesture {
                             self.isMultiplayerViewShowing = true
-                            FirebaseService.instance.isOnline = true
+                            RoomSettings.instance.isOnline = true
                         }
                     
                     if #available(iOS 15.0, *) {

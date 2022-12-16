@@ -37,12 +37,12 @@ struct GameView: View {
             VStack {
                 VStack {
                     ZStack {
-                        Text("\(viewModel.timeRemaining)")
+                        Text("\(viewModel.timeRemainingShowOnView)")
                             .font(.system(size: FontSize.extraExtraLarge.value, weight: .heavy))
                             .foregroundColor(.white)
                             .padding(.top, Spacing.xxs.value)
                         
-                        if FirebaseService.instance.isOwner {
+                        if RoomSettings.instance.isOwner {
                             HStack {
                                 Spacer()
                                 
@@ -104,7 +104,7 @@ struct GameView: View {
                 .animation(.easeInOut(duration: 0.3))
                 
                 //MAKR: - Letters grid
-                if !viewModel.letters.isEmpty {
+                if viewModel.letters.count >= 12 {
                     HStack {
                         ForEach(0..<4) { i in
                             ZStack {
@@ -171,11 +171,18 @@ struct GameView: View {
                 }
             }
             .onReceive(viewModel.timer) { time in
-                viewModel.oneSecondPassed()
+                if RoomSettings.instance.isOwner {
+                    viewModel.oneSecondPassed()
+                }
+            }
+            .onAppear(){
+                if RoomSettings.instance.isOwner {
+                    viewModel.startGame()
+                }
             }
             
             //MARK: - loseWinView
-            if FirebaseService.instance.isMyTimeToPlay {
+            if RoomSettings.instance.isMyTimeToPlay {
                 if viewModel.lose {
                     YouLoseView(action: {
                         viewModel.nextParticipant()
@@ -187,6 +194,7 @@ struct GameView: View {
                 PausedView(playGame: {
                     viewModel.resumeGame()
                 }, finishGame: {
+                    viewModel.finishGame()
                     coordinator.isPresentingView = .home
                 })
             }

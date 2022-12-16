@@ -40,4 +40,14 @@ class WaitingRoomViewModel: ObservableObject {
             //TODO: - back to homeViewz
         }
     }
+    
+    func verifyIfAlreadyStart(completion: @escaping (Bool) -> Void) {
+        FirebaseService.instance.hasBegun(completion: {(response) in
+            if response {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
 }
