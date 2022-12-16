@@ -186,6 +186,25 @@ class FirebaseService {
         //TODO: - here we need to verify if an error occurred
     }
     
+    func startGame() {
+        self.refRooms.child(roomCode).child("hasBegun").setValue(true)
+        //TODO: - here we need to verify if an error occurred
+    }
+    
+    func hasBegun(completion: @escaping (Bool) -> Void) {
+        self.refRooms.child(roomCode).child("hasBegun").observe(.value, with: { snapshot in
+            if let value = snapshot.value as? Bool {
+                if value == true {
+                    print("already start")
+                    completion(true)
+                } else {
+                    print("still waiting")
+                    completion(false)
+                }
+            }
+        })
+    }
+    
     func isStoped(completion: @escaping (Bool) -> Void) {
         self.refRooms.child(roomCode).child("isStopped").observe(.value, with: { snapshot in
             if let value = snapshot.value as? Bool {
