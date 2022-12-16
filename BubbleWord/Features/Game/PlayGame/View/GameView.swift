@@ -37,7 +37,7 @@ struct GameView: View {
             VStack {
                 VStack {
                     ZStack {
-                        Text("\(viewModel.timeRemaining)")
+                        Text("\(viewModel.timeRemainingShowOnView)")
                             .font(.system(size: FontSize.extraExtraLarge.value, weight: .heavy))
                             .foregroundColor(.white)
                             .padding(.top, Spacing.xxs.value)
