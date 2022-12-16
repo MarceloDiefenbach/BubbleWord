@@ -37,19 +37,19 @@ struct DifficultyView: View {
                 CardComponent(title: viewModel.easyTitle, subtitle: viewModel.easyDescription, color: .appYellow)
                     .onTapGesture {
                         UserDefaults.standard.set("easy", forKey: "difficulty")
-                        self.homeCoordinator.isPresentingView = .playSinglePlayer
+                        self.homeCoordinator.isPresentingView = .play
                     }
                 
                 CardComponent(title: viewModel.mediumTitle, subtitle: viewModel.mediumDescription, color: .appRed)
                     .onTapGesture {
                         UserDefaults.standard.set("medium", forKey: "difficulty")
-                        self.homeCoordinator.isPresentingView = .playSinglePlayer
+                        self.homeCoordinator.isPresentingView = .play
                     }
                 
                 CardComponent(title: viewModel.hardTitle, subtitle: viewModel.hardDescription, color: .appBlue)
                     .onTapGesture {
                         UserDefaults.standard.set("hard", forKey: "difficulty")
-                        self.homeCoordinator.isPresentingView = .playSinglePlayer
+                        self.homeCoordinator.isPresentingView = .play
                     }
                     .padding(.bottom, Spacing.xs.value)
             }
