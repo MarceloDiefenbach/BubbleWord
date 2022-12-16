@@ -142,6 +142,7 @@ class FirebaseService {
         for (index, letter) in letters.enumerated() {
             self.refRooms.child(self.roomCode).child("letters").child("\(index)").setValue(["letter": letter.letter, "state": true, "colorIndex": letter.colorIndex])
         }
+        //TODO: - here we need to verify if an error occurred
     }
     
     func getLetters(completion: @escaping ([Letter]) -> Void) {
@@ -236,6 +237,7 @@ class FirebaseService {
     
     func updateTimeRemaining(time: Int) {
         self.refRooms.child(self.roomCode).child("timeRemaining").setValue(time)
+        //TODO: - here we need to verify if an error occurred
     }
     
     func getTimeRemaining(completion: @escaping (Int) -> Void) {
