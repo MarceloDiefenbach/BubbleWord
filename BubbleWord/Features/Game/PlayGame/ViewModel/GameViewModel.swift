@@ -309,6 +309,12 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    func startGame() {
+        if RoomSettings.instance.isOnline {
+            FirebaseService.instance.startGame()
+        }
+    }
+    
     func finishGame() {
         if RoomSettings.instance.isOnline {
             FirebaseService.instance.deleteRoom(completion: {(response) in
