@@ -60,6 +60,7 @@ struct PausedView: View {
                     BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274")
                         .frame(height: 50)
                         .padding(.bottom, 80)
+                        .padding(.top, 20)
                 }
             }
         }

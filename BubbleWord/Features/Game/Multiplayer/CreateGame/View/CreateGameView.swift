@@ -74,7 +74,7 @@ struct CreateGameView: View {
                     viewModel.deleteRoom()
                 })
                 .padding(.top, Spacing.quarck.value)
-                .padding(.bottom, Spacing.xs.value)
+                .padding(.bottom, Spacing.medium.value)
             }
             .padding(.horizontal, Spacing.defaultMargin.value)
             
