@@ -175,6 +175,11 @@ struct GameView: View {
                     viewModel.oneSecondPassed()
                 }
             }
+            .onAppear(){
+                if RoomSettings.instance.isOwner {
+                    viewModel.startGame()
+                }
+            }
             
             //MARK: - loseWinView
             if RoomSettings.instance.isMyTimeToPlay {
