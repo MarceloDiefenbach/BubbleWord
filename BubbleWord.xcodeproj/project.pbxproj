@@ -55,6 +55,7 @@
 		DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */; };
 		DFBAB380292BC49A0039DAC2 /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */; };
 		DFDC64A929645307008D34AB /* AdMob Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDC64A829645307008D34AB /* AdMob Service.swift */; };
+		DFDC64AC2964571A008D34AB /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDC64AB2964571A008D34AB /* Difficulty.swift */; };
 		DFDE43FC293B86130002A6B2 /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */; };
 		DFDE43FF293B89300002A6B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */; };
 		DFE633DA292D804800CB4B75 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE633D9292D804800CB4B75 /* JoinView.swift */; };
@@ -111,6 +112,7 @@
 		DFBAB37D292BBC970039DAC2 /* InviteLetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLetterComponent.swift; sourceTree = "<group>"; };
 		DFBAB37F292BC49A0039DAC2 /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
 		DFDC64A829645307008D34AB /* AdMob Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdMob Service.swift"; sourceTree = "<group>"; };
+		DFDC64AB2964571A008D34AB /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		DFDE43FB293B86130002A6B2 /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
 		DFDE43FE293B89300002A6B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DFE633D9292D804800CB4B75 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		DF5D37012911B7EC001A7BA1 /* BubbleWord */ = {
 			isa = PBXGroup;
 			children = (
+				DFDC64AA29645711008D34AB /* Enums */,
 				DF5D37022911B7EC001A7BA1 /* BubbleWordApp.swift */,
 				DF90E17F292D554C00D40716 /* AppDelegate.swift */,
 				DF79FB7A293F773100C52E57 /* Coordinator */,
@@ -475,6 +478,14 @@
 				DFDC64A829645307008D34AB /* AdMob Service.swift */,
 			);
 			path = AdMob;
+			sourceTree = "<group>";
+		};
+		DFDC64AA29645711008D34AB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				DFDC64AB2964571A008D34AB /* Difficulty.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		DFDE43FA293B86060002A6B2 /* ViewModel */ = {
@@ -667,6 +678,7 @@
 				DF4BCCB6293EA14A002724A7 /* GameCoordinatorControl.swift in Sources */,
 				DFDC64A929645307008D34AB /* AdMob Service.swift in Sources */,
 				DFBAB37E292BBC970039DAC2 /* InviteLetterComponent.swift in Sources */,
+				DFDC64AC2964571A008D34AB /* Difficulty.swift in Sources */,
 				DF5D37032911B7EC001A7BA1 /* BubbleWordApp.swift in Sources */,
 				DF812780292164A4007D7086 /* DifficultyView.swift in Sources */,
 				DF4CEDC3292D71500090342C /* LIOTextField.swift in Sources */,

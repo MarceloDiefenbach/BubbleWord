@@ -32,5 +32,8 @@ class DifficultyViewModel: ObservableObject {
     let easyDescription: String = Difficulty.easy.difficultyDescription()
     let mediumDescription: String = Difficulty.medium.difficultyDescription()
     let hardDescription: String = Difficulty.hard.difficultyDescription()
+    let easyTag: String = DifficultyTags.easy.value
+    let mediumTag: String = DifficultyTags.medium.value
+    let hardTag: String = DifficultyTags.hard.value
     
 }

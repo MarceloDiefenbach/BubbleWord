@@ -36,19 +36,19 @@ struct DifficultyView: View {
                 
                 CardComponent(title: viewModel.easyTitle, subtitle: viewModel.easyDescription, color: .appYellow)
                     .onTapGesture {
-                        UserDefaults.standard.set("easy", forKey: "difficulty")
+                        UserDefaults.standard.set(viewModel.easyTag, forKey: "difficulty")
                         self.homeCoordinator.isPresentingView = .play
                     }
                 
                 CardComponent(title: viewModel.mediumTitle, subtitle: viewModel.mediumDescription, color: .appRed)
                     .onTapGesture {
-                        UserDefaults.standard.set("medium", forKey: "difficulty")
+                        UserDefaults.standard.set(viewModel.mediumTag, forKey: "difficulty")
                         self.homeCoordinator.isPresentingView = .play
                     }
                 
                 CardComponent(title: viewModel.hardTitle, subtitle: viewModel.hardDescription, color: .appBlue)
                     .onTapGesture {
-                        UserDefaults.standard.set("hard", forKey: "difficulty")
+                        UserDefaults.standard.set(viewModel.hardTag, forKey: "difficulty")
                         self.homeCoordinator.isPresentingView = .play
                     }
                     .padding(.bottom, Spacing.xs.value)
