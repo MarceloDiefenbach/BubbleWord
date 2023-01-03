@@ -11,7 +11,6 @@ enum DifficultyTags: String {
     
     case easy, medium, hard
     
-    
     var value: String {
         switch self {
         case .easy:
