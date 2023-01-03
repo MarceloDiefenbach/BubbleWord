@@ -172,7 +172,7 @@ class GameViewModel: ObservableObject {
                 self.letters = response
             })
             
-            FirebaseService.instance.isStoped(completion: {(response) in
+            FirebaseService.instance.isStopped(completion: {(response) in
                 if response == true {
                     self.isStopped = true
                 } else {

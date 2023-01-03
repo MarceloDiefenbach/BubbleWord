@@ -206,7 +206,9 @@ class FirebaseService {
         })
     }
     
-    func isStoped(completion: @escaping (Bool) -> Void) {
+    // MARK: - Return if game was stopped
+    
+    func isStopped(completion: @escaping (Bool) -> Void) {
         self.refRooms.child(roomCode).child("isStopped").observe(.value, with: { snapshot in
             if let value = snapshot.value as? Bool {
                 if value == true {
