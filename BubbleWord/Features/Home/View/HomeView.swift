@@ -107,7 +107,7 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     
-                    BannerAd(unitID: AdMobService.instance.AdHomeView).frame(height: 50)
+                    BannerAd(unitID: AdMobService.instance.homeView).frame(height: 50)
                         .padding(.bottom, Spacing.xxxs.value)
                 }.ignoresSafeArea()
                 
