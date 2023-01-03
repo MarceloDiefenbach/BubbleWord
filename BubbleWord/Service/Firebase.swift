@@ -37,7 +37,7 @@ class FirebaseService {
         return String((0..<length).map{ _ in letters.randomElement() ?? "A" })
     }
     
-    // MARK: - Requests
+    // MARK: - Create room
     
     func createRoom(completion: @escaping (String) -> Void) {
         roomCode = randomString().uppercased()
@@ -60,6 +60,8 @@ class FirebaseService {
         })
     }
     
+    // MARK: - Get participants of actual room
+    
     func getParticipants(completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
         
@@ -74,6 +76,8 @@ class FirebaseService {
             }
         })
     }
+    
+    // MARK: - Listener that get participants of actual room in real time
     
     func participantsListener(completion: @escaping (Result<[Participant], Error>) -> Void) {
         var participantsList: [Participant] = []
@@ -90,6 +94,8 @@ class FirebaseService {
             }
         })
     }
+    
+    // MARK: - Joing a room with code
     
     func joinRoom(code: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         self.roomCode = code.uppercased()
@@ -111,6 +117,8 @@ class FirebaseService {
         }
     }
     
+    // MARK: - Leave actual room
+    
     func leaveRoom(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.getParticipants { result in
             switch result {
@@ -130,11 +138,14 @@ class FirebaseService {
         }
     }
     
+    // MARK: - Delete actual room. Only for owners.
+    
     func deleteRoom(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.refRooms.child(self.roomCode).removeValue()
         //TODO: - here we need to verify if an error occurred
     }
     
+    // MARK: - Save letters on actual room
     
     func saveLetters(letters: [Letter]) {
         
@@ -144,6 +155,8 @@ class FirebaseService {
         }
         //TODO: - here we need to verify if an error occurred
     }
+    
+    // MARK: - Get letters in realtime of actual room
     
     func getLetters(completion: @escaping ([Letter]) -> Void) {
         var letters: [Letter] = []
@@ -159,6 +172,8 @@ class FirebaseService {
             completion(letters)
         })
     }
+    
+    // MARK: - Mark a letter as used
     
     func markLetterAsUded(_ letter: Letter) {
         self.refRooms.child(roomCode).child("letters").observe(.value, with: { (snapshot) in
@@ -177,20 +192,28 @@ class FirebaseService {
         })
     }
     
+    // MARK: - Stop Game
+    
     func stopGame() {
         self.refRooms.child(roomCode).child("isStopped").setValue(true)
         //TODO: - here we need to verify if an error occurred
     }
+    
+    // MARK: - Resume Game
     
     func resumeGame() {
         self.refRooms.child(roomCode).child("isStopped").setValue(false)
         //TODO: - here we need to verify if an error occurred
     }
     
+    // MARK: - Start Game
+    
     func startGame() {
         self.refRooms.child(roomCode).child("hasBegun").setValue(true)
         //TODO: - here we need to verify if an error occurred
     }
+    
+    // MARK: - Return if room has begun
     
     func hasBegun(completion: @escaping (Bool) -> Void) {
         self.refRooms.child(roomCode).child("hasBegun").observe(.value, with: { snapshot in
@@ -222,6 +245,8 @@ class FirebaseService {
         })
     }
     
+    // MARK: - Get actual theme to show on card
+    
     func getActualTheme(completion: @escaping (String) -> Void) {
         self.refRooms.child(roomCode).child("actualTheme").observe(.value, with: { (snapshot) in
             if let data = snapshot.value as? String {
@@ -232,15 +257,21 @@ class FirebaseService {
         })
     }
     
+    // MARK: - Change actual theme to show on card of all devices
+    
     func changeActualTheme(theme: String) {
         self.refRooms.child(roomCode).child("actualTheme").setValue(theme)
         //TODO: - here we need to verify if an error occurred
     }
     
+    // MARK: - Update time remaining. Only for owners
+    
     func updateTimeRemaining(time: Int) {
         self.refRooms.child(self.roomCode).child("timeRemaining").setValue(time)
         //TODO: - here we need to verify if an error occurred
     }
+    
+    // MARK: - Get time remaining
     
     func getTimeRemaining(completion: @escaping (Int) -> Void) {
         self.refRooms.child(roomCode).child("timeRemaining").observe(.value, with: { (snapshot) in
