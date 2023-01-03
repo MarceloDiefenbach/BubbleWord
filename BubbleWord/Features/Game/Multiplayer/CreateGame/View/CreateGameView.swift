@@ -81,7 +81,7 @@ struct CreateGameView: View {
             VStack {
                 Spacer()
                 
-                BannerAd(unitID: "ca-app-pub-7490663355066325/1338913116").frame(height: 50)
+                BannerAd(unitID: AdMobService.instance.createGameView).frame(height: 50)
                     .padding(.bottom, Spacing.xxxs.value)
             }.ignoresSafeArea()
         }

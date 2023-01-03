@@ -57,7 +57,7 @@ struct PausedView: View {
                         //TODO: - add leave room button
                     }
                     
-                    BannerAd(unitID: "ca-app-pub-7490663355066325/4238717274")
+                    BannerAd(unitID: AdMobService.instance.pauseView)
                         .frame(height: 50)
                         .padding(.bottom, 80)
                         .padding(.top, 20)

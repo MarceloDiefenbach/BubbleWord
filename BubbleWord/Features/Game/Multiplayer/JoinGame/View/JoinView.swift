@@ -61,7 +61,7 @@ struct JoinView: View {
             VStack {
                 Spacer()
                 
-                BannerAd(unitID: "ca-app-pub-7490663355066325/6944771661").frame(height: 50)
+                BannerAd(unitID: AdMobService.instance.joinGameView).frame(height: 50)
                     .padding(.bottom, Spacing.xxxs.value)
             }.ignoresSafeArea()
         }
