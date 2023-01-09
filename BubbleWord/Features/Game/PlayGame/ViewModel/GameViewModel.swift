@@ -169,7 +169,16 @@ class GameViewModel: ObservableObject {
             })
             
             FirebaseService.instance.getLetters(completion: {(response) in
-                self.letters = response
+                
+                if response.allSatisfy({ $0.state == false }) {
+                    if RoomSettings.instance.isOwner {
+                        self.changeCard()
+                    } else {
+                        self.letters = response
+                    }
+                } else {
+                    self.letters = response
+                }
             })
             
             FirebaseService.instance.isStopped(completion: {(response) in
